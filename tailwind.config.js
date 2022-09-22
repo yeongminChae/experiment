@@ -5,7 +5,17 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Horror: [
+          "Ringside ExtraWide-Book",
+          "Blank",
+          "Helvetica Neue",
+          "Helvetica",
+          "sans-serif",
+        ],
+      },
+    },
   },
   darkMode: "media", // DEFAULT depends on my browser's setting
   // darkMode: "class", // depends on my preference
