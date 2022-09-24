@@ -7,13 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Horror: [
-          "Ringside ExtraWide-Book",
-          "Blank",
-          "Helvetica Neue",
-          "Helvetica",
-          "sans-serif",
-        ],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
