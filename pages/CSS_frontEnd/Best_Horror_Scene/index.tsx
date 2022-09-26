@@ -9,9 +9,9 @@ import MovieInfo from "./components/MovieInfo";
 
 const Best_Horror_Scene: NextPage = () => {
   return (
-    <div className="grid h-full max-w-3xl overflow-y-visible md:max-w-5xl lg:max-w-7xl xl:max-w-full">
-      <div className="left-0 top-0 h-[90vh] flex-col justify-between bg-[#F0F0F0] pt-8 pl-[5vh] pr-0 md:max-w-5xl md:pl-[9vh] lg:max-w-7xl xl:max-w-full">
-        <h1 className="mt-8 pt-[14px] font-poppins text-5xl leading-[50px] tracking-[0.3em] text-[#e7473c] md:text-7xl lg:text-9xl  ">
+    <div className="grid max-w-3xl overflow-y-visible sm:h-screen sm:max-w-5xl md:col-span-2 md:max-w-6xl md:grid-cols-2 md:overflow-x-hidden lg:max-w-7xl xl:max-w-full ">
+      <div className="top-0 h-[90vh] bg-[#F0F0F0] pt-8 pl-[5vh] pr-0 sm:h-[101vh] sm:pl-[9vh] md:overflow-y-visible md:pl-[11vh]">
+        <h1 className="mt-8 pt-[14px] font-poppins text-5xl leading-[50px] tracking-[0.3em] text-[#e7473c] sm:text-7xl md:text-5xl ">
           BEST
           <div className="flex">
             <span className=" " />H<span className="">O</span>
@@ -44,19 +44,19 @@ const Best_Horror_Scene: NextPage = () => {
           <span className="flex" />
           SCENES
         </h1>
-        <div className="relative block h-[293.234px] text-justify tracking-wide  ">
-          <h3 className="leading-11 mt-10 block h-[57.5838px] w-[400px] text-2xl text-[#e7473c]">
+        <div className="relative block h-[293.234px] w-[400px] text-justify sm:w-[500px] md:w-[400px] ">
+          <h3 className="mt-10 block h-[57.5838px] text-2xl leading-10 text-[#e7473c] sm:mt-14 md:h-[62px] md:w-[220px] md:text-xl md:tracking-tighter">
             An ever growing collection featuring some of the best scenes in
             horror.
           </h3>
-          <p className="text-l mt-8 block h-[57.5838px] w-[400px] text-justify leading-5 tracking-wide text-[#e7473c]  ">
+          <p className="mt-8 block h-[57.5838px] text-justify leading-5 tracking-wide text-[#e7473c]  ">
             “Best Horror Scenes” is a collection of scenes I feel are some of
             the most affecting in horror. Some may be simple black cat scares,
             others may be more subdued or nuanced. Many come from films that
             aren&apos;t necessarily “horror” but have elements or threads of
             horror.
           </p>
-          <nav className=" mt-24 h-[100px] w-[380px] text-sm ">
+          <nav className=" mt-24 h-[100px] text-sm sm:mt-20 ">
             <div className="flex flex-wrap ">
               <Link href="">
                 <span className="mr-[12px] mb-2 cursor-pointer leading-3 underline underline-offset-2 opacity-60 hover:opacity-90">
@@ -94,7 +94,7 @@ const Best_Horror_Scene: NextPage = () => {
                 </span>
               </Link>
             </div>
-            <p className="mt-4 flex w-[400px] items-center justify-center pb-10 text-[3px] leading-3 tracking-wide text-black text-opacity-[0.35]">
+            <p className="mt-4 flex items-center justify-center pb-10 text-[3px] leading-3 tracking-wide text-black text-opacity-[0.35] sm:mt-6">
               Best Horror Scenes is a love letter to the Horror film genre by
               Brandon Durham. Most film clips contain major spoilers, and it is
               recommended you don’t watch the clip if you plan on seeing the
@@ -103,9 +103,9 @@ const Best_Horror_Scene: NextPage = () => {
           </nav>
         </div>
       </div>
-      <div className="h-[90vh] w-[500px]">
-        <div className="sticky top-0 z-10 block h-[120px] w-[500px] overflow-hidden bg-[#e7473c] tracking-[0.1em] outline-dashed outline-[0.1px]">
-          <span className="block py-[32px] px-[40px] text-center text-base font-light text-white ">
+      <div className="h-[90vh]">
+        <div className="sticky top-0 z-10 h-[120px] overflow-hidden bg-[#e7473c] tracking-[0.1em] outline-dashed outline-[0.1px] sm:h-[105px]">
+          <div className="block px-12 py-8 text-center text-base font-light text-white ">
             Currently viewing{" "}
             <span className="text-lg font-light text-black underline underline-offset-4 opacity-80 hover:text-white ">
               everything
@@ -115,26 +115,28 @@ const Best_Horror_Scene: NextPage = () => {
               random
             </span>{" "}
             .
-          </span>
+          </div>
         </div>
-        <MovieInfo
-          title="Misery (1990)"
-          director="Directed by Rob Reiner"
-          rating={9}
-          Images={Misery}
-        />
-        <MovieInfo
-          title="The Shining (1980)"
-          director=" Directed by Stanley Kubrick"
-          rating={10}
-          Images={Shining}
-        />
-        <MovieInfo
-          title=" The Silence of the Lambs (1991)"
-          director=" Directed by Jonathan Demme"
-          rating={9}
-          Images={Lamb}
-        />
+        <div>
+          <MovieInfo
+            title="Misery (1990)"
+            director="Directed by Rob Reiner"
+            rating={9}
+            Images={Misery}
+          />
+          <MovieInfo
+            title="The Shining (1980)"
+            director=" Directed by Stanley Kubrick"
+            rating={10}
+            Images={Shining}
+          />
+          <MovieInfo
+            title=" The Silence of the Lambs (1991)"
+            director=" Directed by Jonathan Demme"
+            rating={9}
+            Images={Lamb}
+          />
+        </div>
       </div>
     </div>
   );
