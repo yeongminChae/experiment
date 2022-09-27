@@ -16,20 +16,20 @@ export default function MovieInfo({
   ...rest
 }: ImovieProps) {
   return (
-    <div className="h-[700px] bg-[#e7473c] sm:h-[750px] ">
+    <div className="h-[700px] bg-[#e7473c] sm:h-[750px] md:h-[600px] lg:h-[750px] ">
       <div className="pt-16 sm:pt-12 ">
-        <div className=" mt-0 ml-[1.8vh] text-4xl font-bold text-white hover:first-letter:visible sm:ml-[5vh] sm:text-[44px] ">
+        <div className=" mt-0 ml-[1.8vh] text-4xl font-bold text-white hover:first-letter:visible sm:ml-[5vh] sm:text-[44px] md:ml-[0.8vh] lg:ml-[3.5vh]">
           <span className="invisible text-slate-800 opacity-60 ">#</span>{" "}
           {title}
         </div>
-        <h3 className="mt-2 ml-[7vh] text-sm text-white sm:ml-[10vh] ">
+        <h3 className="mt-2 ml-[7vh] text-sm text-white sm:ml-[10vh] md:ml-[6.3vh] lg:ml-[9.1vh] ">
           {" "}
           {director}
         </h3>
       </div>
       <div className="grid">
-        <div className="mt-5 flex items-start justify-start sm:ml-[10vh]">
-          <div className="relative ml-[7vh] px-48 pb-56 sm:-ml-[0.7vh] sm:px-72 sm:pb-80 md:px-80 md:pb-96 ">
+        <div className="mt-5 flex items-start justify-start sm:ml-[10vh] md:ml-[7vh] ">
+          <div className="relative ml-[7vh] px-48 pb-56 sm:ml-[0.7vh] sm:px-72 sm:pb-80 md:-ml-4 md:px-60 md:pb-64 lg:-ml-6 lg:px-96 lg:pb-96 ">
             <Image
               src={Images}
               alt={title + "Posture"}
@@ -38,7 +38,7 @@ export default function MovieInfo({
               className=" object-contain"
             />
           </div>
-          <div className="mt-1 flex h-24 w-12 flex-col items-center justify-around bg-red-600 text-white shadow-md sm:-ml-[1vh] sm:mt-[1.3px] ">
+          <div className="mt-1 flex h-24 w-12 flex-col items-center justify-around bg-red-600 text-white shadow-md sm:-ml-[1vh] sm:mt-[1.3px] md:-ml-[1.6vh] md:mt-0 lg:-ml-[5.5vh]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -85,11 +85,11 @@ export default function MovieInfo({
           </div>
         </div>
       </div>
-      <span className="mr-[7vh] mt-9 flex justify-end text-[0.9rem] tracking-[0.1em] text-black text-opacity-60 sm:mr-[10vh] sm:mt-11">
+      <span className="mr-[7vh] mt-9 flex justify-end text-[0.9rem] tracking-[0.1em] text-black text-opacity-60 sm:mr-[10vh] sm:mt-11 md:mt-12 md:mr-[5vh] lg:mr-[8.5vh] ">
         My Rating: {rating}/10
       </span>
       <div className="mx-[7vh] mt-16 flex justify-between text-[0.9rem] tracking-[0.1em] text-black text-opacity-60">
-        <span className="mt-[0.8] flex items-center justify-around sm:ml-5">
+        <span className="mt-[0.8] flex items-center justify-around sm:ml-5 md:-ml-1 lg:ml-3 ">
           No Comments
         </span>
         <div className="flex items-center justify-around">
@@ -109,7 +109,7 @@ export default function MovieInfo({
               />
             </svg>
           </span>
-          <span className="ml-1 underline underline-offset-4 opacity-20 sm:mr-[3vh] ">
+          <span className="ml-1 cursor-pointer underline underline-offset-4 opacity-80 sm:mr-[3vh] md:-mr-4 lg:mr-2">
             Leave a Comment
           </span>
         </div>
