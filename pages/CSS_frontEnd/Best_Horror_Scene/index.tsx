@@ -9,7 +9,7 @@ import MovieInfo from "./components/MovieInfo";
 
 const Best_Horror_Scene: NextPage = () => {
   return (
-    <div className="grid max-w-3xl overflow-y-visible sm:h-screen sm:max-w-5xl md:max-w-6xl md:grid-cols-7 md:divide-y-2 md:overflow-x-hidden lg:max-w-7xl xl:max-w-full ">
+    <div className="grid max-w-3xl sm:h-screen sm:max-w-5xl md:max-w-6xl md:grid-cols-7 md:divide-y-2 md:overflow-x-hidden lg:max-w-7xl xl:max-w-full ">
       <div className="top-0 h-[90vh] bg-[#F0F0F0] pt-8 pl-[5vh] pr-0 sm:h-[101vh] sm:pl-[9vh] md:col-start-1 md:col-end-4 md:h-[125vh] md:overflow-scroll md:overflow-x-hidden md:pl-[11vh] ">
         <h1 className="mt-8 pt-[14px] font-poppins text-5xl leading-[50px] tracking-[0.3em] text-[#e7473c] sm:text-7xl md:text-5xl lg:text-7xl ">
           BEST

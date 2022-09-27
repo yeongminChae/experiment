@@ -1,3 +1,4 @@
+import { motion, MotionConfig } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 
 interface ImovieProps {
@@ -18,10 +19,22 @@ export default function MovieInfo({
   return (
     <div className="h-[700px] bg-[#e7473c] sm:h-[750px] md:h-[600px] lg:h-[750px] ">
       <div className="pt-16 sm:pt-12 ">
-        <div className=" mt-0 ml-[1.8vh] text-4xl font-bold text-white hover:first-letter:visible sm:ml-[5vh] sm:text-[44px] md:ml-[0.8vh] lg:ml-[3.5vh]">
-          <span className="invisible text-slate-800 opacity-60 ">#</span>{" "}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 1 }}
+          className=" mt-0 ml-[1.8vh] text-4xl font-bold text-white transition-all duration-500 hover:first-letter:visible sm:ml-[5vh] sm:text-[44px] md:ml-[0.8vh] lg:ml-[3.5vh]"
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            className="invisible text-slate-800 opacity-80 transition-all duration-500 "
+          >
+            #
+          </motion.span>{" "}
           {title}
-        </div>
+        </motion.div>
         <h3 className="mt-2 ml-[7vh] text-sm text-white sm:ml-[10vh] md:ml-[6.3vh] lg:ml-[9.1vh] ">
           {" "}
           {director}
