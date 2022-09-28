@@ -7,6 +7,11 @@ const CSS_frontEnd: NextPage = () => {
       <ul>
         <li>
           <Link href="/CSS_frontEnd/Best_Horror_Scene">Best Horror Scene</Link>
+          <div> origianl page : https://besthorrorscenes.com/</div>
+          <Link href="/CSS_frontEnd/Paint Box">Paint Box</Link>
+          <div> origianl page : https://paint-box.com/</div>
+          <Link href="/CSS_frontEnd/10x19">10x19</Link>
+          <div> origianl page : http://10x19.co/</div>
         </li>
         <div className="flex items-center justify-center pt-10 ">
           <div
