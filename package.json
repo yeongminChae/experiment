@@ -12,6 +12,7 @@
     "@heroicons/react": "^1.0.6",
     "@prisma/client": "^4.2.1",
     "@sendgrid/mail": "^7.7.0",
+    "@types/moment": "^2.13.0",
     "@types/nodemailer": "^6.4.5",
     "@types/react-query": "^1.2.9",
     "framer-motion": "^7.3.6",
