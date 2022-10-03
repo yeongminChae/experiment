@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { motion } from "framer-motion";
 
 const circleSvg = {
@@ -26,7 +25,7 @@ export default function Thumbnail() {
         focusable="false"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 600 600"
-        className="h-80z w-80 rounded-3xl"
+        className="h-80 w-80 rounded-3xl"
       >
         <motion.path
           fill="#464646"

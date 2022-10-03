@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
 import Moment, { now } from "moment";
+import { MotionConfig, motion } from "framer-motion";
+import SpeachBuble from "../../components/speachBuble";
 
 const Home: NextPage = () => {
   const todayIs = Moment().format("MM월 DD일");
   const dateIs = Moment().day();
-  const dateList = ["월", "화", "수", "목", "금", "토", "일"];
+  const dateList = ["일", "월", "화", "수", "목", "금", "토"];
   return (
     <div className="grid max-h-[180rem] max-w-full">
       <span className="mx-3 mt-5 flex text-xs opacity-50 ">
@@ -25,13 +27,14 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="my-3 mx-10 flex items-center justify-between bg-[#ffffffe7] ">
-            <div className="h-14 w-14 rounded-2xl bg-orange-200 " />
-            <div className="h-14 w-14 rounded-2xl bg-orange-300" />
-            <div className="h-14 w-14 rounded-2xl bg-orange-400" />
-            <div className="h-14 w-14 rounded-2xl bg-orange-500" />
+            <div className="h-14 w-14 rounded-2xl bg-orange-200 shadow-md " />
+            <div className="h-14 w-14 rounded-2xl bg-orange-300 shadow-md" />
+            <div className="h-14 w-14 rounded-2xl bg-orange-400 shadow-md" />
+            <div className="h-14 w-14 rounded-2xl bg-orange-500 shadow-md" />
           </div>
         </div>
-        <div className="mt-5 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl  ">
+
+        <div className="mt-5 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl  ">
           <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
             My recomandation for You !
           </div>
@@ -39,60 +42,163 @@ const Home: NextPage = () => {
             Those itesm&apos;s will give differences
           </div>
           <div className="mt-4 flex flex-col items-start justify-start">
-            <div className="my-2 ml-6 flex items-center justify-end">
-              <div className="h-14 w-14 rounded-2xl bg-yellow-200" />
-              <div className="ml-3 flex items-center justify-start border-b-2 border-dashed ">
-                <div className="flex flex-col">
-                  <span className="">my work 1</span>
+            <div className="my-2 mx-5 flex items-center justify-end">
+              <div className="h-14 w-14 rounded-2xl bg-yellow-200 shadow-md" />
+              <div className="mx-3 flex items-center justify-start border-b-2 border-dashed ">
+                <div className="flex flex-col items-start justify-center">
+                  <span className="">Netflix clone</span>
                   <span className="text-sm text-black opacity-50 ">
-                    Javascript work work dfsa
+                    With ReactJs and Typescript, Framer Motion
                   </span>
                 </div>
                 <div className="mt-4 flex flex-col items-center justify-center ">
-                  <button className=" ml-20 h-8 w-20 rounded-2xl bg-slate-200 opacity-80 ">
+                  <motion.button
+                    whileHover={{
+                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                      backgroundColor: "rgb(148 163 184)",
+                    }}
+                    className="h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
+                  >
                     <span className="text-sm font-bold text-blue-700 ">
                       받기
                     </span>{" "}
-                  </button>
-                  <span className="ml-20 mt-1 w-16 text-center text-[0.3rem] opacity-50">
+                  </motion.button>
+                  <span className="mt-1 w-16 text-center text-[0.3rem] opacity-50">
                     앱 내 구입
                   </span>
                 </div>
               </div>
             </div>
-            <div className="my-2 ml-6 flex items-center justify-end ">
-              <div className="h-14 w-14 rounded-2xl bg-yellow-300" />
-              <div className="ml-3 flex flex-col items-start justify-start border-b-2 border-dashed ">
-                <span className="">my work 2</span>
-                <span className="text-sm text-black opacity-50">
-                  Javascript work NodeJs work
-                </span>
+            <div className="mx-5 flex items-center justify-end">
+              <div className="h-14 w-14 rounded-2xl bg-yellow-300  shadow-md" />
+              <div className="mx-3 flex items-center justify-start border-b-2 border-dashed ">
+                <div className="flex flex-col items-start justify-center">
+                  <span className="">Bitcoin Tracker</span>
+                  <span className="text-sm text-black opacity-50 ">
+                    With ReactJs and Typescript (React Query)
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-col items-center justify-center ">
+                  <motion.button
+                    whileHover={{
+                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                      backgroundColor: "rgb(148 163 184)",
+                    }}
+                    className="h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
+                  >
+                    <span className="text-sm font-bold text-blue-700 ">
+                      받기
+                    </span>{" "}
+                  </motion.button>
+                  <span className="mt-1 w-16 text-center text-[0.3rem] opacity-50">
+                    앱 내 구입
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="my-2 ml-6 flex items-center justify-end">
-              <div className="h-14 w-14 rounded-2xl bg-yellow-400" />
-              <div className="ml-3 flex flex-col items-start justify-start border-b-2 border-dashed ">
-                <span className="">my work 3</span>
-                <span className="text-sm text-black opacity-50">
-                  Javascript work NodeJs work
-                </span>
+            <div className="mx-5 mt-2 flex items-center justify-end">
+              <div className="h-14 w-14 rounded-2xl bg-yellow-400 shadow-md" />
+              <div className="mx-3 flex items-center justify-start border-b-2 border-dashed ">
+                <div className="flex flex-col items-start justify-center">
+                  <span className="">YouTube clone</span>
+                  <span className="text-sm text-black opacity-50 ">
+                    With Javascript and Basic NodeJs express
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-col items-center justify-center ">
+                  <motion.button
+                    whileHover={{
+                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                      backgroundColor: "rgb(148 163 184)",
+                    }}
+                    className="h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
+                  >
+                    <span className="text-sm font-bold text-blue-700 ">
+                      받기
+                    </span>{" "}
+                  </motion.button>
+                  <span className="mt-1 w-16 text-center text-[0.3rem] opacity-50">
+                    앱 내 구입
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="my-2 ml-6 flex items-center justify-end">
-              <div className="h-14 w-14 rounded-2xl bg-yellow-500" />
-              <div className="ml-3 flex flex-col items-start justify-start border-b-2 border-dashed ">
-                <span className="">my work 4</span>
-                <span className="text-sm text-black opacity-50">
-                  Javascript work NodeJs work
+            </div>{" "}
+            <div className="mx-5 mt-2 flex items-center justify-end">
+              <div className="h-14 w-14 rounded-2xl bg-yellow-500 shadow-md" />
+              <div className="mx-3 flex items-center justify-start border-b-2 border-dashed ">
+                <div className="flex flex-col items-start justify-center">
+                  <span className="">당근마켓 clone</span>
+                  <span className="text-sm text-black opacity-50 ">
+                    With Javascript and Basic NodeJs express
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-col items-center justify-center ">
+                  <motion.button
+                    whileHover={{
+                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                      backgroundColor: "rgb(148 163 184)",
+                    }}
+                    className="h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
+                  >
+                    <span className="text-sm font-bold text-blue-700 ">
+                      받기
+                    </span>{" "}
+                  </motion.button>
+                  <span className="mt-1 w-16 text-center text-[0.3rem] opacity-50">
+                    앱 내 구입
+                  </span>
+                </div>
+              </div>
+            </div>{" "}
+          </div>
+        </div>
+
+        <div className="mt-5 h-[30rem] w-full ">
+          <div className="h-[25rem] w-full rounded-t-xl bg-[#66BFBF]">
+            <div className="ml-5 ">
+              <div className="grid h-[19rem] ">
+                <SpeachBuble />
+              </div>
+              <div className="flex w-48 items-center justify-end ">
+                <span className="text-[2rem] leading-[2.3rem] text-white">
+                  Korean Ablity App
                 </span>
               </div>
             </div>
           </div>
+          <div className="h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-2xl ">
+            <div className="mx-5 flex items-center justify-start">
+              <div className="my-4 h-12 w-12 rounded-2xl bg-white shadow-md " />
+              <div className="mx-3 flex items-center justify-start ">
+                <div className="flex flex-col items-start justify-between">
+                  <span className="text-[#F5F5F5]">한국어 능력</span>
+                  <span className="text-sm text-[#F5F5F5] opacity-70 ">
+                    Let&apos;s learn Korean now!
+                  </span>
+                </div>
+                <div className="ml-24 mt-4 flex flex-col items-center justify-center ">
+                  <motion.button
+                    whileHover={{
+                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                      backgroundColor: "rgb(148 163 184)",
+                    }}
+                    className="h-8 w-20 rounded-2xl bg-white "
+                  >
+                    <span className="text-sm font-bold text-blue-600 ">
+                      받기
+                    </span>{" "}
+                  </motion.button>
+                  <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
+                    앱 내 구입
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mt-5 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl ">
+        <div className="mt-5 mb-20 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl ">
           <div></div>
         </div>
-        <div className="mt-5 mb-20 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl "></div>
         <span className="flex h-20 w-full items-center justify-center pb-24">
           I made this this clone coding page . Because i got impressed app store
           in iPhone.
@@ -103,3 +209,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+// from-[#00FFD1]
