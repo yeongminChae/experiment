@@ -71,7 +71,7 @@ const numVars = {
   },
 };
 
-const Home: NextPage = () => {
+const P10x19: NextPage = () => {
   return (
     <motion.div
       variants={gridMainVars}
@@ -176,4 +176,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default P10x19;

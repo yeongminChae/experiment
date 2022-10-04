@@ -2,8 +2,9 @@ import type { NextPage } from "next";
 import Moment, { now } from "moment";
 import { MotionConfig, motion } from "framer-motion";
 import SpeachBuble from "../../components/speachBuble";
+import Link from "next/link";
 
-const Home: NextPage = () => {
+const CloneCoding: NextPage = () => {
   const todayIs = Moment().format("MM월 DD일");
   const dateIs = Moment().day();
   const dateList = ["일", "월", "화", "수", "목", "금", "토"];
@@ -17,7 +18,8 @@ const Home: NextPage = () => {
           <div className="text-3xl font-semibold">PORTFOLIO</div>
           <div className="h-8 w-8 rounded-full bg-red-300 " />
         </div>
-        <div className="mt-3 h-[30rem] w-full rounded-xl shadow-2xl ">
+
+        <div className="my-4 h-[30rem] w-full rounded-xl shadow-2xl ">
           <div className="h-[25rem] w-full rounded-t-xl bg-indigo-300">
             <div className="ml-5 pt-3 text-white opacity-60 ">
               Editor&apos;s Choices,{" "}
@@ -177,17 +179,19 @@ const Home: NextPage = () => {
                   </span>
                 </div>
                 <div className="ml-24 mt-4 flex flex-col items-center justify-center ">
-                  <motion.button
-                    whileHover={{
-                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
-                      backgroundColor: "rgb(148 163 184)",
-                    }}
-                    className="h-8 w-20 rounded-2xl bg-white "
-                  >
-                    <span className="text-sm font-bold text-blue-600 ">
-                      받기
-                    </span>{" "}
-                  </motion.button>
+                  <Link href="/cloneCoding/slider">
+                    <motion.button
+                      whileHover={{
+                        boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                        backgroundColor: "rgb(148 163 184)",
+                      }}
+                      className="h-8 w-20 rounded-2xl bg-white "
+                    >
+                      <span className="text-sm font-bold text-blue-600 ">
+                        받기
+                      </span>{" "}
+                    </motion.button>
+                  </Link>
                   <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
                     앱 내 구입
                   </span>
@@ -208,5 +212,5 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default CloneCoding;
 // from-[#00FFD1]

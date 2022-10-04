@@ -27,7 +27,7 @@ const box = {
   }),
 };
 
-const Home: NextPage = () => {
+const Slider: NextPage = () => {
   const [visible, setVisible] = useState(1);
   const [back, setBack] = useState(false);
   const nextPls = () => {
@@ -66,4 +66,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Slider;
