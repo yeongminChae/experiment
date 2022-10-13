@@ -1,22 +1,28 @@
+import React from "react";
 import "../styles/globals.css";
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { DehydratedState } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { AppProps } from "next/app";
-import { SWRConfig } from "swr";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps<{ dehydratedState: DehydratedState }>) {
+  const [queryClient] = React.useState(() => new QueryClient());
   return (
-    <SWRConfig
-      value={{
-        refreshInterval: 2000,
-        fetcher: (url: string) =>
-          fetch(url).then((response) => response.json()),
-      }}
-    >
-      {/* <div className="w-full max-w-lg mx-auto"> */}
-      <div>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
         <Component {...pageProps} />
-      </div>
-    </SWRConfig>
+      </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
 export default MyApp;
+// https://gingerkang.tistory.com/123

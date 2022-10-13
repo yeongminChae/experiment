@@ -3,6 +3,7 @@ import Moment, { now } from "moment";
 import { MotionConfig, motion } from "framer-motion";
 import SpeachBuble from "../../components/speachBuble";
 import Link from "next/link";
+import Thumbnail from "../../components/thumbnail";
 
 const CloneCoding: NextPage = () => {
   const todayIs = Moment().format("MM월 DD일");
@@ -20,13 +21,14 @@ const CloneCoding: NextPage = () => {
         </div>
 
         <div className="my-4 h-[30rem] w-full rounded-xl shadow-2xl ">
-          <div className="h-[25rem] w-full rounded-t-xl bg-indigo-300">
+          <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
             <div className="ml-5 pt-3 text-white opacity-60 ">
               Editor&apos;s Choices,{" "}
             </div>
             <div className="ml-6 mt-1 text-2xl text-white opacity-90 ">
               This week&apos;s new featured :
             </div>
+            <Thumbnail />
           </div>
           <div className="my-3 mx-10 flex items-center justify-between bg-[#ffffffe7] ">
             <div className="h-14 w-14 rounded-2xl bg-orange-200 shadow-md " />
@@ -201,7 +203,19 @@ const CloneCoding: NextPage = () => {
           </div>
         </div>
         <div className="mt-5 mb-20 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl ">
-          <div></div>
+          <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
+            Yeongmin&apos;s Collection
+          </div>
+          <div className="ml-6 mt-1 text-2xl opacity-90 ">
+            So far , I made them All !
+          </div>
+          <div className="flex  ">
+            {[...Array(10)].map((i, _) => (
+              <div className="m-2 flex h-6 w-6 bg-red-200 " key={i}>
+                {i}{" "}
+              </div>
+            ))}
+          </div>
         </div>
         <span className="flex h-20 w-full items-center justify-center pb-24">
           I made this this clone coding page . Because i got impressed app store

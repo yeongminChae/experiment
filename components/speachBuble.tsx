@@ -1,28 +1,29 @@
 import Image from "next/image";
-import poem from "../pages/cloneCoding/image/poem.png";
+import Poem from "../pages/cloneCoding/image/poem.png";
 
 export default function SpeachBuble() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="90 90 800 700"
-      fill="white"
-      stroke="#055757"
-      strokeWidth={2}
-      className="h-80 w-80"
-    >
-      <Image
-        src={poem}
-        alt="poem"
-        layout="fill"
-        placeholder="blur"
-        className=" object-contain"
-      ></Image>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        viewBox="90 90 800 700"
+        fill="white"
+        stroke="#055757"
+        strokeWidth={2}
+        className="h-80 w-80"
+      >
+        {/* <Image
+          src={Poem}
+          alt="poem"
+          layout="fill"
+          placeholder="blur"
+          className=" object-contain"
+        ></Image> */}
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="
 M826.613464,194.500092 
 	C826.613464,187.334747 826.483093,180.166443 826.646301,173.004822 
 	C826.852356,163.966034 824.859619,155.412094 820.710022,147.500626 
@@ -46,7 +47,8 @@ M826.613464,194.500092
 	C824.930298,531.194397 826.971558,519.401123 826.950012,506.971680 
 	C826.769958,403.147949 826.709290,299.324005 826.613464,194.500092 
 z"
-      />
-    </svg>
+        />
+      </svg>
+    </>
   );
 }
