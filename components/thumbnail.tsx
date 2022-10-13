@@ -1625,7 +1625,7 @@ z"
         animate={{ fill: "#DDE2B6" }}
         transition={{
           default: { duration: 5 },
-          fill: { duration: 0.5, delay: 3 },
+          fill: { duration: 2, delay: 3 },
         }}
         opacity="1.000000"
         stroke="none"

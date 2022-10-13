@@ -10,17 +10,17 @@ const CloneCoding: NextPage = () => {
   const dateIs = Moment().day();
   const dateList = ["일", "월", "화", "수", "목", "금", "토"];
   return (
-    <div className="grid max-h-[180rem] max-w-full">
-      <span className="mx-3 mt-5 flex text-xs opacity-50 ">
+    <div className="grid max-h-[180rem] max-w-full bg-[#ffffffe7] shadow-2xl ">
+      <span className="absolute mx-3 mt-5 flex text-xs opacity-50">
         {todayIs} {dateList[dateIs]}요일
       </span>
-      <div className="mx-5">
+      <div className="absolute mx-5 mt-8 overflow-hidden ">
         <div className="mt-1 flex items-center justify-between">
           <div className="text-3xl font-semibold">PORTFOLIO</div>
-          <div className="h-8 w-8 rounded-full bg-red-300 " />
+          <div className="h-9 w-9 rounded-full bg-red-300 " />
         </div>
 
-        <div className="my-4 h-[30rem] w-full rounded-xl shadow-2xl ">
+        <div className="mb-[4.5rem] mt-7 h-[30rem] w-full rounded-xl shadow-2xl ">
           <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
             <div className="ml-5 pt-3 text-white opacity-60 ">
               Editor&apos;s Choices,{" "}
@@ -38,7 +38,7 @@ const CloneCoding: NextPage = () => {
           </div>
         </div>
 
-        <div className="mt-5 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl  ">
+        <div className="mb-[4.5rem]  h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl  ">
           <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
             My recomandation for You !
           </div>
@@ -157,7 +157,7 @@ const CloneCoding: NextPage = () => {
           </div>
         </div>
 
-        <div className="mt-5 h-[30rem] w-full ">
+        <div className="mb-[4.5rem]  h-[30rem] w-full ">
           <div className="h-[25rem] w-full rounded-t-xl bg-[#66BFBF]">
             <div className="ml-5 ">
               <div className="grid h-[19rem] ">
@@ -202,28 +202,71 @@ const CloneCoding: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5 mb-20 h-[26rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl ">
+        <div className="mb-20 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl ">
           <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
             Yeongmin&apos;s Collection
           </div>
           <div className="ml-6 mt-1 text-2xl opacity-90 ">
             So far , I made them All !
           </div>
-          <div className="flex  ">
-            {[...Array(10)].map((i, _) => (
-              <div className="m-2 flex h-6 w-6 bg-red-200 " key={i}>
-                {i}{" "}
-              </div>
-            ))}
+          <div className="absolute overflow-hidden">
+            <motion.div className="relative mx-6 flex">
+              {[...Array(10)].map((i, _) => (
+                <motion.div
+                  key={i}
+                  variants={slider}
+                  initial="start"
+                  animate="animate"
+                  transition={{
+                    duration: 5,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  exit={{ x: 0 }}
+                  className="m-2 mb-3 mt-7 flex h-[4.5rem] w-[4.5rem] rounded-lg bg-red-200"
+                >
+                  {i}{" "}
+                </motion.div>
+              ))}
+            </motion.div>
+            <div className="-ml-12 flex ">
+              {[...Array(10)].map((i, _) => (
+                <div
+                  className="m-2 my-3 flex h-[4.5rem] w-[4.5rem] rounded-lg bg-red-200"
+                  key={i}
+                >
+                  {i}{" "}
+                </div>
+              ))}
+            </div>
+            <div className="ml-6 flex ">
+              {[...Array(10)].map((i, _) => (
+                <div
+                  className="m-2 my-3 flex h-[4.5rem] w-[4.5rem] rounded-lg bg-red-200"
+                  key={i}
+                >
+                  {i}{" "}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <span className="flex h-20 w-full items-center justify-center pb-24">
+        {/* <span className="flex h-20 w-full items-center justify-center pb-24">
           I made this this clone coding page . Because i got impressed app store
           in iPhone.
-        </span>
+        </span> */}
       </div>
     </div>
   );
+};
+
+const slider = {
+  start: {
+    x: 500,
+  },
+  animate: {
+    x: -1000,
+  },
 };
 
 export default CloneCoding;
