@@ -7,7 +7,6 @@ import Thumbnail from "../../components/thumbnail";
 import SliderCompo from "../../components/sliderCompo";
 import KoreaFlag from "../../components/koreaFlag";
 import Me from "./image/me.png";
-import Paint from "./image/paint.png";
 import Image from "next/image";
 import Modal from "react-modal";
 import ReactModal from "react-modal";
@@ -20,22 +19,27 @@ const CloneCoding: NextPage = () => {
   const dateList = ["일", "월", "화", "수", "목", "금", "토"];
   return (
     <div className="grid max-h-[180rem] max-w-full bg-[#ffffffe7] shadow-xl ">
-      <span className="absolute mx-3 mt-5 flex text-xs opacity-50">
+      <span className="absolute mx-3 mt-7 flex text-xs opacity-50">
         {todayIs} {dateList[dateIs]}요일
       </span>
       <div className="absolute mx-5 mt-8 overflow-hidden ">
         <div className="mt-1 flex items-center justify-between">
           <div className="text-3xl font-semibold">PORTFOLIO</div>
-          <div className="h-16 w-16 cursor-pointer rounded-full ">
-            <Image
-              src={Me}
-              alt="profile"
-              width={55}
-              height={55}
-              placeholder="blur"
-              className="rounded-full object-fill"
-            />
-          </div>
+          <Link href={"./cloneCoding/profile"}>
+            <div className="mb-3 h-16 w-16 cursor-pointer rounded-full ">
+              <Image
+                src={Me}
+                alt="profile"
+                width={55}
+                height={55}
+                placeholder="blur"
+                className="rounded-full object-fill "
+              />
+              <span className="-mt-1 mr-2 flex justify-center text-sm ">
+                Profile&rarr;
+              </span>
+            </div>
+          </Link>
         </div>
         <div className="mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl ">
           <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
