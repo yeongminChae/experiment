@@ -1,8 +1,22 @@
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { cls } from "../../../libs/client/utils";
 import Me from "../image/me.png";
 
 const Profile: NextPage = () => {
+  const { reset } = useForm();
+  const [tab, setTab] = useState<"menu" | "bio">("menu");
+  const onMenuClick = () => {
+    reset();
+    setTab("menu");
+  };
+  const onBioClick = () => {
+    reset();
+    setTab("bio");
+  };
   return (
     <div className="ml-3 mt-5">
       <div className="mt-2 flex items-center justify-between ">
@@ -62,25 +76,55 @@ const Profile: NextPage = () => {
         </div>
       </div>
       <div className="mb-3 mt-6 h-16 w-36 cursor-pointer rounded-full ">
-        <Image
-          src={Me}
-          alt="profile"
-          width={150}
-          height={150}
-          placeholder="blur"
-          className="rounded-full object-fill "
-        />
+        <div className="flex h-[7.5rem] w-36 items-center justify-around">
+          <div className="absolute -mt-8 h-[7.5rem] w-1/2 px-14">
+            <Image
+              src={Me}
+              alt="profile"
+              width={150}
+              height={150}
+              placeholder="blur"
+              className="absolute rounded-full object-fill "
+            />
+          </div>
+          <div className="ml-72 flex h-28 w-28 items-center justify-between">
+            <div className="mx-12 flex w-1 flex-col items-center justify-center">
+              <span className="font-bold opacity-80 ">10</span>
+              <span className="text-black/60">Posts</span>
+            </div>
+            <div className="mx-14 flex w-1 flex-col items-center justify-center">
+              <span className="font-bold opacity-80 ">370</span>
+              <span className="text-black/60">Followers</span>
+            </div>
+            <div className="mx-14 flex w-1 flex-col items-center justify-center">
+              <span className="font-bold opacity-80 ">500</span>
+              <span className="text-black/60">Followings</span>
+            </div>
+          </div>
+        </div>
         <div className="w-full">
           <span className="mt-1 mr-2 flex text-sm ">채영민</span>
-          <span className="mt-[0.5] mr-2 flex text-[0.5rem] opacity-60 ">
-            🎵 Champagne Supernova
+          <span className="mt-[0.5] mr-2 flex w-44 text-[0.5rem] opacity-60 ">
+            🎵 Oasis - Champagne Supernova
           </span>
         </div>
         <div className="mt-3 flex w-[95vw] items-start justify-end ">
-          <div className="flex h-8 w-[90vw] items-center justify-center rounded-md bg-slate-400/25 ">
+          <motion.div
+            whileHover={{
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              backgroundColor: "rgb(148 163 184)",
+            }}
+            className="flex h-8 w-[90vw] items-center justify-center rounded-md bg-slate-400/25 "
+          >
             Edit Profile
-          </div>
-          <div className="ml-1 flex h-8 w-8 items-center justify-center rounded-md bg-slate-400/25">
+          </motion.div>
+          <motion.div
+            whileHover={{
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              backgroundColor: "rgb(148 163 184)",
+            }}
+            className="ml-1 flex h-8 w-8 items-center justify-center rounded-md bg-slate-400/25"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -95,7 +139,7 @@ const Profile: NextPage = () => {
                 d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
               />
             </svg>
-          </div>
+          </motion.div>
         </div>
         <div className="mt-6 flex h-auto w-[95vw] items-center justify-around ">
           <div className="h-20 w-20 rounded-full bg-red-200 "></div>
@@ -104,8 +148,14 @@ const Profile: NextPage = () => {
           <div className="h-20 w-20 rounded-full bg-red-200 "></div>
           <div className="h-20 w-20 rounded-full bg-red-200 "></div>
         </div>
-        <div className="my-6 flex h-10 w-[95vw] items-center justify-around ">
-          <div className="h-12 w-12">
+        <div className="my-6 grid h-10 w-[95vw] grid-cols-2 ">
+          <motion.div
+            className={cls(
+              "flex h-12 w-full justify-center border-b ease-in ",
+              tab === "menu" ? "border-gray-400 " : "border-transparent  "
+            )}
+            onClick={onMenuClick}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -120,8 +170,14 @@ const Profile: NextPage = () => {
                 d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
               />
             </svg>
-          </div>
-          <div className="h-12 w-12 ">
+          </motion.div>
+          <motion.div
+            className={cls(
+              "flex h-12 w-full justify-center border-b ease-in ",
+              tab === "bio" ? "border-gray-400 " : "border-transparent "
+            )}
+            onClick={onBioClick}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -136,7 +192,7 @@ const Profile: NextPage = () => {
                 d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
