@@ -1,4 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import FirstAppBox from "./firstAppBox";
 import Thumbnail from "./thumbnail";
 
