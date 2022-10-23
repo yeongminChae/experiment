@@ -6,7 +6,7 @@ import KoreaFlag from "./koreaFlag";
 
 const ForthApp: NextPage = () => {
   return (
-    <div className="mb-[4.5rem] h-[30rem] w-full ">
+    <div className="-z-50 mb-[4.5rem] h-[30rem] w-full ">
       <div className=" ml-0 h-[25rem] w-11/12 rounded-t-xl bg-[#66BFBF]">
         <div className="ml-5  ">
           <div className="absolute h-28 w-10 border-l-[20px] border-b-[30px] border-r-[20px] border-l-transparent border-b-[#66BFBF] border-r-transparent bg-red-200  " />

@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const ThirddApp: NextPage = () => {
   return (
-    <div className="mb-[4.5rem] h-[30rem] w-full ">
-      <div className="ml-0 h-[25rem] w-11/12 rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D] ">
+    <div className="-z-50 mb-[4.5rem] h-[30rem] w-full ">
+      <div className=" ml-0 h-[25rem] w-11/12 rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D]">
         <div className="ml-5 flex flex-col ">
           <div className="absolute h-28 w-10 border-l-[20px] border-b-[30px] border-r-[20px] border-l-transparent border-b-[#faab79] border-r-transparent bg-yellow-200  " />
-          <div className="mt-20 grid h-auto w-96 grid-cols-2 ">
+          <div className="-z-50 mt-20 grid h-auto w-96 grid-cols-2">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"

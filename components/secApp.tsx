@@ -3,7 +3,7 @@ import SecAppBox from "./secAppBox";
 
 const SecondApp: NextPage = () => {
   return (
-    <div className="mb-[4.5rem] ml-0 h-[28rem] w-11/12 rounded-xl bg-[#ffffffe7] shadow-2xl sm:bg-red-200 md:bg-white ">
+    <div className="-z-10 mb-[4.5rem] ml-0 h-[28rem] w-11/12 rounded-xl bg-[#ffffffe7] shadow-2xl sm:bg-red-200 md:bg-white ">
       <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
         My recomandation for You !
       </div>

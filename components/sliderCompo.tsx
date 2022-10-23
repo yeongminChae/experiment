@@ -5,6 +5,7 @@ interface ISlider {
   xInit: number | string;
   xEnd: number | string;
 }
+
 export default function SliderCompo({ xInit, xEnd }: ISlider) {
   return (
     <>

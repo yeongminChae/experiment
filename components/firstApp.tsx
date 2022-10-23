@@ -1,10 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
 import FirstAppBox from "./firstAppBox";
+import FirstAppModal from "./firstAppModal";
 import Thumbnail from "./thumbnail";
 
-const FirstApp: NextPage = () => {
+export default function FirstApp() {
   return (
     <div className="ml-0 mb-[4.5rem] mt-2 h-[30rem] w-11/12 rounded-xl shadow-xl ">
       <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
@@ -59,8 +57,7 @@ const FirstApp: NextPage = () => {
           </svg>
         </FirstAppBox>
       </div>
+      <FirstAppModal />
     </div>
   );
-};
-
-export default FirstApp;
+}

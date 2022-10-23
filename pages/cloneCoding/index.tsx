@@ -14,7 +14,7 @@ const CloneCoding: NextPage = () => {
   const dateIs = Moment().day();
   const dateList = ["일", "월", "화", "수", "목", "금", "토"];
   return (
-    <div className="grid max-h-[180rem] w-full max-w-full bg-[#ffffffe7] shadow-xl sm:w-full ">
+    <div className="z-0 grid max-h-[180rem] w-full max-w-full bg-[#ffffffe7] shadow-xl sm:w-full ">
       <span className="absolute mx-3 mt-5 flex text-xs opacity-50">
         {todayIs} {dateList[dateIs]}요일
       </span>
