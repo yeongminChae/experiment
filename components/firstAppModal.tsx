@@ -1,22 +1,22 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import FirstAppBox from "./firstAppBox";
 
 export default function FirstAppModal() {
   const router = useRouter();
+  const { scrollY } = useScroll();
   const currentLoca = router.asPath.split("/");
-  const [leaving, setLeaving] = useState(false);
-  const [back, setBack] = useState<boolean>(false);
-  const toggleLeaving = () => setLeaving((prev) => !prev);
-  //   if (leaving) return;
-  //   toggleLeaving();
-  //   setBack(false);
+  const toggleLeaving = () => {
+    router.push("/cloneCoding");
+  };
+  console.log(`scrollY : ${scrollY.get()} `);
+  const scrollYIndex = scrollY.get();
+  console.log(`scrollYIndex : ${scrollYIndex} `);
   return (
     <AnimatePresence onExitComplete={toggleLeaving}>
       {router.asPath === `/cloneCoding/firstApps/${currentLoca[3]}` && (
-        <div className="relative">
+        <div className="" onClick={toggleLeaving}>
           <Overlay
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -24,14 +24,18 @@ export default function FirstAppModal() {
             style={{
               top: 0,
             }}
-            className="fixed top-0 flex h-full w-full items-center justify-center opacity-0"
+            className="fixed top-0 -ml-[0.25rem] flex h-full w-full items-center justify-center opacity-0 backdrop-blur-sm sm:-ml-[5.3rem]"
           >
             <BigMovie
               layoutId={currentLoca[3]}
-              className="absolute z-[100] -ml-24 mr-24 h-[60vh] w-[80vw] overflow-hidden rounded-lg bg-[#2F2F2F] shadow-xl outline-none "
+              className="z-10 h-[80vh] w-[80vw] overflow-hidden rounded-lg bg-[#2F2F2F] shadow-xl outline-none "
+              style={{
+                // marginTop: scrollYIndex,
+                top: scrollYIndex,
+              }}
             >
               <>
-                <BigCover className="h-[350px] w-full bg-cover bg-[center_center] ">
+                <BigCover className="h-[70vh] w-full bg-cover bg-[center_center] ">
                   <button onClick={toggleLeaving} className="text-white">
                     X
                   </button>
@@ -49,5 +53,3 @@ const BigMovie = styled(motion.div)``;
 const BigCover = styled(motion.div)`
   background-image: linear-gradient(to top, orange, transparent);
 `;
-const BigTitle = styled(motion.div)``;
-const BigOverview = styled(motion.div)``;

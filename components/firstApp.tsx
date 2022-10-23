@@ -1,10 +1,23 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import FirstAppBox from "./firstAppBox";
 import FirstAppModal from "./firstAppModal";
 import Thumbnail from "./thumbnail";
 
 export default function FirstApp() {
+  const [scrollYIndex, setScrollYIndex] = useState(0);
+  const onBoxClick = () => {
+    console.log(`scrollYIndex : ${scrollYIndex} `);
+  };
+  const handleScroll = () => {
+    setScrollYIndex(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
   return (
-    <div className="ml-0 mb-[4.5rem] mt-2 h-[30rem] w-11/12 rounded-xl shadow-xl ">
+    <div className="mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl ">
       <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
         <div className="ml-5 pt-3 text-white opacity-60 ">
           Editor&apos;s Choices,{" "}
@@ -15,7 +28,11 @@ export default function FirstApp() {
         <Thumbnail />
       </div>
       <div className="my-3 mx-10 flex items-center justify-between bg-[#ffffffe7] ">
-        <FirstAppBox appName="Jobs" bgColor="#fed7aa">
+        <FirstAppBox
+          clicked={() => onBoxClick}
+          appName="Jobs"
+          bgColor="#fed7aa"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"

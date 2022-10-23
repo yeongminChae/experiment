@@ -1,10 +1,18 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { cls } from "../libs/client/utils";
 import SecAppBox from "./secAppBox";
 
 const SecondApp: NextPage = () => {
+  const router = useRouter();
   return (
-    <div className="-z-10 mb-[4.5rem] ml-0 h-[28rem] w-11/12 rounded-xl bg-[#ffffffe7] shadow-2xl sm:bg-red-200 md:bg-white ">
-      <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
+    <div
+      className={cls(
+        "mb-[4.5rem] ml-0 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl sm:bg-red-200 md:bg-white ",
+        router.asPath !== "/cloneCoding" ? "-z-10" : ""
+      )}
+    >
+      <div className=" ml-5 pt-3 text-slate-400 opacity-60 ">
         My recomandation for You !
       </div>
       <div className="ml-6 mt-1 text-2xl opacity-90 ">

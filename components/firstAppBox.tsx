@@ -1,4 +1,4 @@
-import { animate, AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -6,9 +6,15 @@ interface IAppBox {
   appName: string;
   bgColor: string;
   children?: ReactNode;
+  clicked?: () => void;
 }
 
-export default function FirstAppBox({ appName, children, bgColor }: IAppBox) {
+export default function FirstAppBox({
+  appName,
+  children,
+  bgColor,
+  clicked,
+}: IAppBox) {
   const router = useRouter();
   const [isHover, setIsHover] = useState(true);
   const [scrollYIndex, setScrollYIndex] = useState(0);
@@ -24,7 +30,7 @@ export default function FirstAppBox({ appName, children, bgColor }: IAppBox) {
   };
   const onBoxClick = () => {
     router.push(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`);
-    // console.log(`scrollYIndex : ${scrollYIndex} `);
+    console.log(`scrollYIndex : ${scrollYIndex} `);
   };
   const handleScroll = () => {
     setScrollYIndex(window.scrollY);

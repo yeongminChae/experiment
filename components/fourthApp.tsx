@@ -3,11 +3,19 @@ import SpeachBuble from "./speachBuble";
 import { animate, motion } from "framer-motion";
 import Link from "next/link";
 import KoreaFlag from "./koreaFlag";
+import { useRouter } from "next/router";
+import { cls } from "../libs/client/utils";
 
-const ForthApp: NextPage = () => {
+const FourthApp: NextPage = () => {
+  const router = useRouter();
   return (
-    <div className="-z-50 mb-[4.5rem] h-[30rem] w-full ">
-      <div className=" ml-0 h-[25rem] w-11/12 rounded-t-xl bg-[#66BFBF]">
+    <div
+      className={cls(
+        "mb-[4.5rem] h-[30rem] w-full ",
+        router.asPath !== "/cloneCoding" ? "-z-10" : ""
+      )}
+    >
+      <div className=" ml-0 h-[25rem] w-full rounded-t-xl bg-[#66BFBF]">
         <div className="ml-5  ">
           <div className="absolute h-28 w-10 border-l-[20px] border-b-[30px] border-r-[20px] border-l-transparent border-b-[#66BFBF] border-r-transparent bg-red-200  " />
           <div className="mr-10 flex h-[11.5rem] items-center justify-center pt-32 pl-0 ">
@@ -45,13 +53,13 @@ const ForthApp: NextPage = () => {
             <KoreaFlag />
             <div className="mx-3 flex items-center justify-start ">
               <div className="flex flex-col items-start justify-between">
-                <span className="text-[#F5F5F5]">한국어 능력</span>
+                <span className="text-[#F5F5F5]">한국어 퀴즈</span>
                 <span className="text-sm text-[#F5F5F5] opacity-70 ">
                   Let&apos;s learn Korean now!
                 </span>
               </div>
               <div className="ml-24 mt-4 flex flex-col items-center justify-center ">
-                <Link href="/cloneCoding/slider">
+                <Link href="/cloneCoding/koreanLanguage">
                   <motion.button
                     whileHover={{
                       boxShadow: "0px 0px 8px rgb(255,255,255) ",
@@ -88,4 +96,4 @@ const svg = {
   },
 };
 
-export default ForthApp;
+export default FourthApp;

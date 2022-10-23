@@ -7,9 +7,9 @@ interface ICloneList {
 
 export default function CloneList({ name, descript }: ICloneList) {
   return (
-    <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
+    <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl ">
       <div className="mr-auto flex w-full items-center justify-center md:flex ">
-        <div className="mx-4 flex h-16 w-32 flex-col items-start justify-start py-2 md:shrink-0">
+        <div className="mx-4 mb-2 flex h-16 w-32 flex-col items-start justify-start py-2 md:shrink-0">
           <div className="text-sm font-semibold uppercase tracking-tighter text-indigo-500">
             {name} clone
           </div>
@@ -17,7 +17,7 @@ export default function CloneList({ name, descript }: ICloneList) {
             {descript}
           </div>
         </div>
-        <div className="mx-auto mt-5 mr-7 flex w-1/3 flex-col items-center justify-start">
+        <div className="mx-auto mt-3 mr-7 flex w-1/3 flex-col items-center justify-start">
           <motion.button
             whileHover={{
               boxShadow: "0px 0px 8px rgb(255,255,255) ",
