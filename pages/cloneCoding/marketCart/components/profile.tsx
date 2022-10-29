@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { useState } from "react";
 import Memoji from "../Images/profile.png";
 
 const Profile = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="group overflow-hidden rounded-3xl bg-white shadow-xl">
       <div className="bg-blue-500 p-6 pb-14 xl:pb-40 portrait:bg-indigo-500 landscape:bg-teal-500 ">
@@ -13,13 +15,13 @@ const Profile = () => {
             <span className="text-sm text-gray-500">Orders</span>
             <span className="font-medium">340</span>
           </div>
-          <div className="h-24 w-24 rounded-full bg-gray-300 transition-colors group-hover:bg-red-300">
+          <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gray-300 transition-colors group-hover:bg-red-300">
             <Image
               src={Memoji}
               alt="profile"
               layout="fill"
               placeholder="blur"
-              className=" object-contain  "
+              className=" object-contain "
             />
           </div>
           <div className="flex flex-col items-center">
