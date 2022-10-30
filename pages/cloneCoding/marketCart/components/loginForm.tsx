@@ -4,8 +4,9 @@ const LoginForm = () => {
   const [userInput, setUserInput] = useState("");
   const [login, setLogin] = useState(false);
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    let userName = event.target.value;
     if (typeof window !== "undefined") {
-      localStorage.setItem("username", event.target.value);
+      localStorage.setItem("username", userName);
     }
     setUserInput(event.target.value);
   };
@@ -20,13 +21,10 @@ const LoginForm = () => {
   const onLogOutBtn = () => {
     setLogin((prev) => !prev);
   };
-  if (typeof window !== "undefined") {
-    console.log(localStorage.getItem("username"));
-  }
   return (
     <div className="mb-5">
       {login ? (
-        <form className="flex flex-col space-y-2 rounded-2xl bg-white px-5 py-8 shadow-md focus-within:bg-blue-100">
+        <form className="flex h-56 flex-col justify-center space-y-2 rounded-2xl bg-white px-5 py-8 shadow-md focus-within:bg-blue-100">
           <div className="flex flex-col items-center justify-between">
             <div className="flex w-full justify-around shadow-inner">
               HI !{" "}
@@ -37,7 +35,7 @@ const LoginForm = () => {
             </div>
             <div
               onClick={onLogOutBtn}
-              className="flex h-8 w-56 items-center justify-center rounded-md bg-[#4ade80] shadow-md hover:bg-lime-400 hover:text-white"
+              className="mt-5 flex h-11 w-56 items-center justify-center rounded-md bg-[#4ade80] shadow-md hover:bg-lime-400 hover:text-white"
             >
               <span className="mr-1">❎</span>
               <span className="text-black/60">Log Out </span>
@@ -45,7 +43,7 @@ const LoginForm = () => {
           </div>
         </form>
       ) : (
-        <form className="flex flex-col space-y-2 rounded-2xl bg-white p-8 shadow-md focus-within:bg-blue-100">
+        <form className="flex h-56 flex-col justify-center space-y-2 rounded-2xl bg-white p-8 shadow-md focus-within:bg-blue-100">
           <input
             type="text"
             required
@@ -59,12 +57,12 @@ const LoginForm = () => {
           <span className="hidden peer-valid:block peer-valid:text-teal-500">
             Awesome username.
           </span>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center ">
             <input
               type="submit"
               value="login"
               onClick={onClickSubmit}
-              className="h-8 w-56 cursor-pointer justify-center rounded-xl bg-indigo-300 hover:bg-indigo-400"
+              className="h-11 w-56 cursor-pointer justify-center rounded-xl bg-indigo-300 shadow-lg hover:bg-indigo-400"
             />
           </div>
         </form>
