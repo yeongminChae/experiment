@@ -2,7 +2,6 @@ import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { numCal } from "../../../../libs/client/utils";
 
 interface IProductProps {
   page: string;
@@ -21,17 +20,14 @@ const ProductBase = ({
   price,
   Images,
 }: IProductProps) => {
-  let currentNum = numCal();
   const [basicNum, setBasicNum] = useState(1);
   const [isClicked, setIsClicked] = useState(false);
   const [isDoubleClicked, setIsDoubleClicked] = useState(false);
   const onAddBtnClick = () => {
     setIsClicked((prev) => !prev);
-    currentNum + 1;
   };
   const onDoubleClick = () => {
     setIsDoubleClicked((prev) => !prev);
-    currentNum + 1;
   };
   const onPluslick = () => {
     setBasicNum((prev) => prev + 1);

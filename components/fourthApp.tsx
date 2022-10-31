@@ -58,7 +58,7 @@ const FourthApp: NextPage = () => {
                   Let&apos;s learn Korean now!
                 </span>
               </div>
-              <div className="ml-24 mt-4 flex flex-col items-center justify-center ">
+              <div className="ml-32 mt-4 flex flex-col items-center justify-center ">
                 <Link href="/cloneCoding/koreanLanguage">
                   <motion.button
                     whileHover={{

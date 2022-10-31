@@ -9,10 +9,8 @@ import sofaImage from "./Images/sofa1.png";
 import bedImage from "./Images/bed1.png";
 import bedSofaImage from "./Images/sofa-bed.png";
 import FloatingBtn from "./components/floatingBtn";
-import { numCal } from "../../../libs/client/utils";
 
 const MarketCart: NextPage = () => {
-  let currentNum = numCal();
   return (
     <div>
       <div className="sticky top-0 z-10 h-20 w-full bg-slate-500 px-6 pt-5 shadow-lg">
@@ -79,9 +77,7 @@ const MarketCart: NextPage = () => {
             layoutId="circle"
             className="fixed bottom-[69px] right-5 z-10 h-6 w-6 cursor-pointer rounded-full bg-lime-300 transition-colors"
           >
-            <span className="my-[0.5] mr-[0.5] flex items-center justify-center text-sm text-black/60">
-              {currentNum}
-            </span>
+            <span className="my-[0.5] mr-[0.5] flex items-center justify-center text-sm text-black/60"></span>
           </motion.div>
           <FloatingBtn href={"marketCart/personalCart"}>
             <svg
