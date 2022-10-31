@@ -8,7 +8,7 @@ import SelectItem from "../components/selectItem";
 
 const PersonalCart: NextPage = () => {
   return (
-    <div className="dark grid min-h-screen gap-10 bg-slate-300 py-20 px-10 lg:grid-cols-2 xl:grid-cols-3 xl:place-content-center ">
+    <div className="dark grid min-h-screen gap-10 bg-slate-300 py-16 px-10 lg:grid-cols-2 xl:grid-cols-3 xl:place-content-center ">
       <Link href={"/cloneCoding/marketCart"}>
         <div className="-my-8 cursor-pointer">
           <motion.svg

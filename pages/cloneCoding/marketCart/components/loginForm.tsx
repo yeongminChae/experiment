@@ -22,7 +22,7 @@ const LoginForm = () => {
     setLogin((prev) => !prev);
   };
   return (
-    <div className="mb-5">
+    <div className="-mb-1 -mt-5">
       {login ? (
         <form className="flex h-56 flex-col justify-center space-y-2 rounded-2xl bg-white px-5 py-8 shadow-md focus-within:bg-blue-100">
           <div className="flex flex-col items-center justify-between">
