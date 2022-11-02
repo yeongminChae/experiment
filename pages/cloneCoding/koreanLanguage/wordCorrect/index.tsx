@@ -1,6 +1,108 @@
 import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const WordCorrect: NextPage = () => {
+  const [visible, setVisible] = useState(1);
+  const [back, setBack] = useState(false);
+  const [next, setNext] = useState(false);
+  const nextPls = () => {
+    setBack(false);
+    setNext(true);
+    setVisible((prev) => (prev === 10 ? 10 : prev + 1));
+  };
+  const prevPls = () => {
+    setBack(true);
+    setNext(false);
+    setVisible((prev) => (prev === 1 ? 1 : prev - 1));
+  };
+  const customValue = {
+    direction: back,
+  };
+
+  let animalsName = [
+    "호랑이",
+    "고래",
+    "기린",
+    "양",
+    "강아지",
+    "용",
+    "곰",
+    "고양이",
+    "토끼",
+    "말",
+  ];
+  let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
+
+  const [animal, setAnimal] = useState("");
+
+  if (next) {
+    // animalsImg[Math.floor(Math.random() * animalsImg.length)];
+  } else {
+    console.log("it's prev");
+  }
+
+  return (
+    <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
+      <motion.button
+        whileHover={{
+          scale: 1.5,
+        }}
+        className="relative -right-9"
+        onClick={prevPls}
+      >
+        Prev
+      </motion.button>
+      <div className="flex h-64 w-[35rem] flex-col items-center justify-around ">
+        <AnimatePresence mode="wait" custom={customValue.direction}>
+          <motion.div
+            key={visible}
+            custom={customValue.direction}
+            variants={box}
+            initial="entry"
+            animate="center"
+            exit="exit"
+            className="absolute mb-48 flex h-40 w-64 items-center justify-center rounded-[40px] bg-white text-2xl shadow-xl"
+          >
+            <div className="">
+              <motion.span
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 0 }}
+                transition={{ duration: 2 }}
+                className=""
+              >
+                {visible}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8, duration: 1.5 }}
+                className="absolute left-20 top-5 text-8xl"
+              >
+                {animal}
+              </motion.span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+        <div className="mt-64 flex h-36 w-full items-center justify-between ">
+          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
+          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
+          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
+          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
+        </div>
+      </div>
+      <motion.button
+        whileHover={{
+          scale: 1.5,
+        }}
+        className="relative -left-9"
+        onClick={nextPls}
+      >
+        Next
+      </motion.button>
+    </motion.div>
+  );
+};
 
 const box = {
   entry: (isBack: boolean) => ({
@@ -25,45 +127,6 @@ const box = {
       duration: 0.3,
     },
   }),
-};
-
-const WordCorrect: NextPage = () => {
-  const [visible, setVisible] = useState(1);
-  const [back, setBack] = useState(false);
-  const nextPls = () => {
-    setBack(false);
-    setVisible((prev) => (prev === 10 ? 10 : prev + 1));
-  };
-  const prevPls = () => {
-    setBack(true);
-    setVisible((prev) => (prev === 1 ? 1 : prev - 1));
-  };
-  const customValue = {
-    direction: back,
-  };
-  return (
-    <motion.div className="flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-tl from-purple-600 to-pink-600">
-      <AnimatePresence mode="wait" custom={customValue.direction}>
-        <motion.div
-          key={visible}
-          custom={customValue.direction}
-          variants={box}
-          initial="entry"
-          animate="center"
-          exit="exit"
-          className="absolute flex h-40 w-64 items-center justify-center rounded-[40px] bg-white text-2xl shadow-xl"
-        >
-          {visible}
-        </motion.div>
-      </AnimatePresence>
-      <button className="absolute bottom-52" onClick={nextPls}>
-        Next
-      </button>
-      <button className="absolute bottom-48" onClick={prevPls}>
-        Prev
-      </button>
-    </motion.div>
-  );
 };
 
 export default WordCorrect;
