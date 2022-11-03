@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { consumers } from "stream";
+import { number } from "prop-types";
 
 const WordCorrect: NextPage = () => {
   const [visible, setVisible] = useState(1);
@@ -34,6 +35,26 @@ const WordCorrect: NextPage = () => {
     "말",
   ];
   let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
+  const chosenIndex = animalsImg.indexOf(animalsImg[animalIndex]);
+  let answerName: string[] = [];
+  if (visible <= 10) {
+    console.log(animalsName[chosenIndex]);
+    answerName.push(animalsName[chosenIndex]);
+    for (let i = 1; i <= 3; i++) {
+      let number = animalsName[Math.floor(Math.random() * animalsName.length)];
+      if (!sameNum(number)) {
+        answerName.push(number);
+      } else {
+        i--;
+      }
+    }
+    function sameNum(n: string) {
+      return answerName.find((e) => e === n);
+    }
+    console.log(answerName);
+  } else {
+    return answerName;
+  }
 
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
@@ -78,10 +99,34 @@ const WordCorrect: NextPage = () => {
           </motion.div>
         </AnimatePresence>
         <div className="mt-64 flex h-36 w-full items-center justify-between ">
-          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
-          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
-          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
-          <div className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"></div>
+          <motion.div
+            whileHover={{
+              scale: 1.25,
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+            }}
+            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
+          ></motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.25,
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+            }}
+            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
+          ></motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.25,
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+            }}
+            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
+          ></motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.25,
+              boxShadow: "0px 0px 8px rgb(255,255,255) ",
+            }}
+            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
+          ></motion.div>
         </div>
       </div>
       <motion.button
