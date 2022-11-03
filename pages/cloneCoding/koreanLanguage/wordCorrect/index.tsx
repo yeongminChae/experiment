@@ -1,20 +1,21 @@
 import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { consumers } from "stream";
 
 const WordCorrect: NextPage = () => {
   const [visible, setVisible] = useState(1);
   const [back, setBack] = useState(false);
-  const [next, setNext] = useState(false);
+  const [animalIndex, setAnimalIndex] = useState(0);
   const nextPls = () => {
     setBack(false);
-    setNext(true);
     setVisible((prev) => (prev === 10 ? 10 : prev + 1));
+    setAnimalIndex((prev) => prev + 1);
   };
   const prevPls = () => {
     setBack(true);
-    setNext(false);
     setVisible((prev) => (prev === 1 ? 1 : prev - 1));
+    setAnimalIndex((prev) => prev - 1);
   };
   const customValue = {
     direction: back,
@@ -33,14 +34,6 @@ const WordCorrect: NextPage = () => {
     "말",
   ];
   let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
-
-  const [animal, setAnimal] = useState("");
-
-  if (next) {
-    // animalsImg[Math.floor(Math.random() * animalsImg.length)];
-  } else {
-    console.log("it's prev");
-  }
 
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
@@ -79,7 +72,7 @@ const WordCorrect: NextPage = () => {
                 transition={{ delay: 1.8, duration: 1.5 }}
                 className="absolute left-20 top-5 text-8xl"
               >
-                {animal}
+                {animalsImg[animalIndex]}
               </motion.span>
             </div>
           </motion.div>
