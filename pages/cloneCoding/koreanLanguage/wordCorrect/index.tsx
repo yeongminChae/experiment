@@ -44,13 +44,12 @@ const WordCorrect: NextPage = () => {
   let answerName: string[] = [];
   answerName.push(animalsName[chosenIndex]);
 
+  const [a, setA] = useState([]);
+
   const function1 = () => {
     for (let i = 1; i <= 3; i++) {
       let number = animalsName[Math.floor(Math.random() * animalsName.length)];
       if (!sameNum(number)) {
-        useEffect(() => {
-          answerName;
-        });
         answerName.push(number);
       } else {
         i--;
@@ -61,14 +60,17 @@ const WordCorrect: NextPage = () => {
     }
     return answerName;
   };
-  // const { data } = useQuery<IData | string[]>(["datas"], function1());
-  // function1();
 
-  function1();
-  const shuffleAns = arrayShuffle(answerName);
+  useEffect(() => {
+    if (visible) {
+      setA(() => function1());
+    }
+  }, [visible]);
 
-  console.log(answerName);
+  const shuffleAns = arrayShuffle(a);
+  console.log(a);
   console.log(shuffleAns);
+
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
       <motion.button
@@ -119,7 +121,9 @@ const WordCorrect: NextPage = () => {
             }}
             className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
           >
-            {shuffleAns[0]}
+            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
+              {shuffleAns[0]}
+            </span>
           </motion.div>
           <motion.div
             whileHover={{
@@ -127,21 +131,33 @@ const WordCorrect: NextPage = () => {
               boxShadow: "0px 0px 8px rgb(255,255,255) ",
             }}
             className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          ></motion.div>
+          >
+            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
+              {shuffleAns[1]}
+            </span>
+          </motion.div>
           <motion.div
             whileHover={{
               scale: 1.25,
               boxShadow: "0px 0px 8px rgb(255,255,255) ",
             }}
             className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          ></motion.div>
+          >
+            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
+              {shuffleAns[2]}
+            </span>
+          </motion.div>
           <motion.div
             whileHover={{
               scale: 1.25,
               boxShadow: "0px 0px 8px rgb(255,255,255) ",
             }}
             className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          ></motion.div>
+          >
+            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
+              {shuffleAns[3]}
+            </span>
+          </motion.div>
         </div>
       </div>
       <motion.button
