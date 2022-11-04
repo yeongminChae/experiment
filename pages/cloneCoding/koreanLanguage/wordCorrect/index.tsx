@@ -1,8 +1,13 @@
 import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { consumers } from "stream";
-import { number } from "prop-types";
+import { useQuery } from "@tanstack/react-query";
+import arrayShuffle from "array-shuffle";
+
+interface IData {
+  id: number;
+  name: string;
+}
 
 const WordCorrect: NextPage = () => {
   const [visible, setVisible] = useState(1);
@@ -37,12 +42,15 @@ const WordCorrect: NextPage = () => {
   let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
   const chosenIndex = animalsImg.indexOf(animalsImg[animalIndex]);
   let answerName: string[] = [];
-  if (visible <= 10) {
-    console.log(animalsName[chosenIndex]);
-    answerName.push(animalsName[chosenIndex]);
+  answerName.push(animalsName[chosenIndex]);
+
+  const function1 = () => {
     for (let i = 1; i <= 3; i++) {
       let number = animalsName[Math.floor(Math.random() * animalsName.length)];
       if (!sameNum(number)) {
+        useEffect(() => {
+          answerName;
+        });
         answerName.push(number);
       } else {
         i--;
@@ -51,11 +59,16 @@ const WordCorrect: NextPage = () => {
     function sameNum(n: string) {
       return answerName.find((e) => e === n);
     }
-    console.log(answerName);
-  } else {
     return answerName;
-  }
+  };
+  // const { data } = useQuery<IData | string[]>(["datas"], function1());
+  // function1();
 
+  function1();
+  const shuffleAns = arrayShuffle(answerName);
+
+  console.log(answerName);
+  console.log(shuffleAns);
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
       <motion.button
@@ -105,7 +118,9 @@ const WordCorrect: NextPage = () => {
               boxShadow: "0px 0px 8px rgb(255,255,255) ",
             }}
             className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          ></motion.div>
+          >
+            {shuffleAns[0]}
+          </motion.div>
           <motion.div
             whileHover={{
               scale: 1.25,
