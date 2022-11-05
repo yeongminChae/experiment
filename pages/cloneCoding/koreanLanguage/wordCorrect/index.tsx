@@ -3,30 +3,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import arrayShuffle from "array-shuffle";
-
-interface IData {
-  id: number;
-  name: string;
-}
+import { cls } from "../../../../libs/client/utils";
 
 const WordCorrect: NextPage = () => {
-  const [visible, setVisible] = useState(1);
-  const [back, setBack] = useState(false);
-  const [animalIndex, setAnimalIndex] = useState(0);
-  const nextPls = () => {
-    setBack(false);
-    setVisible((prev) => (prev === 10 ? 10 : prev + 1));
-    setAnimalIndex((prev) => prev + 1);
-  };
-  const prevPls = () => {
-    setBack(true);
-    setVisible((prev) => (prev === 1 ? 1 : prev - 1));
-    setAnimalIndex((prev) => prev - 1);
-  };
-  const customValue = {
-    direction: back,
-  };
-
   let animalsName = [
     "호랑이",
     "고래",
@@ -40,13 +19,32 @@ const WordCorrect: NextPage = () => {
     "말",
   ];
   let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
+  const [visible, setVisible] = useState(1);
+  const [back, setBack] = useState(false);
+  const [animalIndex, setAnimalIndex] = useState(0);
+  const [forUseEffect, setForUseEffect] = useState([]);
+  const [markCorrectAns, setMarkCorrectAns] = useState(false);
+  const [markWrongAns, setMarkWrongAns] = useState(false);
+  const [checkAns, setCheckAns] = useState(false);
+  const nextPls = () => {
+    setBack(false);
+    setVisible((prev) => (prev === 10 ? 10 : prev + 1));
+    setAnimalIndex((prev) => prev + 1);
+    setMarkCorrectAns(false);
+    setMarkWrongAns(false);
+  };
+  const prevPls = () => {
+    setBack(true);
+    setVisible((prev) => (prev === 1 ? 1 : prev - 1));
+    setAnimalIndex((prev) => prev - 1);
+  };
+  const customValue = {
+    direction: back,
+  };
   const chosenIndex = animalsImg.indexOf(animalsImg[animalIndex]);
   let answerName: string[] = [];
   answerName.push(animalsName[chosenIndex]);
-
-  const [a, setA] = useState([]);
-
-  const function1 = () => {
+  const animalPickFunc = () => {
     for (let i = 1; i <= 3; i++) {
       let number = animalsName[Math.floor(Math.random() * animalsName.length)];
       if (!sameNum(number)) {
@@ -60,19 +58,71 @@ const WordCorrect: NextPage = () => {
     }
     return answerName;
   };
-
   useEffect(() => {
     if (visible) {
-      setA(() => function1());
+      setForUseEffect(() => animalPickFunc());
     }
   }, [visible]);
-
-  const shuffleAns = arrayShuffle(a);
-  console.log(a);
-  console.log(shuffleAns);
-
+  const shuffleAns = arrayShuffle(forUseEffect);
+  useEffect(() => {
+    shuffleAns;
+  }, [visible]);
+  const onAnsClick = (event: any) => {
+    const originAns = animalsName[chosenIndex];
+    const chosenAns = event.target.innerText;
+    if (originAns === chosenAns) {
+      setMarkCorrectAns(true);
+    } else {
+      setMarkWrongAns(true);
+    }
+  };
+  const onReTryClick = () => {
+    setMarkWrongAns(false);
+  };
+  const onCheckClick = () => {
+    setCheckAns(true);
+  };
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
+      {markCorrectAns ? (
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          fill="#A8E890"
+          className={cls(
+            "absolute z-[2] h-96 w-96",
+            markCorrectAns ? "" : "hidden"
+          )}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            scale: [0.5, 1.3, 1],
+            transition: { duration: 1.8, delay: 1.2 },
+          }}
+          exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}
+        >
+          <path d="M224 96C135.6 96 64 167.6 64 256s71.6 160 160 160s160-71.6 160-160s-71.6-160-160-160zM0 256C0 132.3 100.3 32 224 32s224 100.3 224 224s-100.3 224-224 224S0 379.7 0 256z" />
+        </motion.svg>
+      ) : (
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          fill="#E0144C"
+          className={cls(
+            "absolute z-[2] h-[27rem] w-[30rem] ",
+            markWrongAns ? "" : "hidden"
+          )}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            scale: [0.5, 1.3, 1],
+            transition: { duration: 1.8, delay: 1.2 },
+          }}
+          exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}
+        >
+          <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
+        </motion.svg>
+      )}
       <motion.button
         whileHover={{
           scale: 1.5,
@@ -97,7 +147,7 @@ const WordCorrect: NextPage = () => {
               <motion.span
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 1.6 }}
                 className=""
               >
                 {visible}
@@ -105,7 +155,7 @@ const WordCorrect: NextPage = () => {
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.8, duration: 1.5 }}
+                transition={{ delay: 1.6, duration: 1.5 }}
                 className="absolute left-20 top-5 text-8xl"
               >
                 {animalsImg[animalIndex]}
@@ -113,51 +163,135 @@ const WordCorrect: NextPage = () => {
             </div>
           </motion.div>
         </AnimatePresence>
-        <div className="mt-64 flex h-36 w-full items-center justify-between ">
-          <motion.div
-            whileHover={{
-              scale: 1.25,
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-            }}
-            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          >
-            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
-              {shuffleAns[0]}
-            </span>
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: 1.25,
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-            }}
-            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          >
-            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
-              {shuffleAns[1]}
-            </span>
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: 1.25,
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-            }}
-            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          >
-            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
-              {shuffleAns[2]}
-            </span>
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: 1.25,
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-            }}
-            className="h-24 w-32 rounded-lg bg-red-200 shadow-xl"
-          >
-            <span className="flex h-full w-full items-center justify-center text-xl font-bold text-black/70 ">
-              {shuffleAns[3]}
-            </span>
-          </motion.div>
+        <div className="mr-10 h-full">
+          <div className="mx-5 mt-44 flex h-36 w-full items-center justify-between ">
+            <motion.div
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className="flex h-24 w-32 items-center justify-center rounded-lg bg-red-200 text-xl font-bold text-black/70 shadow-xl "
+              onClick={onAnsClick}
+            >
+              {markCorrectAns ? (
+                <span> 🙌 🙌 </span>
+              ) : markWrongAns ? (
+                "😭 😢"
+              ) : (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 1.1 } }}
+                >
+                  {shuffleAns[0]}
+                </motion.span>
+              )}
+            </motion.div>
+            <motion.div
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className="flex h-24 w-32 items-center justify-center rounded-lg bg-red-200  text-xl font-bold text-black/70 shadow-xl"
+              onClick={onAnsClick}
+            >
+              {markCorrectAns ? (
+                <span> 🙌 🙌 </span>
+              ) : markWrongAns ? (
+                "😭 😢"
+              ) : (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 1.1 } }}
+                >
+                  {shuffleAns[1]}
+                </motion.span>
+              )}
+            </motion.div>
+            <motion.div
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className="flex h-24 w-32 items-center justify-center rounded-lg bg-red-200  text-xl font-bold text-black/70 shadow-xl"
+              onClick={onAnsClick}
+            >
+              {markCorrectAns ? (
+                <span> 🙌 🙌 </span>
+              ) : markWrongAns ? (
+                "😭 😢"
+              ) : (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 1.1 } }}
+                >
+                  {shuffleAns[2]}
+                </motion.span>
+              )}
+            </motion.div>
+            <motion.div
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className="flex h-24 w-32 items-center justify-center rounded-lg bg-red-200  text-xl font-bold text-black/70 shadow-xl"
+              onClick={onAnsClick}
+            >
+              {markCorrectAns ? (
+                <span> 🙌 🙌 </span>
+              ) : markWrongAns ? (
+                "😭 😢"
+              ) : (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 1.1 } }}
+                >
+                  {shuffleAns[3]}
+                </motion.span>
+              )}
+            </motion.div>
+          </div>
+          <div className="ml-5 flex w-full items-center justify-around text-sm font-bold">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 1.5, duration: 1.5 },
+              }}
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className={cls(
+                "mt-1 flex h-16 w-32 cursor-pointer items-center justify-center rounded-lg bg-yellow-100 shadow-lg",
+                markWrongAns ? "" : "hidden"
+              )}
+              onClick={onReTryClick}
+            >
+              RETRY
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 1.5, duration: 1.5 },
+              }}
+              whileHover={{
+                scale: 1.25,
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+              }}
+              className={cls(
+                "mt-1 flex h-16 w-32 cursor-pointer items-center justify-center rounded-lg bg-yellow-100 shadow-lg",
+                markWrongAns ? "" : "hidden"
+              )}
+              onClick={onCheckClick}
+            >
+              {checkAns ? (
+                <span>{animalsName[chosenIndex]}</span>
+              ) : (
+                "Check Answer?"
+              )}
+            </motion.div>
+          </div>
         </div>
       </div>
       <motion.button
