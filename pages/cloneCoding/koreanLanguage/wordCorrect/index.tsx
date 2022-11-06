@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import arrayShuffle from "array-shuffle";
 import { cls } from "../../../../libs/client/utils";
+import { useRouter } from "next/router";
 
-interface ITimer {
+export interface ITimer {
   seconds: number;
   completed: any;
 }
 
 const WordCorrect: NextPage = () => {
+  const router = useRouter();
   let animalsName = [
     "호랑이",
     "고래",
@@ -38,7 +40,11 @@ const WordCorrect: NextPage = () => {
     setAnimalIndex((prev) => prev + 1);
     setMarkCorrectAns(false);
     setMarkWrongAns(false);
+    if (visible >= 10) {
+      router.push("/cloneCoding/koreanLanguage/lastPage");
+    }
   };
+  console.log(visible);
   const prevPls = () => {
     setBack(true);
     setVisible((prev) => (prev === 1 ? 1 : prev - 1));
@@ -89,7 +95,8 @@ const WordCorrect: NextPage = () => {
   const onCheckClick = () => {
     setCheckAns(true);
   };
-  const Completionist = () => <span> {animalsName[chosenIndex]}</span>;
+  const indexName = animalsName[chosenIndex];
+  const Completionist = () => <span> {indexName}</span>;
   const renderer = ({ seconds, completed }: ITimer) => {
     if (completed) {
       return <Completionist />;
@@ -111,7 +118,7 @@ const WordCorrect: NextPage = () => {
             )}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: [0, 0, 1],
+              opacity: [0, 1],
               scale: 1,
               transition: { duration: 1.8 },
               y: -70,

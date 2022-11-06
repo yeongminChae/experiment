@@ -16,10 +16,10 @@ const KoreanLanguage: NextPage = () => {
             <div className="h-1/6 w-full">f</div>
           </div>
           <div className="grid grid-flow-row grid-rows-3 items-center justify-center">
-            <div className="mb-10 ml-10 justify-center text-2xl font-bold ">
+            <div className="mb-10 ml-7 justify-center text-2xl font-bold ">
               Korean Quiz Theme 1
             </div>
-            <div className="ml-14 mt-24 h-full w-full cursor-pointer items-center justify-center">
+            <div className="ml-10 mt-24 h-full w-full cursor-pointer items-center justify-center">
               <Link href="/cloneCoding/koreanLanguage/wordCorrect/ ">
                 <motion.div
                   variants={startBox}
