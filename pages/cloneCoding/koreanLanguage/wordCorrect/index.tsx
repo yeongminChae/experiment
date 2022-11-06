@@ -1,9 +1,14 @@
 import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import Countdown from "react-countdown";
 import arrayShuffle from "array-shuffle";
 import { cls } from "../../../../libs/client/utils";
+
+interface ITimer {
+  seconds: number;
+  completed: any;
+}
 
 const WordCorrect: NextPage = () => {
   let animalsName = [
@@ -84,6 +89,14 @@ const WordCorrect: NextPage = () => {
   const onCheckClick = () => {
     setCheckAns(true);
   };
+  const Completionist = () => <span> {animalsName[chosenIndex]}</span>;
+  const renderer = ({ seconds, completed }: ITimer) => {
+    if (completed) {
+      return <Completionist />;
+    } else {
+      return <span>{seconds}</span>;
+    }
+  };
   return (
     <motion.div className="flex h-screen w-screen items-center justify-around bg-gradient-to-tl from-purple-600 to-pink-600">
       <div className="flex w-11/12 justify-around">
@@ -98,12 +111,12 @@ const WordCorrect: NextPage = () => {
             )}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: 1,
-              scale: [0.5, 1.3, 1],
-              transition: { duration: 1.8, delay: 1.2 },
+              opacity: [0, 0, 1],
+              scale: 1,
+              transition: { duration: 1.8 },
               y: -70,
             }}
-            exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}
+            // exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}
           >
             <path d="M224 96C135.6 96 64 167.6 64 256s71.6 160 160 160s160-71.6 160-160s-71.6-160-160-160zM0 256C0 132.3 100.3 32 224 32s224 100.3 224 224s-100.3 224-224 224S0 379.7 0 256z" />
           </motion.svg>
@@ -113,15 +126,14 @@ const WordCorrect: NextPage = () => {
             viewBox="0 0 384 512"
             fill="#E0144C"
             className={cls(
-              "absolute z-[2] h-[27rem] w-[30rem] ",
+              "absolute z-[2] h-96 w-96 ",
               markWrongAns ? "" : "hidden"
             )}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -60 }}
             animate={{
               opacity: 1,
-              scale: [0.5, 1.3, 1],
+              scale: [0, 1],
               transition: { duration: 1.8, delay: 1.2 },
-              y: -70,
             }}
             exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}
           >
@@ -291,9 +303,7 @@ const WordCorrect: NextPage = () => {
                 onClick={onCheckClick}
               >
                 {checkAns ? (
-                  <motion.span animate={{}}>
-                    {animalsName[chosenIndex]}
-                  </motion.span>
+                  <Countdown date={Date.now() + 3000} renderer={renderer} />
                 ) : (
                   "Check Answer?"
                 )}
