@@ -34,6 +34,8 @@ const WordCorrect: NextPage = () => {
   const [markWrongAns, setMarkWrongAns] = useState(false);
   const [checkAns, setCheckAns] = useState(false);
   const [answerCount, setAnswerCount] = useState(0);
+  const [ansHistory, setAnsHistory] = useState([]);
+  const [failHistory, setFailHistory] = useState([]);
   const nextPls = () => {
     setBack(false);
     setVisible((prev) => (prev === 10 ? 10 : prev + 1));
@@ -79,18 +81,27 @@ const WordCorrect: NextPage = () => {
   useEffect(() => {
     shuffleAns;
   }, [visible]);
-  let correctCountList: string[] = [];
-  let wrongCountList: string[] = [];
+
   const onAnsClick = async (event: any) => {
     const originAns = animalsName[chosenIndex];
     const chosenAns = event.target.innerText;
     if (originAns === chosenAns) {
       setMarkCorrectAns(true);
       setAnswerCount((prev) => prev + 1);
+      setAnsHistory((ansHistory) => [...ansHistory, originAns]);
     } else {
       setMarkWrongAns(true);
+      setFailHistory((failHistory) => [...failHistory, originAns]);
     }
   };
+  useEffect(() => {
+    console.log("ansHistory");
+    console.log(ansHistory);
+    console.log("failHistory");
+    console.log(failHistory);
+    LocalStorage.setItem("ansCount", JSON.stringify(ansHistory));
+    LocalStorage.setItem("failCount", JSON.stringify(failHistory));
+  }, [onAnsClick]);
   const indexName = animalsName[chosenIndex];
   const onReTryClick = () => {
     setMarkWrongAns(false);
