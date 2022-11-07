@@ -81,7 +81,6 @@ const WordCorrect: NextPage = () => {
   useEffect(() => {
     shuffleAns;
   }, [visible]);
-
   const onAnsClick = async (event: any) => {
     const originAns = animalsName[chosenIndex];
     const chosenAns = event.target.innerText;
