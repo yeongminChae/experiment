@@ -23,7 +23,7 @@ const MarketCart: NextPage = () => {
           </Link>
         </div>
       </div>
-      <div className="grid min-h-screen gap-10 bg-slate-300 py-6 px-10 lg:grid-cols-2 xl:grid-cols-3 xl:place-content-center ">
+      <div className="grid min-h-screen gap-10 bg-slate-300 py-6 px-10 sm:grid-cols-2 sm:pl-3 md:px-6 lg:grid-cols-3 lg:gap-x-3 xl:grid-cols-3 xl:place-content-center xl:gap-x-10">
         <ProductBase
           page={"Main Product"}
           grade={4.5}
@@ -96,10 +96,10 @@ const MarketCart: NextPage = () => {
             </svg>
           </FloatingBtn>
         </motion.div>
-        <span className="mb-10 h-1 text-xs ">
-          PS ... <br />I found those images from google Image. I use them only
-          for my studying. I promise not to take any financial gain.{" "}
-        </span>
+      </div>
+      <div className="h-14 w-full bg-slate-300 pl-2 text-xs ">
+        PS ... <br />I found those images from google Image. I use them only for
+        my studying. I promise not to take any financial gain.{" "}
       </div>
     </div>
   );

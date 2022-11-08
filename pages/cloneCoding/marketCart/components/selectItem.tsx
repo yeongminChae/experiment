@@ -1,6 +1,6 @@
 const SelectItem = () => {
   return (
-    <div className="flex flex-col justify-between rounded-3xl bg-white p-6 shadow-xl sm:bg-red-400 md:bg-teal-400 lg:bg-indigo-400 xl:bg-yellow-400 2xl:bg-pink-400">
+    <div className="flex h-56 w-full flex-col justify-between rounded-2xl bg-white p-6 shadow-xl sm:h-64 md:w-[29rem] xl:w-[25rem]">
       <span className="text-3xl font-semibold ">Select Item</span>
       <ul>
         <div className="my-2 flex justify-between  ">
@@ -19,7 +19,7 @@ const SelectItem = () => {
         <span>Total</span>
         <span className=" font-semibold">$99</span>
       </div>
-      <button className="mx-auto mt-5 flex w-2/4 flex-col items-center justify-center rounded-xl bg-blue-500 p-3 text-center text-white hover:bg-teal-500 hover:text-black focus:bg-red-500 active:bg-yellow-400 ">
+      <button className="mx-auto mt-5 flex w-2/4 flex-col items-center justify-center rounded-xl bg-blue-500 p-3 text-center text-white hover:bg-teal-500 hover:text-black focus:bg-red-500 active:bg-yellow-400 lg:w-4/5 xl:w-2/4 ">
         Check Out
       </button>
     </div>

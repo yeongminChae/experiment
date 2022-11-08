@@ -5,8 +5,8 @@ import Memoji from "../Images/profile.png";
 const Profile = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white shadow-xl">
-      <div className="bg-blue-500 p-6 pb-14 xl:pb-40 portrait:bg-indigo-500 landscape:bg-teal-500 ">
+    <div className="group overflow-hidden rounded-2xl bg-white shadow-xl sm:h-64 md:w-[28.5rem] xl:w-[25rem] ">
+      <div className="bg-blue-500 p-6 pb-14 portrait:bg-indigo-500 landscape:bg-teal-500 ">
         <span className="text-2xl text-white">Profile</span>
       </div>
       <div className="relative -top-5 rounded-3xl bg-white p-6 ">

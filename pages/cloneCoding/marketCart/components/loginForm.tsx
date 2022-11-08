@@ -22,20 +22,20 @@ const LoginForm = () => {
     setLogin((prev) => !prev);
   };
   return (
-    <div className="-mb-1 -mt-5">
+    <div className="-mb-1 -mt-5 md:mt-0.5 md:mb-4 md:ml-2 lg:ml-10">
       {login ? (
-        <form className="flex h-56 flex-col justify-center space-y-2 rounded-2xl bg-white px-5 py-8 shadow-md focus-within:bg-blue-100">
+        <form className="flex h-56 flex-col justify-center space-y-3 rounded-2xl bg-white/80 px-5 py-8 shadow-md focus-within:bg-blue-100 md:h-64 md:w-[29rem] xl:w-[25rem] ">
           <div className="flex flex-col items-center justify-between">
-            <div className="flex w-full justify-around shadow-inner">
+            <div className="flex w-full items-center justify-around rounded-lg bg-white shadow-inner">
               HI !{" "}
-              <span className="mb-3 text-xl font-bold text-yellow-500 hover:underline hover:underline-offset-2	 ">
+              <span className="mt-1 justify-center pb-2 text-xl font-bold text-yellow-500 hover:underline hover:underline-offset-2	 ">
                 {userInput}{" "}
               </span>
               👋🏻 How Are You Today??
             </div>
             <div
               onClick={onLogOutBtn}
-              className="mt-5 flex h-11 w-56 items-center justify-center rounded-md bg-[#4ade80] shadow-md hover:bg-lime-400 hover:text-white"
+              className="mt-7 flex h-11 w-56 items-center justify-center rounded-lg bg-[#4ade80] shadow-md hover:bg-lime-400 hover:text-white sm:w-80"
             >
               <span className="mr-1">❎</span>
               <span className="text-black/60">Log Out </span>
@@ -43,7 +43,7 @@ const LoginForm = () => {
           </div>
         </form>
       ) : (
-        <form className="flex h-56 flex-col justify-center space-y-2 rounded-2xl bg-white p-8 shadow-md focus-within:bg-blue-100">
+        <form className="flex h-56 flex-col justify-center space-y-3 rounded-2xl bg-white p-8 shadow-md focus-within:bg-blue-100 sm:h-60 md:h-64 md:w-[29rem] xl:w-[25rem] ">
           <input
             type="text"
             required
@@ -62,7 +62,7 @@ const LoginForm = () => {
               type="submit"
               value="login"
               onClick={onClickSubmit}
-              className="h-11 w-56 cursor-pointer justify-center rounded-xl bg-indigo-300 shadow-lg hover:bg-indigo-400"
+              className="h-11 w-56 cursor-pointer justify-center rounded-xl bg-indigo-300 shadow-lg hover:bg-indigo-400 sm:w-80 "
             />
           </div>
         </form>

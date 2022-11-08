@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-interface IProductProps {
+export interface IProductProps {
   page: string;
   grade: number;
   name: string;
@@ -39,7 +39,7 @@ const ProductBase = ({
     setBasicNum(1);
   }
   return (
-    <div className="rounded-2xl bg-white p-8 shadow-lg lg:col-span-2 xl:col-span-1 ">
+    <div className="rounded-2xl bg-white p-8 shadow-lg sm:row-span-1 sm:w-[21rem] md:w-full lg:row-span-3 lg:w-full xl:col-span-1 xl:w-[27rem] ">
       <div className="mb-5 flex items-center justify-between">
         <span className="text-2xl font-bold text-black/80 ">{page}</span>
         <div className="space-x-3 ">
