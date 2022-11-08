@@ -2,12 +2,10 @@ import { NextPage } from "next";
 import LocalStorage from "../../../../../libs/client/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-interface IAnsPage {
-  children?: ReactNode | JSX.Element | JSX.Element[];
-}
-
-const CheckPage: NextPage = ({ children }: IAnsPage) => {
+const CheckPage: NextPage = () => {
+  const router = useRouter();
   const [resultOutput, setResultOutput] = useState("");
   const [ansUseResult, setAnsUseResult] = useState("");
   const [failUseResult, setFailUseResult] = useState("");
@@ -46,23 +44,35 @@ const CheckPage: NextPage = ({ children }: IAnsPage) => {
   const failNames: any = failUseResult
     .toString()
     .split(",")
+    .filter((element, index) => {
+      return failUseResult.indexOf(element) === index;
+    })
     .map((i) => <span key={i}>{i} </span>);
+  const onGoBackClick = () => {
+    router.push("/cloneCoding/koreanLanguage/");
+    LocalStorage.removeItem("Quiz_result");
+    LocalStorage.removeItem("ansCount");
+    LocalStorage.removeItem("failCount");
+  };
   return (
     <AnimatePresence>
       <div className="h-screen w-screen bg-gradient-to-tl from-purple-600 to-pink-600 ">
-        <motion.div className="ml-3 cursor-pointer pt-3 text-white/80 ">
+        <motion.div
+          onClick={onGoBackClick}
+          className="ml-3 cursor-pointer pt-3 text-white/80 "
+        >
           &larr; To Home
         </motion.div>
-        <div className="mt-[70px] flex w-full flex-col items-center justify-center space-y-4 sm:mt-20">
+        <div className="mt-[55px] flex w-full flex-col items-center justify-center space-y-4 sm:mt-20">
           <span className="flex w-72 justify-center text-white/80">
             {" "}
             This is your Score : {resultOutput} / 10{" "}
           </span>
-          <div className="flex w-72 flex-col items-center justify-center text-white/80">
+          <div className="flex w-full flex-col items-center justify-center text-white/80">
             <span>Right Answers Board &rarr; </span>
             <div className="gap-4 space-x-3 "> {ansNames} </div>
           </div>
-          <div className="flex w-72 flex-col items-center justify-center text-white/80">
+          <div className="flex w-full flex-col items-center justify-center text-white/80">
             <span>Wrong Answers Board &rarr; </span>
             <div className="gap-4 space-x-3 ">{failNames} </div>
           </div>

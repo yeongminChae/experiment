@@ -42,6 +42,7 @@ const WordCorrect: NextPage = () => {
     setAnimalIndex((prev) => prev + 1);
     setMarkCorrectAns(false);
     setMarkWrongAns(false);
+    setCheckAns(false);
     if (visible >= 10) {
       router.push("/cloneCoding/koreanLanguage/lastPage");
       LocalStorage.setItem("Quiz_result", answerCount + "");
@@ -94,16 +95,13 @@ const WordCorrect: NextPage = () => {
     }
   };
   useEffect(() => {
-    console.log("ansHistory");
-    console.log(ansHistory);
-    console.log("failHistory");
-    console.log(failHistory);
     LocalStorage.setItem("ansCount", JSON.stringify(ansHistory));
     LocalStorage.setItem("failCount", JSON.stringify(failHistory));
   }, [onAnsClick]);
   const indexName = animalsName[chosenIndex];
   const onReTryClick = () => {
     setMarkWrongAns(false);
+    setCheckAns(false);
   };
   const onCheckClick = () => {
     setCheckAns(true);
@@ -151,7 +149,7 @@ const WordCorrect: NextPage = () => {
             initial={{ opacity: 0, y: -60 }}
             animate={{
               opacity: 1,
-              scale: [0, 1],
+              scale: 1,
               transition: { duration: 1.8, delay: 1.2 },
             }}
             // exit={{ rotateX: 180, transition: { delay: 1.5 }, opacity: 0 }}

@@ -26,7 +26,7 @@ const LastPage: NextPage = () => {
         <motion.span
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1.5 }}
+          transition={{ delay: 1, duration: 1.5 }}
           className=""
         >
           You Done With The Quiz ..!
