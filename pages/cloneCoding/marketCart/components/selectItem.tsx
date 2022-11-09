@@ -1,4 +1,15 @@
+import { useEffect, useState } from "react";
+import LocalStorage from "../../../../libs/client/utils";
+
 const SelectItem = () => {
+  const [ansHistory, setAnsHistory] = useState([]);
+  const a1 = LocalStorage.getItem("detailDepoloyer");
+  const a2 = JSON.parse(a1);
+  let a3: any[] = [];
+  useEffect(() => {
+    setAnsHistory((ansHistory) => [...ansHistory, a2[0]]);
+  }, []);
+  console.log(ansHistory);
   return (
     <div className="flex h-56 w-full flex-col justify-between rounded-2xl bg-white p-6 shadow-xl sm:h-64 md:w-[29rem] xl:w-[25rem]">
       <span className="text-3xl font-semibold ">Select Item</span>
@@ -8,13 +19,6 @@ const SelectItem = () => {
           <span className=" font-semibold">$19</span>
         </div>
       </ul>
-      {/* <ul>
-          {["a", "b", "c", ""].map((c, i) => (
-            <li className=" py-2 empty:hidden" key={i}>
-              {c}
-            </li>
-          ))}
-        </ul> */}
       <div className="mt-2 flex justify-between border-t-2 border-dashed pt-2">
         <span>Total</span>
         <span className=" font-semibold">$99</span>

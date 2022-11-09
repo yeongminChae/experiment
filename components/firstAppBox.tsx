@@ -29,8 +29,8 @@ export default function FirstAppBox({
     }
   };
   const onBoxClick = () => {
-    router.push(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`);
-    console.log(`scrollYIndex : ${scrollYIndex} `);
+    router.replace(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`);
+    // console.log(`scrollYIndex : ${scrollYIndex} `);
   };
   const handleScroll = () => {
     setScrollYIndex(window.scrollY);

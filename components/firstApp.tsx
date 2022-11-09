@@ -7,7 +7,7 @@ import Thumbnail from "./thumbnail";
 export default function FirstApp() {
   const [scrollYIndex, setScrollYIndex] = useState(0);
   const onBoxClick = () => {
-    console.log(`scrollYIndex : ${scrollYIndex} `);
+    // console.log(`scrollYIndex : ${scrollYIndex} `);
   };
   const handleScroll = () => {
     setScrollYIndex(window.scrollY);

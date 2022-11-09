@@ -75,7 +75,7 @@ const MarketCart: NextPage = () => {
         <motion.div>
           <motion.div
             layoutId="circle"
-            className="fixed bottom-[69px] right-5 z-10 h-6 w-6 cursor-pointer rounded-full bg-lime-300 transition-colors"
+            className="fixed bottom-[72px] right-5 z-10 h-5 w-5 cursor-pointer rounded-full bg-lime-300 transition-colors "
           >
             <span className="my-[0.5] mr-[0.5] flex items-center justify-center text-sm text-black/60"></span>
           </motion.div>

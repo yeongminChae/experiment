@@ -1,7 +1,8 @@
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import LocalStorage from "../../../../libs/client/utils";
 
 export interface IProductProps {
   page: string;
@@ -22,13 +23,11 @@ const ProductBase = ({
 }: IProductProps) => {
   const [basicNum, setBasicNum] = useState(1);
   const [isClicked, setIsClicked] = useState(false);
-  const [isDoubleClicked, setIsDoubleClicked] = useState(false);
   const onAddBtnClick = () => {
     setIsClicked((prev) => !prev);
   };
-  const onDoubleClick = () => {
-    setIsDoubleClicked((prev) => !prev);
-  };
+  const onDoubleClick = () => {};
+
   const onPluslick = () => {
     setBasicNum((prev) => prev + 1);
   };
@@ -113,14 +112,15 @@ const ProductBase = ({
                   </CartIcon>
                   <motion.span
                     layoutId="circle"
-                    animate={{ opacity: [0, 1], y: [0, 0] }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: [0, 0] }}
                     transition={{ delay: 1.6 }}
                     className="absolute"
                     onClick={onDoubleClick}
                   >
                     Click Me !!
                   </motion.span>
-                  {isDoubleClicked && <span>😄 DONE !</span>}
+                  {/* {isDoubleClicked && <span>😄 DONE !</span>} */}
                 </motion.div>
               </>
             ) : (

@@ -56,13 +56,13 @@ const CloneCoding: NextPage = () => {
             </div>
             <div className="absolute overflow-hidden">
               <div className="flex ">
-                <SliderCompo xInit={"300%"} xEnd={"-1700%"} />
+                {/* <SliderCompo xInit={"300%"} xEnd={"-1700%"} /> */}
               </div>
               <div className="flex ">
-                <SliderCompo xInit={"500%"} xEnd={"-1500%"} />
+                {/* <SliderCompo xInit={"500%"} xEnd={"-1500%"} /> */}
               </div>
               <div className="flex ">
-                <SliderCompo xInit={"700%"} xEnd={"-1300%"} />
+                {/* <SliderCompo xInit={"700%"} xEnd={"-1300%"} /> */}
               </div>
             </div>
           </div>{" "}
