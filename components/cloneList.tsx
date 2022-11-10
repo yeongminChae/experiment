@@ -7,9 +7,9 @@ interface ICloneList {
 
 export default function CloneList({ name, descript }: ICloneList) {
   return (
-    <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl ">
+    <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-md md:mt-2 md:w-[20rem] ">
       <div className="mr-auto flex w-full items-center justify-center md:flex ">
-        <div className="mx-4 mb-2 flex h-16 w-32 flex-col items-start justify-start py-2 md:shrink-0">
+        <div className="mx-4 mb-2 flex h-16 w-32 flex-col items-start justify-start py-2 sm:w-52 sm:justify-center">
           <div className="text-sm font-semibold uppercase tracking-tighter text-indigo-500">
             {name} clone
           </div>

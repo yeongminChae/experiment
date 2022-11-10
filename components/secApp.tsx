@@ -8,7 +8,7 @@ const SecondApp: NextPage = () => {
   return (
     <div
       className={cls(
-        "mb-[4.5rem] ml-0 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl sm:bg-red-200 md:bg-white ",
+        "mb-[4.5rem] ml-0 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:mt-2 md:h-[30rem] md:w-11/12 xl:w-10/12 xl:pb-10",
         router.asPath !== "/cloneCoding" ? "-z-10" : ""
       )}
     >
@@ -18,7 +18,7 @@ const SecondApp: NextPage = () => {
       <div className="ml-6 mt-1 text-2xl opacity-90 ">
         These app&apos;s will give differences
       </div>
-      <div className="mt-4 flex flex-col items-center justify-center">
+      <div className="mt-4 flex flex-col items-center justify-center ">
         <SecAppBox
           name="당근마켓"
           descript="당신 근처의 동네 커뮤니티 생활"

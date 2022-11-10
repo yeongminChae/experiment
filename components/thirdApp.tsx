@@ -1,22 +1,24 @@
 import { NextPage } from "next";
 import { animate, motion } from "framer-motion";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
 
 const ThirddApp: NextPage = () => {
   const router = useRouter();
+  const onBtnClick = () => {
+    router.push("/cloneCoding/slider", undefined, { scroll: false });
+  };
   return (
     <div
       className={cls(
-        "mb-[4.5rem] h-[30rem] w-full ",
+        "mb-[4.5rem] h-[30rem] w-full md:w-11/12 xl:w-10/12",
         router.asPath !== "/cloneCoding" ? "-z-10" : ""
       )}
     >
-      <div className=" ml-0 h-[25rem] w-full rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D]">
+      <div className="ml-0 h-[25rem] w-full rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D] xl:-mx-16 ">
         <div className="ml-5 flex flex-col ">
           <div className="absolute h-28 w-10 border-l-[20px] border-b-[30px] border-r-[20px] border-l-transparent border-b-[#faab79] border-r-transparent bg-yellow-200  " />
-          <div className="mt-20 grid h-auto w-96 grid-cols-2">
+          <div className="mt-20 ml-8 grid h-auto w-96 grid-cols-2 sm:ml-16 md:ml-0 ">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -70,12 +72,12 @@ const ThirddApp: NextPage = () => {
             </motion.svg>
           </div>
           <div className="flex items-start justify-start">
-            <span className="-mt-7 w-56 text-[2rem] leading-[2.3rem] text-white">
-              Check, various coins here!
+            <span className="-mt-7 w-56 text-[2rem] leading-[2.3rem] text-white md:-mt-10">
+              Track coins here! :)
             </span>
           </div>
         </div>
-        <div className="h-[5rem] w-full rounded-b-xl bg-[#FF731D] shadow-xl ">
+        <div className="h-[5.1rem] w-full rounded-b-xl bg-[#FF731D] shadow-xl md:mt-3">
           <div className="mx-5 flex items-center justify-start">
             <div className="mt-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-md ">
               <svg
@@ -94,20 +96,17 @@ const ThirddApp: NextPage = () => {
                   What is the Today&apos;s price
                 </span>
               </div>
-              <div className="ml-32 mt-4 flex flex-col items-center justify-center ">
-                <Link href="/cloneCoding/slider">
-                  <motion.button
-                    whileHover={{
-                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
-                      backgroundColor: "rgb(148 163 184)",
-                    }}
-                    className="h-8 w-20 rounded-2xl bg-white "
-                  >
-                    <span className="text-sm font-bold text-blue-600 ">
-                      받기
-                    </span>{" "}
-                  </motion.button>
-                </Link>
+              <div className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-44 md:ml-20 xl:ml-[7.5rem] ">
+                <motion.button
+                  onClick={onBtnClick}
+                  whileHover={{
+                    boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                    backgroundColor: "rgb(148 163 184)",
+                  }}
+                  className="h-8 w-20 rounded-2xl bg-white "
+                >
+                  <span className="text-sm font-bold text-blue-600 ">받기</span>{" "}
+                </motion.button>
                 <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
                   앱 내 구입
                 </span>

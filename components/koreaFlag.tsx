@@ -1,6 +1,6 @@
 export default function KoreaFlag() {
   return (
-    <div className="my-4 h-12 w-12 rounded-2xl bg-white shadow-md ">
+    <div className="my-4 h-12 w-12 rounded-2xl bg-white shadow-md md:h-14 md:w-14 md:p-1 ">
       <svg
         version="1.1"
         id="Layer_1"

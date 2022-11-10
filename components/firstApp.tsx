@@ -5,34 +5,19 @@ import FirstAppModal from "./firstAppModal";
 import Thumbnail from "./thumbnail";
 
 export default function FirstApp() {
-  const [scrollYIndex, setScrollYIndex] = useState(0);
-  const onBoxClick = () => {
-    // console.log(`scrollYIndex : ${scrollYIndex} `);
-  };
-  const handleScroll = () => {
-    setScrollYIndex(window.scrollY);
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
   return (
-    <div className="mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl ">
+    <div className="mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl md:w-11/12 xl:mt-10 xl:w-10/12 ">
       <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
         <div className="ml-5 pt-3 text-white opacity-60 ">
           Editor&apos;s Choices,{" "}
         </div>
         <div className="ml-6 mt-1 text-2xl text-white opacity-90 ">
-          This week&apos;s new featured :
+          This week newly featured :
         </div>
         <Thumbnail />
       </div>
       <div className="my-3 mx-10 flex items-center justify-between bg-[#ffffffe7] ">
-        <FirstAppBox
-          clicked={() => onBoxClick}
-          appName="Jobs"
-          bgColor="#fed7aa"
-        >
+        <FirstAppBox appName="Jobs" bgColor="#fed7aa">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"

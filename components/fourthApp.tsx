@@ -1,22 +1,24 @@
 import { NextPage } from "next";
 import SpeachBuble from "./speachBuble";
 import { animate, motion } from "framer-motion";
-import Link from "next/link";
 import KoreaFlag from "./koreaFlag";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
 
 const FourthApp: NextPage = () => {
   const router = useRouter();
+  const onBtnClick = () => {
+    router.push("/cloneCoding/koreanLanguage", undefined, { scroll: false });
+  };
   return (
     <div
       className={cls(
-        "mb-[4.5rem] h-[30rem] w-full ",
+        "mb-[4.5rem] h-[30rem] w-full md:w-11/12 xl:w-10/12",
         router.asPath !== "/cloneCoding" ? "-z-10" : ""
       )}
     >
-      <div className=" ml-0 h-[25rem] w-full rounded-t-xl bg-[#66BFBF]">
-        <div className="ml-5  ">
+      <div className="ml-0 h-[25rem] w-full rounded-t-xl bg-[#66BFBF] ">
+        <div className="ml-5 flex flex-col ">
           <div className="absolute h-28 w-10 border-l-[20px] border-b-[30px] border-r-[20px] border-l-transparent border-b-[#66BFBF] border-r-transparent bg-red-200  " />
           <div className="mr-10 flex h-[11.5rem] items-center justify-center pt-32 pl-0 ">
             <SpeachBuble />
@@ -42,36 +44,33 @@ const FourthApp: NextPage = () => {
               />
             </motion.svg>
           </div>
-          <div className="absolute flex w-48 items-center justify-end">
+          <div className="absolute flex w-48 items-center justify-end md:relative">
             <span className="text-[2rem] leading-[2.3rem] text-white">
               Korean Ablity App
             </span>
           </div>
         </div>
-        <div className="mt-[5.5rem] h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-xl ">
-          <div className="mx-5 flex items-center justify-start">
+        <div className="mt-[5.5rem] h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-xl md:mt-[0.8rem] md:flex md:items-center ">
+          <div className="mx-5 flex justify-start md:mr-0 md:ml-5 md:space-x-2 ">
             <KoreaFlag />
-            <div className="mx-3 flex items-center justify-start ">
-              <div className="flex flex-col items-start justify-between">
+            <div className="mx-3 flex items-center justify-start">
+              <div className="flex flex-col items-start justify-between md:mr-10">
                 <span className="text-[#F5F5F5]">한국어 퀴즈</span>
-                <span className="text-sm text-[#F5F5F5] opacity-70 ">
+                <span className="text-sm text-[#F5F5F5] opacity-70 md:w-40 ">
                   Let&apos;s learn Korean now!
                 </span>
               </div>
-              <div className="ml-32 mt-4 flex flex-col items-center justify-center ">
-                <Link href="/cloneCoding/koreanLanguage">
-                  <motion.button
-                    whileHover={{
-                      boxShadow: "0px 0px 8px rgb(255,255,255) ",
-                      backgroundColor: "rgb(148 163 184)",
-                    }}
-                    className="h-8 w-20 rounded-2xl bg-white "
-                  >
-                    <span className="text-sm font-bold text-blue-600 ">
-                      받기
-                    </span>{" "}
-                  </motion.button>
-                </Link>
+              <div className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-48 md:ml-[3.4rem] md:mt-1 md:w-14 xl:ml-24">
+                <motion.button
+                  onClick={onBtnClick}
+                  whileHover={{
+                    boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                    backgroundColor: "rgb(148 163 184)",
+                  }}
+                  className="h-8 w-20 rounded-2xl bg-white "
+                >
+                  <span className="text-sm font-bold text-blue-600 ">받기</span>{" "}
+                </motion.button>
                 <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
                   앱 내 구입
                 </span>
