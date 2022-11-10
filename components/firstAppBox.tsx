@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
 interface IAppBox {
   appName: string;
@@ -28,9 +28,10 @@ export default function FirstAppBox({
       setIsHover((prev) => !prev);
     }
   };
-  const onBoxClick = () => {
-    router.replace(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`);
-    // console.log(`scrollYIndex : ${scrollYIndex} `);
+  const onBoxClick = (event: any) => {
+    router.push(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`, {
+      scroll: false,
+    });
   };
   const handleScroll = () => {
     setScrollYIndex(window.scrollY);
@@ -86,4 +87,4 @@ const appNameMotion = {
   },
 };
 
-// source code git check
+// sourcetree git check

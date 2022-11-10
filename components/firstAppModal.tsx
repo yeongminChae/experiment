@@ -8,11 +8,9 @@ export default function FirstAppModal() {
   const { scrollY } = useScroll();
   const currentLoca = router.asPath.split("/");
   const toggleLeaving = () => {
-    router.push("/cloneCoding");
+    router.push("/cloneCoding", undefined, { scroll: false });
   };
-  // console.log(`scrollY : ${scrollY.get()} `);
   const scrollYIndex = scrollY.get();
-  // console.log(`scrollYIndex : ${scrollYIndex} `);
   return (
     <AnimatePresence onExitComplete={toggleLeaving}>
       {router.asPath === `/cloneCoding/firstApps/${currentLoca[3]}` && (
