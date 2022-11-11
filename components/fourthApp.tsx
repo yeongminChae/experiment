@@ -44,13 +44,13 @@ const FourthApp: NextPage = () => {
               />
             </motion.svg>
           </div>
-          <div className="absolute flex w-48 items-center justify-end md:relative">
+          <div className="flex w-48 items-center justify-end md:relative">
             <span className="text-[2rem] leading-[2.3rem] text-white">
               Korean Ablity App
             </span>
           </div>
         </div>
-        <div className="mt-[5.5rem] h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-xl md:mt-[0.8rem] md:flex md:items-center ">
+        <div className="mt-[0.91rem] h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-xl md:mt-[0.8rem] md:flex md:items-center ">
           <div className="mx-5 flex justify-start md:mr-0 md:ml-5 md:space-x-2 ">
             <KoreaFlag />
             <div className="mx-3 flex items-center justify-start">
