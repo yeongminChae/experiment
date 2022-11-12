@@ -2,6 +2,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Animation1 from "./animation/animation1";
 import Animation2 from "./animation/animation2";
+import Animation3 from "./animation/animation3";
+import Animation4 from "./animation/animation4";
+import Animation5 from "./animation/animation5";
+import Animation6 from "./animation/animation6";
+import Animation7 from "./animation/animation7";
 
 export default function FifthApp() {
   const [index, setIndex] = useState(1);
@@ -10,7 +15,7 @@ export default function FifthApp() {
   const bottomIndex = `${ran1}rem`;
   const onNextclick = () => {
     setBack(false);
-    setIndex((prev) => prev + 1);
+    setIndex((prev) => (prev === 7 ? 7 : prev + 1));
   };
   const onPrevclick = () => {
     setBack(true);
@@ -30,10 +35,8 @@ export default function FifthApp() {
       <AnimatePresence mode="wait" custom={customValue.direction}>
         <div className="mt-20 flex h-full w-full justify-around ">
           <motion.div
-            whileHover={{
-              scale: 1.3,
-            }}
-            className="ml-1 mr-0 mt-10 h-10 w-10"
+            whileHover={{ scale: 1.3, originX: 1, originY: 0.5 }}
+            className="-mr-0.5 ml-0.5 mt-10 h-10 w-10"
             onClick={onPrevclick}
           >
             <svg
@@ -52,16 +55,19 @@ export default function FifthApp() {
             initial="entry"
             animate="center"
             exit="exit"
-            className="-ml-3 -mt-20 flex h-[20rem] w-full items-start justify-around rounded-xl shadow-2xl "
+            className="-ml-2 -mt-20 flex h-[20rem] w-[97%] items-start justify-around rounded-xl shadow-2xl"
           >
             {index === 1 && <Animation1 />}
             {index === 2 && <Animation2 />}
+            {index === 3 && <Animation3 />}
+            {index === 4 && <Animation4 />}
+            {index === 5 && <Animation5 />}
+            {index === 6 && <Animation6 />}
+            {index === 7 && <Animation7 />}
           </motion.div>
           <motion.div
-            whileHover={{
-              scale: 1.3,
-            }}
-            className="-mr-2 mt-10 h-10 w-10"
+            whileHover={{ scale: 1.3, originX: 0, originY: 0.5 }}
+            className="-mr-3 ml-1 mt-10 h-10 w-10"
             onClick={onNextclick}
           >
             <svg
