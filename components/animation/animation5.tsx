@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 function Animation5() {
+  const ref = useRef(null);
   const x = useMotionValue(0);
   const rotateZ = useTransform(x, [-400, 400], [-180, 180]);
   const gradient = useTransform(
@@ -13,11 +15,12 @@ function Animation5() {
       "linear-gradient(135deg,rgb(238,0,153),rgb(221,0,238))",
     ]
   );
-  const { scrollY, scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 2]);
+  const { scrollYProgress } = useScroll({ container: ref });
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
   return (
     <Wrapper
-      style={{ background: gradient, scaleX: scrollYProgress }}
+      ref={ref}
+      style={{ background: gradient }}
       className="overflow-y-scroll rounded-xl"
     >
       <span className="mt-10 flex w-full justify-center">Scroll Me</span>
