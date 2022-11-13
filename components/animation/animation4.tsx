@@ -1,46 +1,40 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import * as React from "react";
 import { Refresh } from "../refresh";
+import { useState } from "react";
 
 function Animation4() {
   const [count, setCount] = useState(0);
   return (
     <Wrapper
       key={count}
-      className="h-full w-[100%] flex-col rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500"
+      className="flex-col rounded-xl bg-gradient-to-r from-[#B9FFF8] via-[#00FFD1] to-[#C3FF99]"
     >
-      <Box
-        variants={boxVariants}
-        initial="start"
-        animate="end"
-        className="mt-6"
+      {" "}
+      <Svg
+        focusable="false"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
       >
-        <Circle className="bg-white" variants={cicleVariants} />
-        <Circle className="bg-white" variants={cicleVariants} />
-        <Circle className="bg-white" variants={cicleVariants} />
-        <Circle className="bg-white" variants={cicleVariants} />
-      </Box>
-      <div className="mt-6 flex h-6 w-6 cursor-pointer items-center justify-center border border-red-200 text-white shadow-lg">
+        <motion.path
+          variants={svg}
+          initial="start"
+          animate="end"
+          transition={{
+            default: { duration: 5 },
+            fill: { duration: 1, delay: 3 },
+          }}
+          d="M224 373.12c-25.24-31.67-40.08-59.43-45-83.18-22.55-88 112.61-88 90.06 0-5.45 24.25-20.29 52-45 83.18zm138.15 73.23c-42.06 18.31-83.67-10.88-119.3-50.47 103.9-130.07 46.11-200-18.85-200-54.92 0-85.16 46.51-73.28 100.5 6.93 29.19 25.23 62.39 54.43 99.5-32.53 36.05-60.55 52.69-85.15 54.92-50 7.43-89.11-41.06-71.3-91.09 15.1-39.16 111.72-231.18 115.87-241.56 15.75-30.07 25.56-57.4 59.38-57.4 32.34 0 43.4 25.94 60.37 59.87 36 70.62 89.35 177.48 114.84 239.09 13.17 33.07-1.37 71.29-37.01 86.64zm47-136.12C280.27 35.93 273.13 32 224 32c-45.52 0-64.87 31.67-84.66 72.79C33.18 317.1 22.89 347.19 22 349.81-3.22 419.14 48.74 480 111.63 480c21.71 0 60.61-6.06 112.37-62.4 58.68 63.78 101.26 62.4 112.37 62.4 62.89.05 114.85-60.86 89.61-130.19.02-3.89-16.82-38.9-16.82-39.58z"
+        ></motion.path>{" "}
+      </Svg>
+      <div className="mt-5 flex h-6 w-6 cursor-pointer items-center justify-center border border-green-400 text-white shadow-lg">
         <Refresh onClick={() => setCount(count + 1)} />
       </div>
     </Wrapper>
   );
 }
 
-const cicleVariants = {
-  start: {
-    opacity: 0,
-    y: 10,
-  },
-  end: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   height: 100%;
   width: 100%;
   display: flex;
@@ -48,39 +42,20 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Box = styled(motion.div)`
+const Svg = styled.svg`
   width: 200px;
   height: 200px;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-radius: 15px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+  path {
+    stroke: white;
+    stroke-width: 2;
+  }
 `;
 
-const Circle = styled(motion.div)`
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
-  place-self: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
-`;
-
-const boxVariants = {
-  start: {
-    opacity: 0,
-    scale: 0.5,
-  },
+const svg = {
+  start: { pathLength: 0, fill: "rgba(255, 255, 255, 0)" },
   end: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      duration: 0.5,
-      bounce: 0.5,
-      delayChildren: 0.5,
-      staggerChildren: 0.2,
-    },
+    fill: "rgba(255, 255, 255, 1)",
+    pathLength: 1,
   },
 };
 
