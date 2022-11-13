@@ -39,7 +39,7 @@ const CloneCoding: NextPage = () => {
           </Link>
         </div>
         {/*  */}
-        <div className="grid grid-flow-row gap-4 sm:mx-20 md:mx-0 md:ml-6 md:grid-cols-2 xl:mx-32 xl:space-x-16 xl:space-y-10">
+        <div className="grid grid-flow-row gap-4 sm:mx-20 md:mx-0 md:ml-6 md:grid-cols-2 xl:mx-32 xl:grid-rows-3 xl:space-x-16 xl:space-y-10 ">
           <FirstApp />
           {/*  */}
           <SecondApp />

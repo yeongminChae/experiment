@@ -25,7 +25,7 @@ export default function FifthApp() {
     direction: back,
   };
   return (
-    <div className="mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl lg:bg-red-200 xl:bg-violet-600 ">
+    <div className="mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:ml-40 md:w-[60vw] xl:absolute xl:bottom-40 xl:left-72 xl:w-[45vw] ">
       <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
         Yeongmin&apos;s Collection
       </div>
