@@ -29,9 +29,14 @@ function Animation5() {
           style={{ x, rotateZ, scale }}
           drag="x"
           dragSnapToOrigin
+          dragConstraints={ref}
+          dragElastic={0.5}
           className="mb-16 flex items-center justify-center"
+          variants={boxVariants}
+          whileHover="hover"
+          whileTap="click"
         >
-          <span className="text-xs ">Click Me</span>
+          <span className="text-xs ">Click And Roll Me</span>
         </Box>
       </div>
     </Wrapper>
@@ -50,5 +55,10 @@ const Box = styled(motion.div)`
   border-radius: 15px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
+
+const boxVariants = {
+  hover: { scale: 1.5, rotate: 90 },
+  click: { scale: 1, borderRadius: "100px" },
+};
 
 export default Animation5;
