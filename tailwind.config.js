@@ -17,7 +17,7 @@ module.exports = {
       },
     },
   },
-  darkMode: "media", // DEFAULT depends on my browser's setting
-  // darkMode: "class", // depends on my preference
+  // darkMode: "media", // DEFAULT depends on my browser's setting
+  darkMode: "class", // depends on my preference
   plugins: [require("@tailwindcss/forms")],
 };
