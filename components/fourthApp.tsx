@@ -4,17 +4,23 @@ import { animate, motion } from "framer-motion";
 import KoreaFlag from "./koreaFlag";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
+import ForthAppModal from "./forthAppModal";
 
 const FourthApp: NextPage = () => {
   const router = useRouter();
+  // const onBtnClick = () => {
+  //   router.push("/cloneCoding/koreanLanguage", undefined, { scroll: false });
+  // };
   const onBtnClick = () => {
-    router.push("/cloneCoding/koreanLanguage", undefined, { scroll: false });
+    router.push(`?appName=ForthApp`, `/cloneCoding/forthApp/ForthApp`, {
+      scroll: false,
+    });
   };
   return (
     <div
       className={cls(
         "mb-[4.5rem] h-[30rem] w-full md:w-11/12 xl:w-10/12",
-        router.asPath !== "/cloneCoding" ? "-z-10" : ""
+        router.asPath !== "/cloneCoding/forthApp" ? "" : "-z-10"
       )}
     >
       <div className="ml-0 h-[25rem] w-full rounded-t-xl bg-[#66BFBF] ">
@@ -60,7 +66,10 @@ const FourthApp: NextPage = () => {
                   Let&apos;s learn Korean now!
                 </span>
               </div>
-              <div className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-48 md:ml-[3.4rem] md:mt-1 md:w-14 xl:ml-24">
+              <motion.div
+                layoutId="ForthApp"
+                className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-48 md:ml-[3.4rem] md:mt-1 md:w-14 xl:ml-24"
+              >
                 <motion.button
                   onClick={onBtnClick}
                   whileHover={{
@@ -74,8 +83,9 @@ const FourthApp: NextPage = () => {
                 <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
                   앱 내 구입
                 </span>
-              </div>
+              </motion.div>
             </div>
+            <ForthAppModal />
           </div>
         </div>
       </div>

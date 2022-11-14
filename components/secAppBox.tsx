@@ -1,6 +1,8 @@
 import { animate, motion } from "framer-motion";
-import { ReactNode, useState } from "react";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect, useState } from "react";
 import CloneList from "./cloneList";
+import SecAppModal from "./secAppModal";
 
 interface ISecAppBox {
   bgColor?: string;
@@ -15,6 +17,15 @@ export default function SecAppBox({
   name,
   descript,
 }: ISecAppBox) {
+  const router = useRouter();
+  const onIconClick = () => {
+    router.push(`?appName=${name}`, `/cloneCoding/secApps/${name}`, {
+      scroll: false,
+    });
+  };
+  useEffect(() => {
+    console.log(name);
+  }, []);
   return (
     <div className="mx-5 my-2 flex items-center justify-end">
       <motion.div
@@ -29,6 +40,7 @@ export default function SecAppBox({
         style={{
           backgroundColor: bgColor,
         }}
+        onClick={onIconClick}
       >
         {children}
       </motion.div>

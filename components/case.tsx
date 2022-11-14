@@ -88,7 +88,8 @@ const Home = () => {
       }}
       className="text-white "
     >
-      This is Red.
+      Red <br />
+      The Color of Passion ❤️‍🔥
     </div>
   );
 };
@@ -101,7 +102,8 @@ const Case1 = () => {
       }}
       className="text-white"
     >
-      This is Orange.
+      Orange. <br />
+      The Color of Postivity 😇
     </div>
   );
 };
@@ -114,7 +116,8 @@ const Case2 = () => {
       }}
       className="text-white"
     >
-      This is Half Orange.
+      light Orange <br />
+      The Color of Cheerfulness 😄
     </div>
   );
 };
@@ -127,7 +130,8 @@ const Case3 = () => {
       }}
       className="text-black"
     >
-      This is Yellow.
+      Yellow. <br />
+      The Color of Happiness 💖
     </div>
   );
 };

@@ -2,17 +2,24 @@ import { NextPage } from "next";
 import { animate, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
+import ThirAppModal from "./thirdAppModal";
+import ThirdAppModal from "./thirdAppModal";
 
 const ThirddApp: NextPage = () => {
   const router = useRouter();
+  // const onBtnClick = () => {
+  //   router.push("/cloneCoding/slider", undefined, { scroll: false });
+  // };
   const onBtnClick = () => {
-    router.push("/cloneCoding/slider", undefined, { scroll: false });
+    router.push(`?appName=ThirdApp`, `/cloneCoding/thirdApp/ThirdApp`, {
+      scroll: false,
+    });
   };
   return (
     <div
       className={cls(
         "mb-[4.5rem] h-[30rem] w-full md:w-11/12 xl:w-10/12",
-        router.asPath !== "/cloneCoding" ? "-z-10" : ""
+        router.asPath !== "/cloneCoding/thirdApp" ? "" : "-z-10"
       )}
     >
       <div className="ml-0 h-[25rem] w-full rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D] xl:-mx-16 ">
@@ -96,7 +103,10 @@ const ThirddApp: NextPage = () => {
                   What is the Today&apos;s price
                 </span>
               </div>
-              <div className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-44 md:ml-20 xl:ml-[7.5rem] ">
+              <motion.div
+                layoutId="ThirdApp"
+                className="ml-32 mt-4 flex flex-col items-center justify-center sm:ml-44 md:ml-20 xl:ml-[7.5rem] "
+              >
                 <motion.button
                   onClick={onBtnClick}
                   whileHover={{
@@ -110,9 +120,10 @@ const ThirddApp: NextPage = () => {
                 <span className="mt-1 w-16 text-center text-[0.3rem] text-[#F5F5F5] opacity-70">
                   앱 내 구입
                 </span>
-              </div>
+              </motion.div>
             </div>
           </div>
+          <ThirdAppModal />
         </div>
       </div>
     </div>

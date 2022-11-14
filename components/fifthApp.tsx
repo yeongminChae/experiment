@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { cls } from "../libs/client/utils";
 import Animation1 from "./animation/animation1";
 import Animation2 from "./animation/animation2";
 import Animation3 from "./animation/animation3";
@@ -9,6 +11,7 @@ import Animation6 from "./animation/animation6";
 import Animation7 from "./animation/animation7";
 
 export default function FifthApp() {
+  const router = useRouter();
   const [index, setIndex] = useState(1);
   const [back, setBack] = useState(false);
   let ran1 = Math.floor(Math.random() * 5 + 5);
@@ -25,7 +28,12 @@ export default function FifthApp() {
     direction: back,
   };
   return (
-    <div className="mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:ml-40 md:w-[60vw] xl:absolute xl:bottom-40 xl:left-72 xl:w-[45vw] ">
+    <div
+      className={cls(
+        "mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:ml-40 md:w-[60vw] xl:absolute xl:bottom-40 xl:left-72 xl:w-[45vw] ",
+        router.asPath !== "/cloneCoding/forthApp" ? "" : "-z-10"
+      )}
+    >
       <div className="ml-5 pt-3 text-slate-400 opacity-60 ">
         Yeongmin&apos;s Collection
       </div>

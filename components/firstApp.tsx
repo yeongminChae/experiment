@@ -1,12 +1,18 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { cls } from "../libs/client/utils";
 import FirstAppBox from "./firstAppBox";
 import FirstAppModal from "./firstAppModal";
 import Thumbnail from "./thumbnail";
 
 export default function FirstApp() {
+  const router = useRouter();
   return (
-    <div className="mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl md:w-11/12 xl:mt-10 xl:w-10/12 ">
+    <div
+      className={cls(
+        "mb-[4.5rem] mt-2 h-[30rem] w-full rounded-xl shadow-xl md:w-11/12 xl:mt-10 xl:w-10/12 ",
+        router.asPath !== "/cloneCoding/firstApps" ? "" : "-z-10"
+      )}
+    >
       <div className="h-[25rem] w-full rounded-t-xl bg-[#464646]">
         <div className="ml-5 pt-3 text-white opacity-60 ">
           Editor&apos;s Choices,{" "}

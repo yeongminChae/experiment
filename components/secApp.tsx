@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
 import SecAppBox from "./secAppBox";
+import SecAppModal from "./secAppModal";
 
 const SecondApp: NextPage = () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const SecondApp: NextPage = () => {
     <div
       className={cls(
         "mb-[4.5rem] ml-0 h-[28rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:mt-2 md:h-[30rem] md:w-11/12 xl:w-10/12 xl:pb-10",
-        router.asPath !== "/cloneCoding" ? "-z-10" : ""
+        router.asPath !== "/cloneCoding/secApps" ? "" : "-z-10"
       )}
     >
       <div className=" ml-5 pt-3 text-slate-400 opacity-60 ">
@@ -20,7 +21,7 @@ const SecondApp: NextPage = () => {
       </div>
       <div className="mt-4 flex flex-col items-center justify-center ">
         <SecAppBox
-          name="당근마켓"
+          name="Carrot"
           descript="당신 근처의 동네 커뮤니티 생활"
           bgColor="#FFE4C0"
         >
@@ -50,7 +51,7 @@ const SecondApp: NextPage = () => {
           </svg>
         </SecAppBox>
         {/*  */}
-        <SecAppBox name="Twitter " descript="모두와 함께 대화를 나눠보세요">
+        <SecAppBox name="Twitter" descript="모두와 함께 대화를 나눠보세요">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -72,6 +73,7 @@ const SecondApp: NextPage = () => {
           </svg>
         </SecAppBox>
       </div>
+      <SecAppModal />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-export default function FirstAppModal() {
+export default function SecAppModal() {
   const router = useRouter();
   const { scrollY } = useScroll();
   const currentLoca = router.asPath.split("/");
@@ -12,8 +12,8 @@ export default function FirstAppModal() {
   const scrollYIndex = scrollY.get();
   return (
     <AnimatePresence onExitComplete={toggleLeaving}>
-      {router.asPath === `/cloneCoding/firstApps/${currentLoca[3]}` && (
-        <div className="absolute z-10">
+      {router.asPath === `/cloneCoding/secApps/${currentLoca[3]}` && (
+        <div className="absolute z-20">
           <Overlay
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -32,8 +32,11 @@ export default function FirstAppModal() {
               }}
             >
               <>
-                <BigCover className="h-[70vh] w-full bg-cover bg-[center_center] ">
-                  <button onClick={toggleLeaving} className="text-white">
+                <BigCover className="z-10 h-[70vh] w-full bg-cover bg-[center_center]">
+                  <button
+                    onClick={toggleLeaving}
+                    className="cursor-pointer text-white"
+                  >
                     X
                   </button>
                 </BigCover>

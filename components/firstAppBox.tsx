@@ -28,7 +28,7 @@ export default function FirstAppBox({
       setIsHover((prev) => !prev);
     }
   };
-  const onBoxClick = (event: any) => {
+  const onBoxClick = () => {
     router.push(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`, {
       scroll: false,
     });
@@ -86,5 +86,3 @@ const appNameMotion = {
     opacity: 1,
   },
 };
-
-// sourcetree git check

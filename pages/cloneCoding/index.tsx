@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Moment, { now } from "moment";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Me from "./image/me.png";
 import Image from "next/image";
 import FirstApp from "../../components/firstApp";
