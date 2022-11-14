@@ -29,9 +29,9 @@ export default function Ani2Box() {
   const { x, y } = useFollowPointer(ref);
 
   return (
-    <div ref={ref} className="h-full w-full rounded-xl bg-black  ">
+    <div ref={ref} className="h-full w-full rounded-xl bg-black">
       <motion.div
-        className="absolute -bottom-[50rem] "
+        className="absolute -bottom-[120rem] md:-bottom-[50rem] xl:bottom-[15rem] xl:-left-[22.5rem] "
         style={{
           width: "50px",
           height: "50px",
