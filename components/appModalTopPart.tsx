@@ -30,7 +30,7 @@ export default function AppModalTopPart() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="black"
-          stroke-opacity="0.3"
+          strokeOpacity="0.3"
           className="w-5` mr-0.5 h-5"
         >
           <path

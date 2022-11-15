@@ -10,7 +10,7 @@ const ThirddApp: NextPage = () => {
   //   router.push("/cloneCoding/slider", undefined, { scroll: false });
   // };
   const onBtnClick = () => {
-    router.push(`?appName=ThirdApp`, `/cloneCoding/thirdApp/ThirdApp`, {
+    router.push(`?appName=CoinsTracker`, `/cloneCoding/thirdApp/CoinsTracker`, {
       scroll: false,
     });
   };
@@ -18,7 +18,7 @@ const ThirddApp: NextPage = () => {
     <div
       className={cls(
         "mb-[4.5rem] h-[30rem] w-full md:w-11/12 xl:w-10/12",
-        router.asPath !== "/cloneCoding/thirdApp" ? "" : "-z-10"
+        router.asPath !== "/cloneCoding/CoinsTracker" ? "" : "-z-10"
       )}
     >
       <div className="ml-0 h-[25rem] w-full rounded-t-xl bg-gradient-to-b from-orange-300 via-[#faab79] to-[#FF731D] xl:-mx-16 ">
