@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
+import AppModals from "./appModals";
 import FirstAppBox from "./firstAppBox";
-import FirstAppModal from "./firstAppModal";
 import Thumbnail from "./thumbnail";
 
 export default function FirstApp() {
@@ -71,7 +71,7 @@ export default function FirstApp() {
           </svg>
         </FirstAppBox>
       </div>
-      <FirstAppModal />
+      <AppModals appIndex="firstApps" />
     </div>
   );
 }

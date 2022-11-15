@@ -4,7 +4,7 @@ import { animate, motion } from "framer-motion";
 import KoreaFlag from "./koreaFlag";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
-import ForthAppModal from "./forthAppModal";
+import AppModals from "./appModals";
 
 const FourthApp: NextPage = () => {
   const router = useRouter();
@@ -85,7 +85,9 @@ const FourthApp: NextPage = () => {
                 </span>
               </motion.div>
             </div>
-            <ForthAppModal />
+            <div className="-ml-[28rem] ">
+              <AppModals appIndex="forthApp" />
+            </div>
           </div>
         </div>
       </div>

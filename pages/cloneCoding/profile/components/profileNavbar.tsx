@@ -14,7 +14,7 @@ const ProfileNavbar = ({ isDark }: IDark) => {
         }}
         className="flex h-8 w-[90vw] items-center justify-center rounded-md bg-slate-400/25 dark:text-white sm:ml-[0.4rem] sm:w-[63vw] lg:ml-10 lg:w-[59vw] xl:ml-1 xl:w-[37.3rem] "
       >
-        Edit Profile
+        Look it's Glowing ✨
       </motion.div>
       <motion.div
         whileHover={{

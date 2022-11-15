@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
+import AppModals from "./appModals";
 import SecAppBox from "./secAppBox";
-import SecAppModal from "./secAppModal";
 
 const SecondApp: NextPage = () => {
   const router = useRouter();
@@ -73,7 +73,7 @@ const SecondApp: NextPage = () => {
           </svg>
         </SecAppBox>
       </div>
-      <SecAppModal />
+      <AppModals appIndex="secApps" />
     </div>
   );
 };

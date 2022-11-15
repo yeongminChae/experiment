@@ -2,7 +2,6 @@ import { animate, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useState } from "react";
 import CloneList from "./cloneList";
-import SecAppModal from "./secAppModal";
 
 interface ISecAppBox {
   bgColor?: string;
@@ -23,9 +22,6 @@ export default function SecAppBox({
       scroll: false,
     });
   };
-  useEffect(() => {
-    console.log(name);
-  }, []);
   return (
     <div className="mx-5 my-2 flex items-center justify-end">
       <motion.div

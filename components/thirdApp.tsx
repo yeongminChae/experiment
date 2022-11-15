@@ -2,8 +2,7 @@ import { NextPage } from "next";
 import { animate, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
-import ThirAppModal from "./thirdAppModal";
-import ThirdAppModal from "./thirdAppModal";
+import AppModals from "./appModals";
 
 const ThirddApp: NextPage = () => {
   const router = useRouter();
@@ -123,7 +122,7 @@ const ThirddApp: NextPage = () => {
               </motion.div>
             </div>
           </div>
-          <ThirdAppModal />
+          <AppModals appIndex="thirdApp" />
         </div>
       </div>
     </div>
