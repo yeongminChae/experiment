@@ -72,7 +72,6 @@ const ProfileBottom = () => {
           alt="profile"
           width={30}
           height={30}
-          placeholder="blur"
           className="absolute rounded-full object-fill"
         />
       </motion.div>

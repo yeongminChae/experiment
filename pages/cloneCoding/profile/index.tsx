@@ -13,18 +13,17 @@ import ProfileTopPart from "./components/profileTopPart";
 
 const Profile: NextPage = () => {
   const { reset } = useForm();
+  const currentTheme = LocalStorage.getItem("theme");
   const [tab, setTab] = useState<"menu" | "bio">("menu");
-  const [isDarkClicked, setIsDarkClicked] = useState(false);
+  const [isDarkClicked, setIsDarkClicked] = useState(currentTheme);
   const [mounted, setMounted] = useState<boolean>(false);
   const toggleDarkAtom = () => {
-    if (isDarkClicked === false) {
-      setIsDarkClicked(true);
+    if (isDarkClicked === "light") {
+      setIsDarkClicked("dark");
       LocalStorage.setItem("theme", "dark");
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else if (isDarkClicked === true) {
-      setIsDarkClicked(false);
+    } else if (isDarkClicked === "dark") {
+      setIsDarkClicked("light");
       LocalStorage.setItem("theme", "light");
-      document.documentElement.setAttribute("data-theme", "light");
     }
   };
   const onMenuClick = () => {
@@ -40,7 +39,12 @@ const Profile: NextPage = () => {
   }, []);
   return (
     mounted && (
-      <div className={cls("w-full", isDarkClicked === true ? "dark" : "")}>
+      <div
+        className={cls(
+          "w-full",
+          LocalStorage.getItem("theme") === "dark" ? "dark" : ""
+        )}
+      >
         <div className="h-[47rem] w-full pt-[0.01rem] pl-3 dark:bg-black sm:h-[50rem] md:h-[60rem] ">
           <div className="mt-2 ml-3 mr-3 flex items-center justify-between sm:ml-1 sm:mr-0 sm:justify-around xl:mr-52 xl:ml-40  ">
             <div className="flex items-center justify-center">
@@ -68,7 +72,7 @@ const Profile: NextPage = () => {
                 onClick={toggleDarkAtom}
                 className="flex h-7 w-7 cursor-pointer items-center justify-around"
               >
-                {!isDarkClicked ? (
+                {isDarkClicked === "light" ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
