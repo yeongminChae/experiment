@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { cls } from "../../../libs/client/utils";
+import LocalStorage, { cls } from "../../../libs/client/utils";
 import ProfileBio from "./components/profileBio";
 import ProfileBioBar from "./components/profileBioBar";
 import ProfileBottom from "./components/profileBottom";
@@ -17,7 +17,15 @@ const Profile: NextPage = () => {
   const [isDarkClicked, setIsDarkClicked] = useState(false);
   const [mounted, setMounted] = useState<boolean>(false);
   const toggleDarkAtom = () => {
-    setIsDarkClicked((prev) => !prev);
+    if (isDarkClicked === false) {
+      setIsDarkClicked(true);
+      LocalStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else if (isDarkClicked === true) {
+      setIsDarkClicked(false);
+      LocalStorage.setItem("theme", "light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
   };
   const onMenuClick = () => {
     reset();
@@ -33,9 +41,9 @@ const Profile: NextPage = () => {
   return (
     mounted && (
       <div className={cls("w-full", isDarkClicked === true ? "dark" : "")}>
-        <div className="h-[47rem] w-full pt-[0.01rem] pl-3 dark:bg-black ">
-          <div className="mt-2 ml-3 mr-3 flex items-center justify-between ">
-            <div className=" flex items-center justify-center ">
+        <div className="h-[47rem] w-full pt-[0.01rem] pl-3 dark:bg-black sm:h-[50rem] md:h-[60rem] ">
+          <div className="mt-2 ml-3 mr-3 flex items-center justify-between sm:ml-1 sm:mr-0 sm:justify-around xl:mr-52 xl:ml-40  ">
+            <div className="flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -97,7 +105,7 @@ const Profile: NextPage = () => {
           </div>
           <div className="mb-3 mt-6 h-16 w-36 cursor-pointer rounded-full ">
             <ProfileBio />
-            <div className="w-full">
+            <div className="w-full sm:ml-[5.8rem] md:ml-[8rem] lg:ml-[11rem] xl:ml-[22rem] ">
               <span className="-mt-8 ml-1 mr-2 flex text-sm dark:text-white ">
                 채영민
               </span>
@@ -105,14 +113,14 @@ const Profile: NextPage = () => {
                 🎵 Oasis - Champagne Supernova
               </span>
             </div>
-            <div className="mt-2 flex w-[92vw] items-start justify-end ">
+            <div className="mt-2 flex w-[92vw] items-start justify-end sm:justify-center ">
               <ProfileNavbar isDark={false} />
             </div>
             <ProfileCircle isDark={false} />
-            <div className="mt-2 grid h-10 w-[100vw] grid-cols-2 ">
+            <div className="mt-2 grid h-10 w-[100vw] grid-cols-2 sm:ml-[6.8rem] sm:w-[68.8vw] md:ml-[8.8rem] md:w-[40.9rem] lg:ml-[11.8rem] xl:ml-[22.75rem] xl:w-[40rem] ">
               <motion.div
                 className={cls(
-                  "-ml-3 flex h-10 w-full justify-center border-b-2 ",
+                  "-ml-3 flex h-10 w-full justify-center border-b-2  ",
                   tab === "menu"
                     ? "border-gray-400 duration-300 ease-out dark:border-white"
                     : "border-transparent duration-300 ease-in"

@@ -8,7 +8,7 @@ import {
 import { DehydratedState } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { AppProps } from "next/app";
-import { RecoilRoot, useRecoilValue } from "recoil";
+import { ThemeProvider } from "styled-components";
 
 function MyApp({
   Component,
@@ -17,14 +17,12 @@ function MyApp({
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <RecoilRoot>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
-        </Hydrate>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Component {...pageProps} />
+      </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

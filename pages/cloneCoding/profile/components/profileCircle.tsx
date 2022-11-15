@@ -4,7 +4,7 @@ interface IDark {
 
 const ProfileCircle = ({ isDark }: IDark) => {
   return (
-    <div className="mt-3 -ml-2 flex h-auto w-[97vw] items-center justify-around ">
+    <div className="mt-3 -ml-2 flex h-auto w-[97vw] items-center justify-around sm:-ml-0.5 sm:justify-center sm:space-x-16 md:space-x-24 ">
       <div className="h-11 w-11 rounded-full border border-zinc-200 bg-white ring-2 ring-zinc-300 ring-offset-2 dark:border-zinc-700 dark:bg-black ">
         <svg
           xmlns="http://www.w3.org/2000/svg"

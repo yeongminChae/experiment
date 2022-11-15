@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const ProfileBottom = () => {
   return (
-    <div className="sticky bottom-0 -ml-3 flex h-14 w-[31rem] items-center justify-around bg-white dark:bg-black">
+    <div className="sticky bottom-0 -ml-3 flex h-14 w-[31rem] items-center justify-around bg-white dark:bg-black sm:-ml-5 sm:w-[46rem] sm:justify-center sm:space-x-24 md:ml-32 md:w-[41rem] lg:ml-44 xl:ml-[22rem] ">
       <div className="flex flex-col items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
