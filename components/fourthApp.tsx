@@ -8,9 +8,6 @@ import AppModals from "./appModals";
 
 const FourthApp: NextPage = () => {
   const router = useRouter();
-  // const onBtnClick = () => {
-  //   router.push("/cloneCoding/koreanLanguage", undefined, { scroll: false });
-  // };
   const onBtnClick = () => {
     router.push(
       `?appName=KoreanLanguage`,
@@ -91,7 +88,7 @@ const FourthApp: NextPage = () => {
                 </span>
               </motion.div>
             </div>
-            <div className="-ml-[28rem] ">
+            <div className="-ml-[28rem] sm:-ml-[32rem] md:absolute md:left-4 xl:left-28  ">
               <AppModals appIndex="forthApp" />
             </div>
           </div>

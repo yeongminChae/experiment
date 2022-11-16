@@ -30,7 +30,7 @@ export default function FifthApp() {
   return (
     <div
       className={cls(
-        "mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:ml-40 md:w-[60vw] xl:absolute xl:bottom-40 xl:left-72 xl:w-[45vw] ",
+        "mb-20 ml-0 h-[25rem] w-full rounded-xl bg-[#ffffffe7] shadow-2xl md:ml-40 md:w-[60vw] xl:absolute xl:bottom-40 xl:left-80 xl:w-[45vw] ",
         router.asPath !== "/cloneCoding/forthApp" ? "" : "-z-10"
       )}
     >

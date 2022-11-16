@@ -73,7 +73,9 @@ const SecondApp: NextPage = () => {
           </svg>
         </SecAppBox>
       </div>
-      <AppModals appIndex="secApps" />
+      <div className="xl:-ml-[41.5rem] ">
+        <AppModals appIndex="secApps" />
+      </div>
     </div>
   );
 };

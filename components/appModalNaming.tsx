@@ -2,36 +2,24 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import AppModalSvgReader from "./appModalSvgReader";
+import AppModalLink from "./appModalLink";
 
-export default function AppModalNaming() {
+interface IAppTitle {
+  title?: string;
+  descripton?: string;
+}
+
+export default function AppModalNaming({ title }: IAppTitle) {
   const router = useRouter();
   const currentLoca = router.asPath.split("/");
-  const onBoxClick = () => {
-    router.push(
-      `?appName=${currentLoca[3]}`,
-      `/cloneCoding/secApps/${currentLoca[3]}`,
-      {
-        scroll: false,
-      }
-    );
-  };
   return (
-    <NamingPart className="ml-5 mt-5 flex space-x-7">
+    <NamingPart className="ml-5 mt-14 flex space-x-7">
       <AppModalSvgReader />
       <DescriptPart className="flex flex-col">
         <div className="text-3xl">{currentLoca[3]}</div>
         <div className="text-lg font-light  text-black/40 ">Descripton</div>
         <div className="mt-[3.2rem] flex ">
-          <motion.button
-            whileHover={{
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-              backgroundColor: "#1F4690",
-            }}
-            onClick={onBoxClick}
-            className="h-7 w-[4.8rem] rounded-2xl bg-[#1363DF]"
-          >
-            <span className="text-sm font-bold text-white ">받기</span>{" "}
-          </motion.button>
+          <AppModalLink />
           <span className="mt-[0.3rem] w-16 text-center text-[0.3rem] opacity-50">
             앱 내 구입
           </span>

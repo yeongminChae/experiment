@@ -37,38 +37,44 @@ export default function Animation1() {
 
 const bounceTransition1 = {
   y: {
-    duration: 0.4,
-    yoyo: Infinity,
+    duration: 0.45,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
   },
   backgroundColor: {
-    yoyo: Infinity,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
     repeatDelay: 0.8,
   },
 };
 const bounceTransition2 = {
   y: {
-    duration: 0.4,
-    yoyo: Infinity,
+    duration: 0.45,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
-    delay: 0.2,
+    delay: 0.15,
   },
   backgroundColor: {
-    yoyo: Infinity,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
     repeatDelay: 1,
   },
 };
 const bounceTransition3 = {
   y: {
-    duration: 0.4,
-    yoyo: Infinity,
+    duration: 0.45,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
-    delay: 0.4,
+    delay: 0.3,
   },
   backgroundColor: {
-    yoyo: Infinity,
+    repeat: Infinity,
+    repeatType: "reverse",
     ease: "easeOut",
     repeatDelay: 1.2,
   },
