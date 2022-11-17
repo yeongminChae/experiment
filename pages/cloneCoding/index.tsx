@@ -8,11 +8,14 @@ import SecondApp from "../../components/secApp";
 import ThirddApp from "../../components/thirdApp";
 import FourthApp from "../../components/fourthApp";
 import FifthApp from "../../components/fifthApp";
+import { useScroll } from "framer-motion";
 
 const CloneCoding: NextPage = () => {
   const todayIs = Moment().format("MM월 DD일");
   const dateIs = Moment().day();
   const dateList = ["일", "월", "화", "수", "목", "금", "토"];
+  const { scrollY } = useScroll();
+  console.log(scrollY.get());
   return (
     <div className="z-0 grid max-h-[180rem] w-full max-w-full bg-[#ffffffe7] shadow-xl sm:w-full">
       <span className="absolute mx-3 mt-5 flex text-xs opacity-50 xl:ml-14">
