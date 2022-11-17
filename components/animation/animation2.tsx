@@ -22,8 +22,11 @@ function Animation2() {
     setToggleDirection(toggleDirection === 1 ? 1.25 : 1);
   };
   return (
-    <Wrapper className="h-full w-[100%] rounded-xl bg-gradient-to-r from-violet-400 to-fuchsia-500">
-      <Grid>
+    <Wrapper
+      key="wrapper"
+      className="h-full w-[100%] rounded-xl bg-gradient-to-r from-violet-400 to-fuchsia-500"
+    >
+      <Grid key="grid">
         <Box
           onClick={() => setId("1")}
           layoutId="1"
@@ -48,7 +51,7 @@ function Animation2() {
           className="h-[7rem] w-[12rem] bg-white sm:h-[120px] sm:w-[230px]"
         >
           {!clicked ? (
-            <Circle layoutId="circle" style={{ borderRadius: 50 }} />
+            <Circle key="cir1" layoutId="circle" style={{ borderRadius: 50 }} />
           ) : null}
         </Box>
         <Box
@@ -118,6 +121,7 @@ function Animation2() {
         ) : null}
         <br />
         <Button
+          key="btn"
           onClick={onBtnClick}
           onTap={toggleOn}
           animate={{

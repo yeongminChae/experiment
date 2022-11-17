@@ -1,6 +1,5 @@
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import styled from "styled-components";
 import AppModalNaming from "./appModalNaming";
 import AppModalTopFirstPart from "./appModalTopFirstPart";
@@ -18,7 +17,6 @@ export default function AppModals({ appIndex, title }: IModal) {
   const toggleLeaving = () => {
     router.push("/cloneCoding", undefined, { scroll: false });
   };
-  const imgDetector = () => {};
   const scrollYIndex = scrollY.get();
   return (
     <AnimatePresence mode="sync" onExitComplete={toggleLeaving}>
@@ -30,14 +28,18 @@ export default function AppModals({ appIndex, title }: IModal) {
               opacity: 1,
               scaleY: ["100%", "105%", "100%"],
               scaleX: ["100%", "105%", "100%"],
+              transition: {
+                type: "tween",
+                duration: 0.7,
+              },
             }}
             exit={{
-              opacity: 0,
-              x: "-5%",
-            }}
-            transition={{
-              type: "tween",
-              duration: 0.7,
+              opacity: [0.8, 0.4, 0],
+              rotateY: 180,
+              transition: {
+                duration: 1,
+                ease: "easeOut",
+              },
             }}
             className="fixed top-0 -ml-[0.5rem] flex h-full w-[50rem] flex-col items-center justify-center overflow-hidden opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:-ml-[5rem] lg:w-[65rem] xl:-ml-32 xl:w-full "
           >

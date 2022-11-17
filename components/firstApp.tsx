@@ -23,7 +23,18 @@ export default function FirstApp() {
         <Thumbnail />
       </div>
       <div className="my-3 mx-10 flex items-center justify-between bg-[#ffffffe7] ">
-        <FirstAppBox appName="Cart" bgColor="#fed7aa">
+        <FirstAppBox
+          widValue="3.5rem"
+          heiValue="3.5rem"
+          roundVal="1rem"
+          clicked={() =>
+            router.push(`?appName=Cart`, `/cloneCoding/firstApps/Cart`, {
+              scroll: false,
+            })
+          }
+          appName="Cart"
+          bgColor="#fed7aa"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="transparent"
@@ -39,7 +50,18 @@ export default function FirstApp() {
             />
           </svg>
         </FirstAppBox>
-        <FirstAppBox appName="ToDo" bgColor="#fdba74">
+        <FirstAppBox
+          widValue="3.5rem"
+          heiValue="3.5rem"
+          roundVal="1rem"
+          clicked={() =>
+            router.push(`?appName=ToDo`, `/cloneCoding/firstApps/ToDo`, {
+              scroll: false,
+            })
+          }
+          appName="ToDo"
+          bgColor="#fdba74"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -49,7 +71,18 @@ export default function FirstApp() {
             <path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z" />
           </svg>
         </FirstAppBox>
-        <FirstAppBox appName="Paint" bgColor="#fb923c">
+        <FirstAppBox
+          widValue="3.5rem"
+          heiValue="3.5rem"
+          roundVal="1rem"
+          clicked={() =>
+            router.push(`?appName=Paint`, `/cloneCoding/firstApps/Paint`, {
+              scroll: false,
+            })
+          }
+          appName="Paint"
+          bgColor="#fb923c"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -59,7 +92,18 @@ export default function FirstApp() {
             <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zm0-96c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32zM288 96c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zm96 96c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32z" />
           </svg>
         </FirstAppBox>
-        <FirstAppBox appName="Jobs" bgColor="#f97316">
+        <FirstAppBox
+          widValue="3.5rem"
+          heiValue="3.5rem"
+          roundVal="1rem"
+          clicked={() =>
+            router.push(`?appName=Jobs`, `/cloneCoding/firstApps/Jobs`, {
+              scroll: false,
+            })
+          }
+          appName="Jobs"
+          bgColor="#f97316"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"

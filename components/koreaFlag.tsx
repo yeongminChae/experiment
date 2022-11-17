@@ -1,9 +1,18 @@
 interface ISize {
   width: string;
   height: string;
+  fill1: string;
+  fill3: string;
+  fill2: string;
 }
 
-export default function KoreaFlag({ width, height }: ISize) {
+export default function KoreaFlag({
+  width,
+  height,
+  fill1,
+  fill3,
+  fill2,
+}: ISize) {
   return (
     <svg
       version="1.1"
@@ -21,7 +30,7 @@ export default function KoreaFlag({ width, height }: ISize) {
       }}
     >
       <path
-        style={{ fill: "#FFFFFF" }}
+        style={{ fill: fill1 }}
         d="M104.446,350.082H496.62V57.874H50.619v292.209h23.069c4.248,0,7.689,3.442,7.689,7.689h15.38
 C96.756,353.525,100.199,350.082,104.446,350.082z M171.82,304.483c-1.211,0.7-2.532,1.031-3.838,1.031
 c-2.656,0-5.242-1.378-6.666-3.845l-9.099-15.761c-2.124-3.677-0.863-8.381,2.814-10.504c3.676-2.122,8.383-0.864,10.505,2.815
@@ -70,12 +79,12 @@ c-4.248,0-7.69,3.442-7.69,7.689c0,4.248,3.442,7.69,7.69,7.69H504.31c4.248,0,7.69
 C512,45.936,508.558,42.494,504.31,42.494z"
       />
       <path
-        style={{ fill: "#103B9B" }}
+        style={{ fill: fill2 }}
         d="M273.619,273.185c38.161,0,69.207-31.045,69.207-69.207H204.412
 C204.412,242.14,235.459,273.185,273.619,273.185z"
       />
       <path
-        style={{ fill: "#ED1F34" }}
+        style={{ fill: fill3 }}
         d="M342.826,203.978c0-38.161-31.046-69.207-69.207-69.207s-69.207,31.046-69.207,69.207H342.826z"
       />
       <path

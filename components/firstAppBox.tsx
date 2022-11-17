@@ -3,10 +3,13 @@ import { useRouter } from "next/router";
 import React, { ReactNode, useEffect, useState } from "react";
 
 interface IAppBox {
-  appName: string;
-  bgColor: string;
+  appName?: string;
+  bgColor?: string;
   children?: ReactNode;
   clicked?: () => void;
+  widValue: string;
+  heiValue: string;
+  roundVal: string;
 }
 
 export default function FirstAppBox({
@@ -14,6 +17,9 @@ export default function FirstAppBox({
   children,
   bgColor,
   clicked,
+  widValue,
+  heiValue,
+  roundVal,
 }: IAppBox) {
   const router = useRouter();
   const [isHover, setIsHover] = useState(true);
@@ -28,11 +34,6 @@ export default function FirstAppBox({
       setIsHover((prev) => !prev);
     }
   };
-  const onBoxClick = () => {
-    router.push(`?appName=${appName}`, `/cloneCoding/firstApps/${appName}`, {
-      scroll: false,
-    });
-  };
   const handleScroll = () => {
     setScrollYIndex(window.scrollY);
   };
@@ -44,7 +45,7 @@ export default function FirstAppBox({
     <motion.div
       onMouseEnter={enterHover}
       onMouseLeave={leaveHover}
-      onClick={onBoxClick}
+      onClick={clicked}
       layoutId={appName}
       whileHover={{
         boxShadow: "0px 0px 8px rgb(255,255,255) ",
@@ -53,9 +54,12 @@ export default function FirstAppBox({
       transition={{
         duration: 0.6,
       }}
-      className="flex h-14 w-14 flex-col items-center justify-center rounded-2xl shadow-lg"
+      className="flex flex-col items-center justify-center shadow-lg"
       style={{
         backgroundColor: bgColor,
+        width: widValue,
+        height: heiValue,
+        borderRadius: roundVal,
       }}
     >
       {children}

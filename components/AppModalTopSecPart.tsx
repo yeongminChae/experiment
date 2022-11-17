@@ -90,7 +90,7 @@ export default function AppModalTopSecPart() {
         </motion.div>
         <motion.div
           whileHover={{ scaleX: 1.25, scaleY: 1.05 }}
-          className="absolute ml-9 h-[25rem] w-[30%] snap-x sm:ml-11 sm:w-[45%] md:ml-14 lg:ml-16 "
+          className="absolute ml-9 h-[25rem] w-[30%] snap-x sm:ml-14 sm:w-[45%] md:ml-[4.5rem] lg:ml-16 "
         >
           {image && (
             <Image

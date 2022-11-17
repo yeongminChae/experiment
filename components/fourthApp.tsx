@@ -60,7 +60,13 @@ const FourthApp: NextPage = () => {
         <div className="mt-[0.91rem] h-[5rem] w-full rounded-b-xl bg-gradient-to-r from-[#08D9D6] to-[#66BFBF] shadow-xl md:mt-[0.8rem] md:flex md:items-center ">
           <div className="mx-5 flex justify-start md:mr-0 md:ml-5 md:space-x-2 ">
             <div className="my-4 h-12 w-12 rounded-2xl bg-white shadow-md md:h-14 md:w-14 md:p-1 ">
-              <KoreaFlag width="3rem" height="3rem" />
+              <KoreaFlag
+                width="3rem"
+                height="3rem"
+                fill1="#FFFFFF"
+                fill2="#103B9B"
+                fill3="#ED1F34"
+              />
             </div>
             <div className="mx-3 flex items-center justify-start">
               <div className="flex flex-col items-start justify-between md:mr-10">
