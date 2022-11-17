@@ -2,14 +2,6 @@ import { useEffect, useState } from "react";
 import LocalStorage from "../../../../libs/client/utils";
 
 const SelectItem = () => {
-  const [ansHistory, setAnsHistory] = useState([]);
-  const a1 = LocalStorage.getItem("detailDepoloyer");
-  const a2 = JSON.parse(a1);
-  let a3: any[] = [];
-  useEffect(() => {
-    setAnsHistory((ansHistory) => [...ansHistory, a2[0]]);
-  }, []);
-  console.log(ansHistory);
   return (
     <div className="flex h-56 w-full flex-col justify-between rounded-2xl bg-white p-6 shadow-xl sm:h-64 md:w-[29rem] xl:w-[25rem]">
       <span className="text-3xl font-semibold ">Select Item</span>

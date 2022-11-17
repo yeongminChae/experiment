@@ -35,7 +35,7 @@ function Animation2() {
           initial="initial"
           animate="visible"
           exit="leaving"
-          className="bg-white"
+          className="h-[7rem] w-[12rem] bg-white sm:h-[120px] sm:w-[230px]"
         >
           <div className="ml-5 mb-3 flex h-full w-full flex-col items-start justify-end space-y-2 ">
             <div className="h-4 w-[40%] rounded-sm bg-violet-300 opacity-50 " />
@@ -43,12 +43,18 @@ function Animation2() {
             <div className="h-4 w-[60%] rounded-sm bg-violet-300 opacity-50 " />
           </div>
         </Box>
-        <Box layoutId="2" className="bg-white">
+        <Box
+          layoutId="2"
+          className="h-[7rem] w-[12rem] bg-white sm:h-[120px] sm:w-[230px]"
+        >
           {!clicked ? (
             <Circle layoutId="circle" style={{ borderRadius: 50 }} />
           ) : null}
         </Box>
-        <Box layoutId="3" className="bg-white">
+        <Box
+          layoutId="3"
+          className="h-[7rem] w-[12rem] bg-white sm:h-[120px] sm:w-[230px]"
+        >
           {clicked ? (
             <Circle
               layoutId="circle"
@@ -67,7 +73,7 @@ function Animation2() {
           initial="initial"
           animate="visible"
           exit="leaving"
-          className="bg-white"
+          className="h-[7rem] w-[12rem] bg-white sm:h-[120px] sm:w-[230px]"
         >
           <div className="ml-5 mb-3 flex h-full w-full flex-col items-start justify-end space-y-2 ">
             <div className="h-4 w-[40%] rounded-sm bg-violet-300 opacity-50  " />
@@ -150,8 +156,6 @@ const Grid = styled.div`
 
 const Box = styled(motion.div)`
   border-radius: 4px;
-  width: 230px;
-  height: 120px;
   position: relative;
   display: flex;
   align-items: center;

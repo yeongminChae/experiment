@@ -73,7 +73,7 @@ const SecondApp: NextPage = () => {
           </svg>
         </SecAppBox>
       </div>
-      <div className="xl:-ml-[41.5rem] ">
+      <div className="md:-ml-[30rem] xl:-ml-[41.5rem] ">
         <AppModals appIndex="secApps" />
       </div>
     </div>

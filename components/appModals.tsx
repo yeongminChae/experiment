@@ -1,8 +1,10 @@
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import styled from "styled-components";
 import AppModalNaming from "./appModalNaming";
-import AppModalTopPart from "./appModalTopPart";
+import AppModalTopFirstPart from "./appModalTopFirstPart";
+import AppModalTopSecPart from "./AppModalTopSecPart";
 
 interface IModal {
   appIndex: string;
@@ -16,9 +18,10 @@ export default function AppModals({ appIndex, title }: IModal) {
   const toggleLeaving = () => {
     router.push("/cloneCoding", undefined, { scroll: false });
   };
+  const imgDetector = () => {};
   const scrollYIndex = scrollY.get();
   return (
-    <AnimatePresence onExitComplete={toggleLeaving}>
+    <AnimatePresence mode="sync" onExitComplete={toggleLeaving}>
       {router.asPath === `/cloneCoding/${appIndex}/${currentLoca[3]}` && (
         <motion.div layoutId={currentLoca[3]} className="absolute z-10 ">
           <Overlay
@@ -36,7 +39,7 @@ export default function AppModals({ appIndex, title }: IModal) {
               type: "tween",
               duration: 0.7,
             }}
-            className="fixed top-0 -ml-[0.5rem] flex h-full w-[50rem] flex-col items-center justify-center overflow-hidden opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:w-[65rem] xl:-ml-32 xl:w-full "
+            className="fixed top-0 -ml-[0.5rem] flex h-full w-[50rem] flex-col items-center justify-center overflow-hidden opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:-ml-[5rem] lg:w-[65rem] xl:-ml-32 xl:w-full "
           >
             <ContextPart className="fixed top-0 h-full w-full bg-[#F9F9F9] sm:mr-16 sm:w-[35rem] md:-mr-10 md:w-[40rem] lg:-mr-0 ">
               <button
@@ -61,7 +64,18 @@ export default function AppModals({ appIndex, title }: IModal) {
               </button>
               <AppModalNaming title={title} />
               <div className="mt-5 ml-6 border-b-2 border-dotted sm:ml-1" />
-              <AppModalTopPart />
+              {currentLoca[3] === "Twitter" ||
+              currentLoca[3] === "CoinsTracker" ? (
+                <AppModalTopSecPart />
+              ) : (
+                <AppModalTopFirstPart />
+              )}
+              {currentLoca[3] === "Twitter" ||
+              currentLoca[3] === "CoinsTracker" ? (
+                <div className="ml-6 mt-[27rem] border-b-2 border-dotted sm:ml-1" />
+              ) : (
+                <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[16.5rem] xl:mt-[17.5rem] " />
+              )}
             </ContextPart>
           </Overlay>
         </motion.div>

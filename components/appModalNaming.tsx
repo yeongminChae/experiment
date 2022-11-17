@@ -29,7 +29,7 @@ export default function AppModalNaming({ title }: IAppTitle) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="#1363DF"
-            className="ml-28 h-6 w-6 cursor-pointer "
+            className="ml-28 h-6 w-6 cursor-pointer sm:ml-44 md:ml-64 lg:ml-[16.5rem]"
           >
             <path
               strokeLinecap="round"
