@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import React, { ReactNode, useEffect, useState } from "react";
-import axios, { Axios } from "axios";
-import LocalStorage from "../libs/client/utils";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 interface IAppBox {
   appName?: string;
@@ -12,7 +16,7 @@ interface IAppBox {
   widValue: string;
   heiValue: string;
   roundVal: string;
-  setSharedState?: any;
+  setSharedState: Dispatch<SetStateAction<string>>;
 }
 
 export default function FirstAppBox({

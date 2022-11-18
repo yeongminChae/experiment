@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 interface ICloneList {
@@ -24,24 +24,24 @@ export default function CloneList({ name, descript }: ICloneList) {
             {descript}
           </div>
         </div>
-        <motion.div
-          layoutId={name}
-          className="mx-auto mt-3 mr-7 flex w-1/3 flex-col items-center justify-start"
-        >
-          <motion.button
-            whileHover={{
-              boxShadow: "0px 0px 8px rgb(255,255,255) ",
-              backgroundColor: "rgb(148 163 184)",
-            }}
-            onClick={onBoxClick}
-            className="ml-16 h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
-          >
-            <span className="text-sm font-bold text-blue-700 ">받기</span>{" "}
-          </motion.button>
-          <span className="mt-1 ml-16 w-16 text-center text-[0.3rem] opacity-50">
-            앱 내 구입
-          </span>
-        </motion.div>
+        <AnimatePresence>
+          <motion.div className="mx-auto mt-3 mr-7 flex w-1/3 flex-col items-center justify-start">
+            <motion.button
+              whileHover={{
+                boxShadow: "0px 0px 8px rgb(255,255,255) ",
+                backgroundColor: "rgb(148 163 184)",
+              }}
+              key={name}
+              onClick={onBoxClick}
+              className="ml-16 h-8 w-20 rounded-2xl bg-slate-200 opacity-80 "
+            >
+              <span className="text-sm font-bold text-blue-700 ">받기</span>{" "}
+            </motion.button>
+            <span className="mt-1 ml-16 w-16 text-center text-[0.3rem] opacity-50">
+              앱 내 구입
+            </span>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );

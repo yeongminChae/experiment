@@ -34,6 +34,9 @@ export default function FirstApp() {
           }
           appName="Cart"
           bgColor="#fed7aa"
+          setSharedState={() => {
+            return;
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +64,9 @@ export default function FirstApp() {
           }
           appName="ToDo"
           bgColor="#fdba74"
+          setSharedState={() => {
+            return;
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +88,9 @@ export default function FirstApp() {
           }
           appName="Paint"
           bgColor="#fb923c"
+          setSharedState={() => {
+            return;
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +112,9 @@ export default function FirstApp() {
           }
           appName="Jobs"
           bgColor="#f97316"
+          setSharedState={() => {
+            return;
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

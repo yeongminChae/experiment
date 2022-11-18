@@ -1,4 +1,4 @@
-import { animate, motion } from "framer-motion";
+import { animate, AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useState } from "react";
 import CloneList from "./cloneList";
@@ -23,24 +23,28 @@ export default function SecAppBox({
     });
   };
   return (
-    <div className="mx-5 my-2 flex items-center justify-end">
-      <motion.div
-        whileHover={{
-          boxShadow: "box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px ",
-          scale: 1.25,
-        }}
-        transition={{
-          duration: 0.6,
-        }}
-        className="mr-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-transparent shadow-md "
-        style={{
-          backgroundColor: bgColor,
-        }}
-        onClick={onIconClick}
-      >
-        {children}
-      </motion.div>
-      <CloneList name={name} descript={descript} />
-    </div>
+    <>
+      <AnimatePresence>
+        <div className="mx-5 my-2 flex items-center justify-end">
+          <motion.div
+            whileHover={{
+              boxShadow: "box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px ",
+              scale: 1.25,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            className="mr-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-transparent shadow-md "
+            style={{
+              backgroundColor: bgColor,
+            }}
+            onClick={onIconClick}
+          >
+            {children}
+          </motion.div>
+          <CloneList name={name} descript={descript} />
+        </div>
+      </AnimatePresence>
+    </>
   );
 }

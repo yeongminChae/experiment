@@ -124,7 +124,13 @@ export default function () {
       )}
       {currentLoca[3] === "KoreanLanguage" && (
         <div className="flex h-full w-full items-center justify-center rounded-3xl shadow-lg">
-          <KoreaFlag width="5rem" height="5rem" />
+          <KoreaFlag
+            width="5rem"
+            height="5rem"
+            fill1="#FFFFFF"
+            fill2="#103B9B"
+            fill3="#ED1F34"
+          />
         </div>
       )}
     </div>
