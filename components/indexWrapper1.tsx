@@ -1,10 +1,12 @@
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 import { useEffect, useState, SetStateAction } from "react";
 import styled from "styled-components";
 import FirstAppBox from "./firstAppBox";
 import { IToParent } from "./indexExtraWrap";
 
 export default function IndexWrapper1({ setSharedParent }: IToParent) {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [sharedState, setSharedState] = useState<SetStateAction<string>>();
   useEffect(() => {

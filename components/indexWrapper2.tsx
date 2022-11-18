@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 import { useEffect, useState, SetStateAction } from "react";
 import styled from "styled-components";
 import FirstAppBox from "./firstAppBox";
@@ -6,6 +7,7 @@ import { IToParent } from "./indexExtraWrap";
 import KoreaFlag from "./koreaFlag";
 
 export default function IndexWrapper2({ setSharedParent }: IToParent) {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [sharedState, setSharedState] = useState<SetStateAction<string>>();
   useEffect(() => {
@@ -43,6 +45,15 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Twitter"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(
+                    `?appName=Netflix`,
+                    `/cloneCoding/secApps/Netflix`,
+                    {
+                      scroll: false,
+                    }
+                  )
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -63,6 +74,15 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Youtube"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(
+                    `?appName=Netflix`,
+                    `/cloneCoding/secApps/Netflix`,
+                    {
+                      scroll: false,
+                    }
+                  )
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -81,6 +101,15 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="KoreanQuiz"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(
+                    `?appName=KoreanQuiz`,
+                    `/cloneCoding/forthApp/KoreanLanguage`,
+                    {
+                      scroll: false,
+                    }
+                  )
+                }
                 setSharedState={setSharedState}
               >
                 <KoreaFlag
@@ -99,6 +128,11 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Animations"
                 bgColor="#eab308"
+                clicked={() =>
+                  router
+                    .push("/cloneCoding", undefined, { scroll: false })
+                    .then(() => window.scrollTo(2100, 2100))
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -122,6 +156,7 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Profile"
                 bgColor="#eab308"
+                clicked={() => router.push("/cloneCoding/profile")}
                 setSharedState={setSharedState}
               >
                 <svg

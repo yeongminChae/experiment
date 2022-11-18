@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { motion } from "framer-motion";
 
 interface ISlider {

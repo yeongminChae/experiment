@@ -13,16 +13,16 @@ const Home: NextPage = () => {
   const controls = useAnimation();
   const [mounted, setMounted] = useState(false);
   const [sharedParent, setSharedParent] = useState<string>("");
-  const [engrave, setEngrave] = useState("");
+  const [engrave, setEngrave] = useState("...");
   const engraving = async () => {
-    if (sharedParent) {
+    if (sharedParent === undefined) {
+      setEngrave("...");
+    } else if (sharedParent === engrave) {
+      setEngrave("...");
+    } else if (sharedParent !== engrave) {
       setEngrave(sharedParent);
-      controls.stop();
-      await sleep(3500);
-      setEngrave("SOMETHING");
-    } else {
-      setEngrave("SOMETHING");
-      controls.start("engraveVars");
+      await sleep(5000);
+      setEngrave("...");
     }
   };
   useEffect(() => {
@@ -113,14 +113,16 @@ const Home: NextPage = () => {
             <div className="mt-5 ml-10 h-[40rem] w-[40rem] rounded-full bg-teal-900 shadow-2xl">
               <IndexWrapper1 setSharedParent={setSharedParent} />
               <div className="mt-5 flex h-0 flex-col items-center justify-center text-7xl text-white ">
-                <span className="justify-center shadow-xl">TO</span>
                 <motion.span
                   variants={engraveVars}
                   initial={{ opacity: 0 }}
                   animate="animate"
                   exit="exit"
-                  className="mt-10 shadow-xl ease-out"
+                  className="justify-center shadow-xl"
                 >
+                  TIME FOR{" "}
+                </motion.span>
+                <motion.span className="mt-10 shadow-xl ease-out">
                   {engrave}{" "}
                 </motion.span>
               </div>
@@ -140,7 +142,7 @@ const engraveVars = {
     transition: {
       duration: 3,
       repeat: Infinity,
-      repeatDelay: 6,
+      repeatDelay: 10,
     },
   },
   exit: {
