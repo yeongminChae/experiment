@@ -5,7 +5,7 @@ import AppModalNaming from "../../../components/appModalNaming";
 import { IModal } from "../../../components/appModals";
 import AppModalTopFirstPart from "../../../components/appModalTopFirstPart";
 
-export default function ToDo({ title }: IModal) {
+export default function Cart({ title }: IModal) {
   const router = useRouter();
   const currentLoca = router.asPath.split("/");
   const toggleLeaving = () => {
@@ -16,7 +16,7 @@ export default function ToDo({ title }: IModal) {
   };
   return (
     <AnimatePresence>
-      {router.asPath === `/cloneCoding/firstApps/ToDo` && (
+      {router.asPath === `/cloneCoding/firstApps/Cart` && (
         <motion.div layoutId={currentLoca[3]} className="absolute z-10">
           <ContextPart className="fixed top-0 h-full w-full bg-[#F9F9F9] shadow-xl sm:ml-20 sm:w-[35rem] md:ml-40 md:w-[40rem] lg:ml-48 xl:ml-[23rem] ">
             <div className="mb-16 ml-3">
