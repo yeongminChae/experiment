@@ -1,4 +1,7 @@
+import { useRouter } from "next/router";
+
 const ProfileTopPart = () => {
+  const router = useRouter();
   return (
     <>
       <div className="ml-4 flex h-7 w-7 cursor-pointer items-center justify-around">
@@ -8,6 +11,7 @@ const ProfileTopPart = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
+          onClick={() => router.push("/cloneCoding/firstApps/Paint")}
           className="h-6 w-6 dark:text-white "
         >
           <path

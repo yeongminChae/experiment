@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Me from "../../image/me.png";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const ProfileBottom = () => {
+  const router = useRouter();
   return (
     <div className="sticky bottom-0 -ml-3 flex h-14 w-[31rem] items-center justify-around bg-white dark:bg-black sm:-ml-5 sm:w-[46rem] sm:justify-center sm:space-x-24 md:ml-32 md:w-[41rem] lg:ml-44 xl:ml-[22rem] ">
       <div className="flex flex-col items-center">
@@ -13,6 +15,7 @@ const ProfileBottom = () => {
           strokeWidth={1.5}
           stroke="currentColor"
           className="h-6 w-6 dark:text-white"
+          onClick={() => router.push("/cloneCoding")}
         >
           <path
             strokeLinecap="round"
@@ -29,6 +32,7 @@ const ProfileBottom = () => {
         strokeWidth={1.5}
         stroke="currentColor"
         className="h-6 w-6 dark:text-white"
+        onClick={() => router.push("/").then(() => window.scrollTo(2100, 2100))}
       >
         <path
           strokeLinecap="round"
@@ -36,7 +40,6 @@ const ProfileBottom = () => {
           d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
         />
       </svg>
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -44,6 +47,11 @@ const ProfileBottom = () => {
         strokeWidth={1.5}
         stroke="currentColor"
         className="h-6 w-6 dark:text-white"
+        onClick={() =>
+          router
+            .push("/cloneCoding", undefined, { scroll: false })
+            .then(() => window.scrollTo(2100, 2100))
+        }
       >
         <path
           strokeLinecap="round"
@@ -58,6 +66,7 @@ const ProfileBottom = () => {
         strokeWidth={1.5}
         stroke="currentColor"
         className="h-6 w-6 dark:text-white"
+        onClick={() => router.push("/cloneCoding/firstApps/Cart")}
       >
         <path
           strokeLinecap="round"
@@ -66,7 +75,7 @@ const ProfileBottom = () => {
         />
         <div className="h-[80px] w-[80px] rounded-full bg-[rgb(0,165,255)] shadow-xl" />
       </svg>
-      <motion.div className="h-7 w-7 rounded-full border border-black dark:border-white">
+      <div className="h-7 w-7 rounded-full border border-black dark:border-white">
         <Image
           src={Me}
           alt="profile"
@@ -74,7 +83,7 @@ const ProfileBottom = () => {
           height={30}
           className="absolute rounded-full object-fill"
         />
-      </motion.div>
+      </div>
     </div>
   );
 };
