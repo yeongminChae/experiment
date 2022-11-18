@@ -22,9 +22,10 @@ export default function AppModalTopSecPart() {
   const [image, setImage] = useState<StaticImageData>();
   const [key, setKey] = useState("");
   const currentLoca = router.asPath.split("/");
+  const total5 = 5;
   const onNextclick = () => {
     setBack(false);
-    setIndex((prev) => (prev === 5 ? 5 : prev + 1));
+    setIndex((prev) => (prev === total5 ? total5 : prev + 1));
   };
   const onPrevclick = () => {
     setBack(true);
@@ -32,6 +33,13 @@ export default function AppModalTopSecPart() {
   };
   const customValue = {
     direction: back,
+  };
+  const currentNum = () => {
+    return (
+      <div>
+        {index} / {total5}
+      </div>
+    );
   };
   useEffect(() => {
     if (index === 1) {
@@ -90,7 +98,7 @@ export default function AppModalTopSecPart() {
         </motion.div>
         <motion.div
           whileHover={{ scaleX: 1.25, scaleY: 1.05 }}
-          className="absolute ml-9 h-[25rem] w-[30%] snap-x sm:ml-14 sm:w-[45%] md:ml-[4.5rem] lg:ml-16 "
+          className="absolute ml-9 h-[25rem] w-[30%] snap-x sm:ml-14 sm:w-[45%] md:ml-[4.5rem] lg:ml-16 xl:ml-20 "
         >
           {image && (
             <Image
@@ -120,6 +128,7 @@ export default function AppModalTopSecPart() {
           </svg>
         </motion.div>
       </AnimatePresence>
+      <div className="absolute bottom-[1.1rem] ml-[13rem] ">{currentNum()}</div>
     </TopPart>
   );
 }

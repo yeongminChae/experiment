@@ -6,7 +6,7 @@ import AppModalTopFirstPart from "./appModalTopFirstPart";
 import AppModalTopSecPart from "./AppModalTopSecPart";
 
 export interface IModal {
-  appIndex: string;
+  appIndex?: string;
   title?: string;
 }
 
@@ -76,7 +76,7 @@ export default function AppModals({ appIndex, title }: IModal) {
               currentLoca[3] === "CoinsTracker" ? (
                 <div className="ml-6 mt-[27rem] border-b-2 border-dotted sm:ml-1" />
               ) : (
-                <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[16.5rem] xl:mt-[17.5rem] " />
+                <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[16.5rem] xl:mt-[19.5rem] " />
               )}
             </ContextPart>
           </Overlay>

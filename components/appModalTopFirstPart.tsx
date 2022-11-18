@@ -38,9 +38,18 @@ export default function AppModalTopFirstPart() {
   const [image, setImage] = useState<StaticImageData>();
   const [key, setKey] = useState("");
   const currentLoca = router.asPath.split("/");
+  const total3 = 3;
+  const total4 = 4;
+  const total5 = 5;
   const onNextclick = () => {
     setBack(false);
-    setIndex((prev) => (prev === 5 ? 5 : prev + 1));
+    if (currentLoca[3] === "Jobs") {
+      setIndex((prev) => (prev === total3 ? total3 : prev + 1));
+    } else if (currentLoca[3] === "ToDo") {
+      setIndex((prev) => (prev === total4 ? total4 : prev + 1));
+    } else {
+      setIndex((prev) => (prev === total5 ? total5 : prev + 1));
+    }
   };
   const onPrevclick = () => {
     setBack(true);
@@ -48,6 +57,27 @@ export default function AppModalTopFirstPart() {
   };
   const customValue = {
     direction: back,
+  };
+  const currentNum = () => {
+    if (currentLoca[3] === "Jobs") {
+      return (
+        <div>
+          {index} / {total3}
+        </div>
+      );
+    } else if (currentLoca[3] === "ToDo") {
+      return (
+        <div>
+          {index} / {total4}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {index} / {total5}
+        </div>
+      );
+    }
   };
   useEffect(() => {
     if (index === 1) {
@@ -170,6 +200,7 @@ export default function AppModalTopFirstPart() {
           </svg>
         </motion.div>
       </AnimatePresence>
+      <div className="absolute bottom-[9.5rem] ml-[17rem] ">{currentNum()}</div>
     </TopPart>
   );
 }
