@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import React, { ReactNode, useEffect, useState } from "react";
+import axios, { Axios } from "axios";
+import LocalStorage from "../libs/client/utils";
 
 interface IAppBox {
   appName?: string;
@@ -10,6 +12,7 @@ interface IAppBox {
   widValue: string;
   heiValue: string;
   roundVal: string;
+  setSharedState?: any;
 }
 
 export default function FirstAppBox({
@@ -20,18 +23,20 @@ export default function FirstAppBox({
   widValue,
   heiValue,
   roundVal,
+  setSharedState,
 }: IAppBox) {
-  const router = useRouter();
   const [isHover, setIsHover] = useState(true);
   const [scrollYIndex, setScrollYIndex] = useState(0);
   const enterHover = () => {
     if (isHover) {
       setIsHover((prev) => !prev);
+      setSharedState(appName);
     }
   };
   const leaveHover = () => {
     if (!isHover) {
       setIsHover((prev) => !prev);
+      setSharedState(appName);
     }
   };
   const handleScroll = () => {
