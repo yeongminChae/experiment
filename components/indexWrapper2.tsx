@@ -28,6 +28,11 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Netflix"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/secApps/Netflix`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -46,20 +51,15 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 appName="Twitter"
                 bgColor="#eab308"
                 clicked={() =>
-                  router.push(
-                    `?appName=Netflix`,
-                    `/cloneCoding/secApps/Netflix`,
-                    {
-                      scroll: false,
-                    }
-                  )
+                  router.push(`/cloneCoding/secApps/Twitter`, undefined, {
+                    scroll: false,
+                  })
                 }
                 setSharedState={setSharedState}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
-                  //   fill="#3AB0FF"
                   fill="#3C4048"
                   className="h-7 w-9 "
                 >
@@ -75,13 +75,9 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 appName="Youtube"
                 bgColor="#eab308"
                 clicked={() =>
-                  router.push(
-                    `?appName=Netflix`,
-                    `/cloneCoding/secApps/Netflix`,
-                    {
-                      scroll: false,
-                    }
-                  )
+                  router.push("/cloneCoding/secApps/YouTube", undefined, {
+                    scroll: false,
+                  })
                 }
                 setSharedState={setSharedState}
               >
@@ -89,7 +85,6 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
                   className="h-7 w-10"
-                  //   fill="#E51013"
                   fill="#3C4048"
                 >
                   <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />

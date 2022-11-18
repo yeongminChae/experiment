@@ -27,6 +27,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Cart"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/firstApps/Cart`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -50,6 +55,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="ToDo"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/firstApps/ToDo`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -69,6 +79,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Paint"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/firstApps/Paint`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -86,6 +101,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="Jobs"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/firstApps/Jobs`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -106,6 +126,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="CoinTracker"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/thirdApp/CoinsTracker`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
@@ -123,6 +148,11 @@ export default function IndexWrapper1({ setSharedParent }: IToParent) {
                 roundVal="100%"
                 appName="당근마켓"
                 bgColor="#eab308"
+                clicked={() =>
+                  router.push(`/cloneCoding/secApps/Carrot`, undefined, {
+                    scroll: false,
+                  })
+                }
                 setSharedState={setSharedState}
               >
                 <svg
