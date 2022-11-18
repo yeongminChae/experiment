@@ -5,7 +5,7 @@ import AppModalNaming from "./appModalNaming";
 import AppModalTopFirstPart from "./appModalTopFirstPart";
 import AppModalTopSecPart from "./AppModalTopSecPart";
 
-interface IModal {
+export interface IModal {
   appIndex: string;
   title?: string;
 }
@@ -87,4 +87,3 @@ export default function AppModals({ appIndex, title }: IModal) {
 }
 const Overlay = styled(motion.div)``;
 const ContextPart = styled(motion.div)``;
-const ExtraPart = styled(motion.div)``;

@@ -10,7 +10,6 @@ export const sleep = (ms: number) => {
 };
 
 const Home: NextPage = () => {
-  const controls = useAnimation();
   const [mounted, setMounted] = useState(false);
   const [sharedParent, setSharedParent] = useState<string>("");
   const [engrave, setEngrave] = useState("...");
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
   return (
     mounted && (
       <div className="h-[89rem] w-full">
-        <div className="h-[46rem] w-full bg-black"></div>
+        <div className="h-[46.6rem] w-full bg-black"></div>
         <div className="-mt-10 flex h-[45rem] w-full items-center justify-center bg-[#FEFBF6] ">
           <div className="flex h-full flex-col justify-between  ">
             <div className="ml-20 mt-8 flex h-full flex-col justify-start text-9xl font-thin ">

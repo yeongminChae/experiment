@@ -103,11 +103,9 @@ export default function IndexWrapper2({ setSharedParent }: IToParent) {
                 bgColor="#eab308"
                 clicked={() =>
                   router.push(
-                    `?appName=KoreanQuiz`,
-                    `/cloneCoding/forthApp/KoreanLanguage`,
-                    {
-                      scroll: false,
-                    }
+                    "/cloneCoding/forthApp/KoreanLanguage",
+                    undefined,
+                    { scroll: false }
                   )
                 }
                 setSharedState={setSharedState}
