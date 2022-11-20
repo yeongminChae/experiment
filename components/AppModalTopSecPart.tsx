@@ -80,7 +80,7 @@ export default function AppModalTopSecPart() {
     }
   }, [index, image, setImage]);
   return (
-    <TopPart className="ml-[5.3rem] mt-5 flex justify-between outline-none">
+    <TopPart className="ml-[5.3rem] mt-5 flex justify-between bg-red-200 outline-none">
       <AnimatePresence mode="popLayout" custom={customValue.direction}>
         <motion.div
           whileHover={{ scale: 1.3, originX: 1, originY: 0.5 }}
@@ -128,7 +128,9 @@ export default function AppModalTopSecPart() {
           </svg>
         </motion.div>
       </AnimatePresence>
-      <div className="absolute bottom-[1.1rem] ml-[13rem] ">{currentNum()}</div>
+      <div className="absolute bottom-[1.1rem] ml-[9.3rem] sm:ml-[11rem] md:ml-[12rem] lg:ml-[12.5rem] xl:ml-[13rem] ">
+        {currentNum()}
+      </div>
     </TopPart>
   );
 }

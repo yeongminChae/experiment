@@ -170,7 +170,7 @@ export default function AppModalTopFirstPart() {
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.1 }}
-          className="absolute ml-4 h-48 w-[50%] snap-x sm:ml-8 sm:h-56 sm:w-[27.5rem] md:ml-14 md:h-60 md:w-[30rem] xl:ml-9 xl:h-64 xl:w-[32rem] "
+          className="absolute ml-4 flex h-48 w-[50%] snap-x flex-col items-center justify-end sm:ml-8 sm:h-56 sm:w-[27.5rem] md:ml-14 md:h-60 md:w-[30rem] xl:ml-9 xl:h-64 xl:w-[32rem] "
         >
           {image && (
             <Image
@@ -181,9 +181,10 @@ export default function AppModalTopFirstPart() {
               placeholder="blur"
               quality={100}
               onClick={() => window.open(image.src)}
-              className="cursor-pointer snap-center overflow-hidden rounded-3xl object-cover shadow-md ease-out "
+              className="-z-10 cursor-pointer snap-center overflow-hidden rounded-3xl object-cover shadow-md ease-out "
             />
           )}
+          {currentNum()}
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.3, originX: 1, originY: 0.5 }}
@@ -200,7 +201,9 @@ export default function AppModalTopFirstPart() {
           </svg>
         </motion.div>
       </AnimatePresence>
-      <div className="absolute bottom-[9.5rem] ml-[17rem] ">{currentNum()}</div>
+      {/* <div className="absolute bottom-[25.5rem] ml-[12.5rem] sm:bottom-[23.5rem] sm:ml-[14rem] md:bottom-[22.5rem] md:ml-[16.5rem] lg:ml-[17rem] xl:bottom-[21.3rem] xl:ml-[17rem] "> */}
+
+      {/* </div> */}
     </TopPart>
   );
 }

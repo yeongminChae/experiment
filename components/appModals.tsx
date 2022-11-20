@@ -1,6 +1,8 @@
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { cls } from "../libs/client/utils";
 import AppModalNaming from "./appModalNaming";
 import AppModalTopFirstPart from "./appModalTopFirstPart";
 import AppModalTopSecPart from "./AppModalTopSecPart";
@@ -12,78 +14,167 @@ export interface IModal {
 
 export default function AppModals({ appIndex, title }: IModal) {
   const router = useRouter();
+  const [description, setDescription] = useState("");
+  const [more, setMore] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
   const currentLoca = router.asPath.split("/");
+  useEffect(() => {
+    if (currentLoca[3] === "KoreanLanguage") {
+      setDescription("korean app");
+    } else if (currentLoca[3] === "Twitter") {
+      setDescription(
+        "The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis."
+      );
+    }
+    // else if (currentLoca[3] === "CoinsTracker") {
+    //   setDescription(
+    //     "The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis."
+    //   );
+    // }
+  }, [description, setDescription]);
+  const onMoreClick = () => {
+    setMore(true);
+  };
+  useEffect(() => {
+    if (more) {
+      onMoreClick();
+    }
+  }, [more]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const toggleLeaving = () => {
     router.push("/cloneCoding", undefined, { scroll: false });
   };
   const scrollYIndex = scrollY.get();
   return (
-    <AnimatePresence mode="sync" onExitComplete={toggleLeaving}>
-      {router.asPath === `/cloneCoding/${appIndex}/${currentLoca[3]}` && (
-        <motion.div layoutId={currentLoca[3]} className="absolute z-10 ">
-          <Overlay
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              scaleY: ["100%", "105%", "100%"],
-              scaleX: ["100%", "105%", "100%"],
-              transition: {
-                type: "tween",
-                duration: 0.7,
-              },
-            }}
-            exit={{
-              opacity: [0.8, 0.4, 0],
-              rotateY: 180,
-              transition: {
-                duration: 1,
-                ease: "easeOut",
-              },
-            }}
-            className="fixed top-0 -ml-[0.5rem] flex h-full w-[50rem] flex-col items-center justify-center overflow-hidden opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:-ml-[5rem] lg:w-[65rem] xl:-ml-32 xl:w-full "
-          >
-            <ContextPart className="fixed top-0 h-full w-full bg-[#F9F9F9] sm:mr-16 sm:w-[35rem] md:-mr-10 md:w-[40rem] lg:-mr-0 ">
-              <button
-                onClick={toggleLeaving}
-                className="absolute top-5 ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="black"
-                  strokeOpacity="0.3"
-                  className="mr-0.5 h-5 w-5"
+    mounted && (
+      <AnimatePresence mode="sync" onExitComplete={toggleLeaving}>
+        {router.asPath === `/cloneCoding/${appIndex}/${currentLoca[3]}` && (
+          <motion.div layoutId={currentLoca[3]} className="absolute z-10 ">
+            <Overlay
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                scaleY: ["100%", "105%", "100%"],
+                scaleX: ["100%", "105%", "100%"],
+                transition: {
+                  type: "tween",
+                  duration: 0.7,
+                },
+              }}
+              exit={{
+                opacity: [0.8, 0.4, 0],
+                rotateY: 180,
+                transition: {
+                  duration: 1,
+                  ease: "easeOut",
+                },
+              }}
+              className={cls(
+                "fixed top-0 -ml-[0.5rem] flex w-[50rem] flex-col items-center justify-center opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:-ml-[5rem] lg:w-[65rem] xl:-ml-32 xl:w-full ",
+                currentLoca[3] === "Twitter" ||
+                  currentLoca[3] === "CoinsTracker"
+                  ? "h-[43.8rem] overflow-y-scroll"
+                  : "h-full"
+              )}
+            >
+              <ContextPart className="fixed top-0 h-[55rem] w-full bg-[#F9F9F9] sm:mr-16 sm:w-[35rem] md:-mr-10 md:w-[40rem] lg:-mr-0 ">
+                <button
+                  onClick={toggleLeaving}
+                  className="absolute top-5 ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
-                  />
-                </svg>
-              </button>
-              <AppModalNaming title={title} />
-              <div className="mt-5 ml-6 border-b-2 border-dotted sm:ml-1" />
-              {currentLoca[3] === "Twitter" ||
-              currentLoca[3] === "CoinsTracker" ? (
-                <AppModalTopSecPart />
-              ) : (
-                <AppModalTopFirstPart />
-              )}
-              {currentLoca[3] === "Twitter" ||
-              currentLoca[3] === "CoinsTracker" ? (
-                <div className="ml-6 mt-[27rem] border-b-2 border-dotted sm:ml-1" />
-              ) : (
-                <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[16.5rem] xl:mt-[19.5rem] " />
-              )}
-            </ContextPart>
-          </Overlay>
-        </motion.div>
-      )}
-    </AnimatePresence>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="black"
+                    strokeOpacity="0.3"
+                    className="mr-0.5 h-5 w-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <AppModalNaming title={title} />
+                <div className="mt-5 ml-6 border-b-2 border-dotted sm:ml-1" />
+                {more === false ? (
+                  <>
+                    {currentLoca[3] === "Twitter" ||
+                    currentLoca[3] === "CoinsTracker" ? (
+                      <AppModalTopSecPart />
+                    ) : (
+                      <AppModalTopFirstPart />
+                    )}
+                    {currentLoca[3] === "Twitter" ||
+                    currentLoca[3] === "CoinsTracker" ? (
+                      <>
+                        <div className="ml-6 mt-[27rem] border-b-2 border-dotted sm:ml-1" />
+                        <DescriotPart className="ml-5 mt-3 inline-block h-[10rem] w-[30rem] pr-3 sm:w-11/12 ">
+                          <p className="line-clamp-3 ">
+                            {description}
+                            <div
+                              onClick={onMoreClick}
+                              className="absolute -bottom-[1rem] left-[27.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 "
+                            >
+                              더 보기
+                            </div>
+                          </p>
+                        </DescriotPart>
+                      </>
+                    ) : (
+                      <>
+                        <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[17rem] sm:ml-1 md:mt-[18rem] lg:mt-[18rem] xl:mt-[19.5rem] " />
+                        <DescriotPart className="ml-5 mt-6 inline-block h-[10rem] w-[30rem] pr-3 sm:w-11/12 ">
+                          <p className="line-clamp-3 ">
+                            {description}
+                            <div
+                              onClick={onMoreClick}
+                              className="absolute bottom-[19rem] left-[27.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[17rem] sm:left-[32rem] md:bottom-[15.9rem] md:left-[37.3rem] lg:bottom-[14.4rem]"
+                            >
+                              더 보기
+                            </div>
+                          </p>
+                        </DescriotPart>
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <MoreDescriotPart>
+                    <p className="absolute ml-5 mt-5 w-[29rem] ">
+                      {description}
+                    </p>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      onClick={() => setMore(false)}
+                      className="absolute bottom-[17rem] left-[28rem] h-6 w-6 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[17.5rem] sm:ml-[33rem] md:bottom-[17.2rem] md:-left-[5rem]"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                      />
+                    </svg>
+                  </MoreDescriotPart>
+                )}
+              </ContextPart>
+            </Overlay>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    )
   );
 }
 const Overlay = styled(motion.div)``;
 const ContextPart = styled(motion.div)``;
+const DescriotPart = styled(motion.div)``;
+const MoreDescriotPart = styled(motion.div)``;
