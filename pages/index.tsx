@@ -17,7 +17,9 @@ const Home: NextPage = () => {
   return (
     mounted && (
       <div className="h-[89rem] w-full">
-        <div className="h-[46.6rem] w-full bg-black"></div>
+        <div className="h-[46.6rem] w-full bg-[#0c0511] ">
+          <span className="text-white">PORTFOLIO</span>
+        </div>
         <div className="-mt-10 flex h-[45rem] w-full items-center justify-center bg-[#FEFBF6] ">
           <QuickViewIndex />
         </div>

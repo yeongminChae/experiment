@@ -17,8 +17,8 @@ export default function CoinsTracker({ title }: IModal) {
   return (
     <AnimatePresence>
       {router.asPath === `/cloneCoding/thirdApp/CoinsTracker` && (
-        <motion.div layoutId={currentLoca[3]} className="absolute z-10">
-          <ContextPart className="fixed top-0 h-full w-full bg-[#F9F9F9] shadow-xl sm:ml-20 sm:w-[35rem] md:ml-40 md:w-[40rem] lg:ml-48 xl:ml-[23rem] ">
+        <motion.div layoutId={currentLoca[3]} className="absolute z-10 xl:ml-9">
+          <ContextPart className="fixed top-0 h-full w-[50rem] bg-[#F9F9F9] shadow-xl sm:ml-20 sm:w-[35rem] md:ml-40 md:w-[40rem] lg:ml-48 xl:ml-[23rem] ">
             <div className="mb-16 ml-3">
               <button
                 onClick={toggleLeaving}
@@ -64,7 +64,7 @@ export default function CoinsTracker({ title }: IModal) {
             <AppModalNaming title={title} />
             <div className="mt-5 ml-6 border-b-2 border-dotted sm:ml-1" />
             <AppModalTopSecPart />
-            <div className="ml-6 mt-[27.5rem] border-b-2 border-dotted sm:ml-1" />
+            <div className="ml-6 mt-[27.8rem] border-b-2 border-dotted sm:ml-1" />
           </ContextPart>
         </motion.div>
       )}
