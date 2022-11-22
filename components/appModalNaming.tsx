@@ -3,45 +3,21 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import AppModalSvgReader from "./appModalSvgReader";
 import AppModalLink from "./appModalLink";
-import { useEffect, useState } from "react";
 
 interface IAppTitle {
   title?: string;
+  descripton?: string;
 }
 
 export default function AppModalNaming({ title }: IAppTitle) {
   const router = useRouter();
-  const [description, setDescription] = useState("");
   const currentLoca = router.asPath.split("/");
-  useEffect(() => {
-    if (currentLoca[3] === "KoreanLanguage") {
-      setDescription("Let's learn Korean now! With Quiz");
-    } else if (currentLoca[3] === "Cart") {
-      setDescription("Time For Shopping!");
-    } else if (currentLoca[3] === "ToDo") {
-      setDescription("Managing your daily life !");
-    } else if (currentLoca[3] === "Paint") {
-      setDescription("Show your creativity to the world");
-    } else if (currentLoca[3] === "Jobs") {
-      setDescription("Are You looking for a job?");
-    } else if (currentLoca[3] === "CoinsTracker") {
-      setDescription("What is the Today's price ?");
-    } else if (currentLoca[3] === "Carrot") {
-      setDescription("Your community life in your neighbor");
-    } else if (currentLoca[3] === "Netflix") {
-      setDescription("Watch immdeiately in here.");
-    } else if (currentLoca[3] === "Jobs") {
-      setDescription("Go to talk with everyone !");
-    } else if (currentLoca[3] === "Jobs") {
-      setDescription("Enjoy and share the videos and music ");
-    }
-  }, []);
   return (
     <NamingPart className="ml-5 mt-14 flex space-x-7">
       <AppModalSvgReader />
       <DescriptPart className="flex flex-col">
         <div className="text-3xl">{currentLoca[3]}</div>
-        <div className="text-lg font-light  text-black/40 ">{description}</div>
+        <div className="text-lg font-light  text-black/40 ">Descripton</div>
         <div className="mt-[3.2rem] flex ">
           <AppModalLink />
           <span className="mt-[0.3rem] w-16 text-center text-[0.3rem] opacity-50">
