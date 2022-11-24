@@ -158,7 +158,8 @@ export default function Carrot({ title }: IModal) {
                       stroke: "blue",
                       scale: 1.3,
                     }}
-                    className="absolute -bottom-[31rem] ml-[28.5rem] h-6 w-6 cursor-pointer text-xs hover:text-indigo-700 sm:-bottom-[26.5rem] sm:ml-[32rem] md:-bottom-[23.5rem] md:ml-[36.5rem] xl:-bottom-[23.5rem] xl:ml-[36.5rem] "
+                    // className="absolute -bottom-[31rem] ml-[28.5rem] h-6 w-6 cursor-pointer text-xs hover:text-indigo-700 sm:-bottom-[26.5rem] sm:ml-[32rem] md:-bottom-[23.5rem] md:ml-[36.5rem] xl:-bottom-[23.5rem] xl:ml-[36.5rem] "
+                    className="fixed -bottom-1 ml-[14rem] h-12 w-12 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:ml-[15.5rem] lg:ml-[17rem] xl:ml-[18rem]"
                   >
                     <path
                       strokeLinecap="round"

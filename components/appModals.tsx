@@ -60,15 +60,15 @@ export default function AppModals({ appIndex, title }: IModal) {
                 },
               }}
               className={cls(
-                "fixed top-0 -ml-[0.5rem] flex w-[50rem] flex-col items-center justify-center opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[59rem] lg:-ml-[5rem] lg:w-[65rem] xl:-ml-32 xl:w-full ",
+                "fixed top-0 -ml-[0.5rem] flex w-[50rem] flex-col items-center justify-center opacity-0 shadow-xl backdrop-blur-sm sm:-ml-24 md:-ml-10 md:w-[61rem] lg:-ml-[11rem] lg:w-[80rem] xl:-ml-56 xl:w-[100rem] ",
                 currentLoca[3] === "Twitter" ||
                   currentLoca[3] === "CoinsTracker" ||
                   currentLoca[3] === "Carrot"
-                  ? "h-[46rem] overflow-y-scroll"
-                  : "h-full "
+                  ? "h-[46rem] "
+                  : "h-full"
               )}
             >
-              <ContextPart className="fixed top-0 w-full bg-[#F9F9F9] sm:mr-16 sm:w-[35rem] md:-mr-10 md:w-[40rem] lg:-mr-0 ">
+              <ContextPart className="fixed top-0 h-full w-full overflow-x-hidden overflow-y-scroll bg-[#F9F9F9] sm:mr-16 sm:w-[35rem] md:-mr-10 md:w-[40rem] lg:-mr-0 ">
                 <button
                   onClick={toggleLeaving}
                   className="absolute top-5 ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
@@ -106,12 +106,12 @@ export default function AppModals({ appIndex, title }: IModal) {
                       <>
                         <div className=" ml-6 mt-[27.5rem] border-b-2 border-dotted sm:ml-1" />
                         <DescriptPart className="ml-5 mt-3 inline-block">
-                          <p className="h-[8rem] w-[28rem] line-clamp-3 ">
+                          <p className="h-[8rem] w-[28rem] line-clamp-3 sm:w-[32rem] md:w-[36rem] ">
                             <ModalDescriptionOne />
                           </p>
                           <div
                             onClick={onMoreClick}
-                            className="absolute -bottom-[1rem] left-[27.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 "
+                            className="absolute -bottom-[1.8rem] left-[26.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:left-[31rem] md:left-[34.7rem]"
                           >
                             더 보기
                           </div>
@@ -126,7 +126,7 @@ export default function AppModals({ appIndex, title }: IModal) {
                           </p>
                           <div
                             onClick={onMoreClick}
-                            className="relative bottom-[0rem] left-[26rem] cursor-pointer overflow-x-hidden text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[17rem] sm:left-[32rem] md:bottom-[15.9rem] md:left-[37.3rem] lg:bottom-[14.4rem]"
+                            className="relative bottom-[0rem] left-[25.6rem] cursor-pointer overflow-x-hidden text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[1rem] sm:left-[26.5rem] md:bottom-[1.2rem] md:left-[31.3rem] lg:bottom-[1.4rem]"
                           >
                             더 보기
                           </div>
@@ -135,7 +135,7 @@ export default function AppModals({ appIndex, title }: IModal) {
                     )}
                   </>
                 ) : (
-                  <MoreDeptriotPart className="h-[0rem] ">
+                  <MoreDeptriotPart className="h-[35rem] ">
                     <motion.p
                       initial={{
                         opacity: 0,
@@ -148,25 +148,47 @@ export default function AppModals({ appIndex, title }: IModal) {
                       exit={{
                         y: [0, 100],
                       }}
-                      className="absolute ml-5 mt-5 h-[20rem] w-[29rem] "
+                      className="absolute ml-5 mt-5 h-[20rem] w-[27rem] sm:w-[32rem] md:w-[36rem] lg:w-[37rem] xl:w-[37.5rem]"
                     >
                       <ModalDescriptionOne />
                     </motion.p>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      onClick={() => setMore(false)}
-                      className="absolute bottom-[17rem] left-[28rem] h-6 w-6 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[17.5rem] sm:ml-[33rem] md:bottom-[17.2rem] md:-left-[5rem]"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                      />
-                    </svg>
+                    {currentLoca[3] === "Twitter" ||
+                    currentLoca[3] === "Carrot" ||
+                    currentLoca[3] === "CoinsTracker" ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        onClick={() => setMore(false)}
+                        // className="absolute bottom-[1rem] left-[27rem] h-6 w-6 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[4rem] sm:left-[31.5rem] md:bottom-[6.9rem] md:left-[35.7rem] lg:left-[36rem] lg:bottom-[11em] xl:left-[37rem] xl:bottom-[11em] "
+                        className="fixed bottom-10 ml-[14rem] h-12 w-12 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:ml-[15.5rem] lg:ml-[17rem] xl:ml-[18rem]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        onClick={() => setMore(false)}
+                        // className="absolute bottom-[1rem] left-[26rem] h-6 w-6 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[2.5rem] sm:left-[31.5rem] md:bottom-[6.8rem] md:left-[35.7rem] lg:left-[36rem] lg:bottom-[9em] xl:left-[37rem] "
+                        className="fixed bottom-0 ml-[14rem] h-12 w-12 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:ml-[15.5rem] lg:ml-[17rem] xl:ml-[18rem]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                        />
+                      </svg>
+                    )}
                   </MoreDeptriotPart>
                 )}
               </ContextPart>

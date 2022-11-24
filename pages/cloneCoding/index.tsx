@@ -24,7 +24,7 @@ const CloneCoding: NextPage = () => {
         <div className="mt-1 flex items-center justify-between xl:ml-11 xl:w-11/12 ">
           <div className="text-3xl font-semibold ">PORTFOLIO</div>
           <Link href={"./cloneCoding/profile"}>
-            <div className="mb-3 mr-5 h-16 w-16 cursor-pointer rounded-full xl:mr-0 ">
+            <div className="mb-3 mr-5 h-16 w-16 cursor-pointer rounded-full xl:mr-0">
               <Image
                 src={Me}
                 alt="profile"
