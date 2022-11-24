@@ -5,22 +5,13 @@ import styled from "styled-components";
 import AppModalNaming from "../../../components/appModalNaming";
 import { IModal } from "../../../components/appModals";
 import AppModalTopFirstPart from "../../../components/appModalTopFirstPart";
-import { cls } from "../../../libs/client/utils";
 
 export default function KoreanLanguage({ title }: IModal) {
   const router = useRouter();
   const currentLoca = router.asPath.split("/");
-  const [description, setDescription] = useState("");
   const [more, setMore] = useState(false);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setDescription(
-      "KoreanLanguage 앱 화면에 떠오르는 동물의 이미지 에니메이션을 보고 알맞은 카드를 선택하세요! 귀여운 동물의 이미지와 눈을 즐겁게 만들어주는 에니메이션을 보고 계신다면 시간이 어떻게 갔는지 모를 수 있습니다 !! \n" +
-        "\n이 application은 TypeScript , NextJs(React) 를 활용하여 제작한 Front-End application입니다. 또한 시각적 효과를 위하여  Framer Motion 을 사용했으며 이 application을 제작하는데 중요한 아이디어를 제공해준 slider effect을 비롯하여  다양한 animation 효과 또한 구현했습니다.\r" +
-        "\n 이 application을 제작하면서 특히 재미있었던 점은 마지막 페이지에 첨부한 동물 card animation 입니다. JavaScript에 기본적인 event listener 효과인 mouseEnter mouseLeave 를 활용한 Hovering animation 구현이 기억에 남습니다.\r" +
-        "구현하는데 힘들었던 부분은 랜덤으로 제공되어지는 카드를 구현하는 것이 힘들었습니다. 그러나 이 과정을 통하여 NextJs에서에 SSR 데이터 처리에 대하여 공부할 수 있는 기회가 되었습니다. "
-    );
-  }, [description, setDescription]);
+
   const onMoreClick = () => {
     setMore(true);
   };
@@ -94,13 +85,21 @@ export default function KoreanLanguage({ title }: IModal) {
               {more === false ? (
                 <>
                   <AppModalTopFirstPart />
-                  <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[18rem] lg:mt-[18rem] xl:mt-[17.5rem] " />
+                  <div className="ml-6 mt-[13.5rem] border-b-2 border-dotted sm:mt-[15.5rem] sm:ml-1 md:mt-[18rem] lg:mt-[18rem] " />
                   <DescriotPart className="ml-5 mt-3 inline-block h-[10rem] w-[30rem] pr-3 sm:w-11/12 ">
                     <p className="line-clamp-3 ">
-                      {description}
+                      KoreanLanguage 앱 화면에 떠오르는 동물의 이미지
+                      에니메이션을 보고 알맞은 카드를 선택하세요! 귀여운 동물의
+                      이미지와 눈을 즐겁게 만들어주는 에니메이션을 보고 계신다면
+                      시간이 어떻게 갔는지 모를 수 있습니다 !! <br />
+                      <br /> 이 application은 TypeScript , NextJs(React) 를
+                      활용하여 제작한 Front-End application입니다. 또한 시각적
+                      효과를 위하여 Framer Motion 을 사용했으며 이 application을
+                      제작하는데 중요한 아이디어를 제공해준 slider effect을
+                      비롯하여 다양한 animation 효과 또한 구현했습니다. <br />
                       <div
                         onClick={onMoreClick}
-                        className="absolute bottom-[9.3rem] left-[27.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[7.4rem] sm:left-[32rem] md:bottom-[4.9rem] md:left-[37rem] xl:bottom-[5.3rem]"
+                        className="absolute bottom-[8rem] left-[28.5rem] cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 sm:bottom-[7.4rem] sm:left-[32.4rem] md:bottom-[4.9rem] md:left-[37.3rem] xl:bottom-[4.9rem]"
                       >
                         더 보기
                       </div>
@@ -115,30 +114,51 @@ export default function KoreanLanguage({ title }: IModal) {
                     }}
                     animate={{
                       y: [100, -40, 0],
-                      opacity: [0, 0, 1, 1],
+                      opacity: [0, 1],
+                      transition: { duration: 1.25 },
                     }}
                     exit={{
                       y: [0, 100],
                     }}
-                    className="absolute ml-5 mt-5 w-[29rem] "
+                    className="absolute ml-5 mt-5 w-[29rem] sm:w-[33rem] md:w-[37.5rem] "
                   >
-                    {description}
+                    KoreanLanguage 앱 화면에 떠오르는 동물의 이미지 에니메이션을
+                    보고 알맞은 카드를 선택하세요! 귀여운 동물의 이미지와 눈을
+                    즐겁게 만들어주는 에니메이션을 보고 계신다면 시간이 어떻게
+                    갔는지 모를 수 있습니다 !! <br />
+                    <br /> 이 application은 TypeScript , NextJs(React) 를
+                    활용하여 제작한 Front-End application입니다. 또한 시각적
+                    효과를 위하여 Framer Motion 을 사용했으며 이 application을
+                    제작하는데 중요한 아이디어를 제공해준 slider effect을
+                    비롯하여 다양한 animation 효과 또한 구현했습니다. <br />
+                    <br /> 이 application을 제작하면서 특히 재미있었던 점은
+                    마지막 페이지에 첨부한 동물 card animation 입니다.
+                    JavaScript에 기본적인 event listener 효과인 mouseEnter
+                    mouseLeave 를 활용한 Hovering animation 구현이 기억에
+                    남습니다." <br /> <br /> 구현하는데 힘들었던 부분은 랜덤으로
+                    제공되어지는 카드를 구현하는 것이 힘들었습니다. 그러나 이
+                    과정을 통하여 NextJs에서에 SSR 데이터 처리에 대하여 공부할
+                    수 있는 기회가 되었습니다.
                   </motion.p>
-                  <svg
+                  <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
-                    stroke="currentColor"
+                    stroke="black"
                     onClick={() => setMore(false)}
-                    className="absolute bottom-[5.5rem] ml-[28rem] h-6 w-6 cursor-pointer text-xs transition-opacity ease-out hover:text-indigo-700 "
+                    whileHover={{
+                      stroke: "blue",
+                      scale: 1.3,
+                    }}
+                    className="absolute bottom-[1rem] ml-[28rem] h-6 w-6 cursor-pointer text-xs hover:text-indigo-700 sm:bottom-[2.5rem] sm:ml-[32rem] md:bottom-[4rem] md:ml-[37rem] xl:bottom-[4rem] xl:ml-[37rem] "
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M4.5 15.75l7.5-7.5 7.5 7.5"
                     />
-                  </svg>
+                  </motion.svg>
                 </MoreDescriotPart>
               )}
             </ContextPart>
