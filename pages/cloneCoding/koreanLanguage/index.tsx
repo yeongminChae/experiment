@@ -72,17 +72,14 @@ const KoreanLanguage: NextPage = () => {
                       />
                       {isHover === false ? (
                         <>
-                          <text x="7" y="12" fontSize="3">
-                            Hover
-                          </text>
-                          <text x="7" y="16" fontSize="3">
-                            Me
+                          <text x="5" y="13" fontSize="3">
+                            Let's Go?
                           </text>
                         </>
                       ) : (
                         <>
-                          <text x="7" y="13" fontSize="3">
-                            START
+                          <text x="5" y="13" fontSize="3">
+                            Let's Go!
                           </text>
                         </>
                       )}
