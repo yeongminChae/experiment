@@ -28,6 +28,11 @@ import cartAppImg2 from "../pages/cloneCoding/image/cartApp/cartAppImg2.png";
 import cartAppImg3 from "../pages/cloneCoding/image/cartApp/cartAppImg3.png";
 import cartAppImg4 from "../pages/cloneCoding/image/cartApp/cartAppImg4.png";
 import cartAppImg5 from "../pages/cloneCoding/image/cartApp/cartAppImg5.png";
+import netflixAppImg1 from "../pages/cloneCoding/image/netflixApp/netflixAppImg1.png";
+import netflixAppImg2 from "../pages/cloneCoding/image/netflixApp/netflixAppImg2.png";
+import netflixAppImg3 from "../pages/cloneCoding/image/netflixApp/netflixAppImg3.png";
+import netflixAppImg4 from "../pages/cloneCoding/image/netflixApp/netflixAppImg4.png";
+import netflixAppImg5 from "../pages/cloneCoding/image/netflixApp/netflixAppImg5.png";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -93,6 +98,8 @@ export default function AppModalTopFirstPart() {
         setImage(jobsAppimg1);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg1);
+      } else if (currentLoca[3] === "Netflix") {
+        setImage(netflixAppImg1);
       }
       setKey(index + "");
     } else if (index === 2) {
@@ -108,6 +115,8 @@ export default function AppModalTopFirstPart() {
         setImage(jobsAppimg2);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg2);
+      } else if (currentLoca[3] === "Netflix") {
+        setImage(netflixAppImg2);
       }
       setKey(index + "");
     } else if (index === 3) {
@@ -123,6 +132,8 @@ export default function AppModalTopFirstPart() {
         setImage(jobsAppimg3);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg3);
+      } else if (currentLoca[3] === "Netflix") {
+        setImage(netflixAppImg3);
       }
       setKey(index + "");
     } else if (index === 4) {
@@ -136,6 +147,8 @@ export default function AppModalTopFirstPart() {
         setImage(todoAppImg4);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg4);
+      } else if (currentLoca[3] === "Netflix") {
+        setImage(netflixAppImg4);
       }
       setKey(index + "");
     } else if (index === 5) {
@@ -147,6 +160,8 @@ export default function AppModalTopFirstPart() {
         setImage(youtubeAppImg5);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg5);
+      } else if (currentLoca[3] === "Netflix") {
+        setImage(netflixAppImg5);
       }
       setKey(index + "");
     }
@@ -184,7 +199,11 @@ export default function AppModalTopFirstPart() {
               className="-z-10 cursor-pointer snap-center overflow-hidden rounded-3xl object-cover shadow-md ease-out "
             />
           )}
-          {currentNum()}
+          {currentLoca[3] === "YouTube" || currentLoca[3] === "Netflix" ? (
+            <div className="text-white">{currentNum()}</div>
+          ) : (
+            <div className="text-black">{currentNum()}</div>
+          )}
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.3, originX: 1, originY: 0.5 }}
@@ -201,9 +220,6 @@ export default function AppModalTopFirstPart() {
           </svg>
         </motion.div>
       </AnimatePresence>
-      {/* <div className="absolute bottom-[25.5rem] ml-[12.5rem] sm:bottom-[23.5rem] sm:ml-[14rem] md:bottom-[22.5rem] md:ml-[16.5rem] lg:ml-[17rem] xl:bottom-[21.3rem] xl:ml-[17rem] "> */}
-
-      {/* </div> */}
     </TopPart>
   );
 }
