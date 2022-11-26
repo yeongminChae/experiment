@@ -34,6 +34,8 @@ export default function AppModalNaming({ title }: IAppTitle) {
       setDescription("Go to talk with everyone !");
     } else if (currentLoca[3] === "YouTube") {
       setDescription("Enjoy and share the videos and music ");
+    } else if (currentLoca[3] === "MoreProfile") {
+      setDescription("Enjoy and share the videos and music ");
     }
   }, []);
   return (
