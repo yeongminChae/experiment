@@ -28,7 +28,8 @@ const ProfileTopPart = () => {
           viewBox="0 -1 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-8 w-7 dark:text-white "
+          onClick={() => router.push("/cloneCoding/firstApps/ToDo")}
+          className="h-8 w-7 cursor-pointer dark:text-white "
         >
           <path
             strokeLinecap="round"

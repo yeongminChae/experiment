@@ -15,6 +15,7 @@ const ProfileNavbar = ({ isDark }: IDark) => {
           boxShadow: "0px 0px 8px rgb(255,255,255) ",
           backgroundColor: "rgb(148 163 184)",
         }}
+        onClick={() => router.push("/cloneCoding/profile/MyProfile")}
         className="flex h-8 w-[90vw] items-center justify-center rounded-md bg-slate-400/25 dark:text-white sm:ml-[0.4rem] sm:w-[63vw] lg:ml-10 lg:w-[59vw] xl:ml-1 xl:w-[37.3rem] "
       >
         Look it's Glowing ✨
