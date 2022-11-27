@@ -14,6 +14,7 @@ import ProfileTopPart from "./components/profileTopPart";
 const Profile: NextPage = () => {
   const { reset } = useForm();
   const currentTheme = LocalStorage.getItem("theme");
+  const currentPage = LocalStorage.getItem("page");
   const [tab, setTab] = useState<"menu" | "bio">("menu");
   const [isDarkClicked, setIsDarkClicked] = useState(currentTheme);
   const [mounted, setMounted] = useState<boolean>(false);
@@ -29,10 +30,12 @@ const Profile: NextPage = () => {
   const onMenuClick = () => {
     reset();
     setTab("menu");
+    LocalStorage.setItem("page", "menu");
   };
   const onBioClick = () => {
     reset();
     setTab("bio");
+    LocalStorage.setItem("page", "bio");
   };
   useEffect(() => {
     setMounted(true);
@@ -45,7 +48,7 @@ const Profile: NextPage = () => {
           LocalStorage.getItem("theme") === "dark" ? "dark" : ""
         )}
       >
-        <div className="h-[47rem] w-full pt-[0.01rem] pl-3 dark:bg-black sm:h-[50rem] md:h-[60rem] ">
+        <div className="h-[47rem] w-full pt-[0.01rem] pl-3 dark:-z-20 dark:bg-black sm:h-[50rem] md:h-[60rem]">
           <div className="mt-2 ml-3 mr-3 flex items-center justify-between sm:ml-1 sm:mr-0 sm:justify-around xl:mr-52 xl:ml-40  ">
             <div className="flex items-center justify-center">
               <svg
