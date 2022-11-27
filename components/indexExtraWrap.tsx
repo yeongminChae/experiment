@@ -22,7 +22,7 @@ export default function IndexExtraWrap({ setSharedParent }: IToParent) {
     mounted && (
       <>
         <AnimatePresence>
-          <div className="-mr-12 mb-44 flex justify-center space-x-28 ">
+          <div className="-mr-28 mb-44 flex justify-center space-x-28 ">
             <FirstAppBox
               widValue="4rem"
               heiValue="4rem"

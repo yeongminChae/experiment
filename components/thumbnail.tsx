@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const circleSvg = {
   start: {
@@ -23,6 +24,7 @@ interface IDetail {
 }
 
 export default function Thumbnail({ text }: IDetail) {
+  const router = useRouter();
   return (
     <motion.svg
       focusable="false"
@@ -32,7 +34,11 @@ export default function Thumbnail({ text }: IDetail) {
     >
       {text}
       <motion.path
-        fill="#464646"
+        fill={
+          router.asPath === "/cloneCoding"
+            ? "#464646"
+            : router.asPath === "/" && "transparent"
+        }
         opacity="1.000000"
         stroke="none"
         d="
@@ -441,7 +447,11 @@ z"
       />
       <motion.path
         variants={circleSvg}
-        initial="start"
+        initial={
+          router.asPath === "/cloneCoding"
+            ? "start"
+            : router.asPath === "/" && ""
+        }
         animate="end"
         transition={{
           default: { duration: 3 },
@@ -538,7 +548,11 @@ z"
       />
       <motion.path
         variants={circleSvg}
-        initial="start"
+        initial={
+          router.asPath === "/cloneCoding"
+            ? "start"
+            : router.asPath === "/" && ""
+        }
         animate="end"
         transition={{
           default: { duration: 3 },
@@ -735,7 +749,11 @@ z"
       />
       <motion.path
         variants={circleSvg}
-        initial="start"
+        initial={
+          router.asPath === "/cloneCoding"
+            ? "start"
+            : router.asPath === "/" && ""
+        }
         animate="end"
         transition={{
           default: { duration: 3 },
