@@ -1,9 +1,40 @@
 {
-  "extends": "next/core-web-vitals",
-  "plugins": ["react-hooks"],
-  // ...
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "double"],
+    "no-duplicate-imports": "error",
+    "no-console": "warn",
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn" // <--- THIS IS THE NEW RULE
-  }
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "ignorePatterns": ["build/*"]
 }
