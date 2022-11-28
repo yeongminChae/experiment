@@ -34,11 +34,7 @@ export default function Thumbnail({ text }: IDetail) {
     >
       {text}
       <motion.path
-        fill={
-          router.asPath === "/cloneCoding"
-            ? "#464646"
-            : router.asPath === "/" && "transparent"
-        }
+        fill={"#464646"}
         opacity="1.000000"
         stroke="none"
         d="

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { animate, AnimatePresence, motion } from "framer-motion";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { animate, AnimatePresence, motion, useSpring } from "framer-motion";
 import { sleep } from "../pages";
 import { cls } from "../libs/client/utils";
 import { useRouter } from "next/router";
@@ -27,7 +27,20 @@ const IndexBtn = () => {
   const [clicked4, setClicked4] = useState<
     "initial" | "come" | "gone" | "reload"
   >("initial");
+  const spring = useSpring(0, { damping: 300, stiffness: 200 });
 
+  useLayoutEffect(() => {
+    spring.onChange((latest) => {
+      window.scrollTo(2100, latest);
+    });
+  }, [spring]);
+
+  function moveTo(to: any) {
+    spring.set(window.pageYOffset, false);
+    setTimeout(() => {
+      spring.set(to);
+    }, 50);
+  }
   const onToMyClick = () => {
     setClicked1("come");
     setClicked2("gone");
@@ -132,7 +145,7 @@ const IndexBtn = () => {
             rotateY: 180,
             transition: { delay: 0.8, duration: 1.5 },
           }}
-          className="absolute bottom-[0.85rem] left-[42.2rem] h-3 w-3 rounded-full bg-white"
+          className="absolute bottom-[1.2rem] left-[42.2rem] h-3 w-3 rounded-full bg-white"
         />
         <motion.div className="absolute top-[7.8rem] right-[45rem] flex flex-col items-center justify-center space-y-20 ">
           <motion.div
@@ -297,7 +310,8 @@ const IndexBtn = () => {
               duration: 1.5,
             },
           }}
-          onClick={() => window.scrollTo(2100, 2100)}
+          // onClick={() => window.scrollTo(2100, 2100)}
+          onClick={() => moveTo(document.getElementById("bottom").offsetTop)}
           className="absolute right-[15rem] top-[20rem] flex h-20 w-60 items-center justify-center rounded-xl text-3xl text-white shadow-xl"
         >
           To QUick View &rarr;

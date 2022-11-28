@@ -32,7 +32,7 @@ const QuickViewIndex = () => {
   return (
     mounted && (
       <>
-        <div className="flex h-full flex-col justify-between  ">
+        <div className="flex h-full flex-col justify-between " id="bottom">
           <div className="ml-20 mt-8 flex h-full flex-col justify-start text-9xl font-thin ">
             Quick
             <span className="flex">

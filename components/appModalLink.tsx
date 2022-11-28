@@ -25,6 +25,10 @@ const AppModalLink = () => {
       setLink("https://yeongminchae.github.io/React-Masterclass/");
     currentLoca[3] === "KoreanLanguage" &&
       setLink("/cloneCoding/koreanLanguage");
+    currentLoca[3] === "Carrot" &&
+      setLink("https://next-js-deep-studying.vercel.app/enter?from=%2F");
+    currentLoca[3] === "Netflix" &&
+      setLink("https://react-masterclass-tailwind.vercel.app/");
   };
   useEffect(() => {
     detectFunc();
