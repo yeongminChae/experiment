@@ -16,6 +16,12 @@
     "incremental": true,
     "strictNullChecks": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "components/dd"
+  ],
   "exclude": ["node_modules", ".next", ".vercel", "out"]
 }
