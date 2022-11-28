@@ -1,41 +1,46 @@
 {
-  "root": true,
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest": true
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
+  "parser": "babel-eslint",
   "extends": [
     "eslint:recommended",
+    "airbnb",
+    "airbnb/hooks",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    // "plugin:react-hooks/recommended",
+    // always put prettier at last
+    "prettier"
   ],
-  "overrides": [],
-  "parser": "@typescript-eslint/parser",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true, // enable linting for jsx files
+      "tsx": true
     },
-    "ecmaVersion": "latest",
+    "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "camelcase": "error",
-    "spaced-comment": "error",
-    "quotes": ["error", "double"],
-    "no-duplicate-imports": "error",
-    "no-console": "warn",
-    "react/prop-types": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
-  },
   "settings": {
-    "import/resolver": {
-      "typescript": {}
+    "react": {
+      "version": "detect"
     }
   },
-  "ignorePatterns": ["build/*"]
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    // NextJs specific fix: suppress errors for missing 'import React' in files for nextjs
+    "react/react-in-jsx-scope": "off",
+    // NextJs specific fix: allow jsx syntax in js files
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
+    "react/display-name": 1
+  }
 }
