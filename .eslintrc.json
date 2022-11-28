@@ -38,6 +38,6 @@
   ],
   "rules": {
     // ...add rules which you'd like to disable
-    "jsx-a11y/anchor-is-valid": "off" // disable this rule
+    // "jsx-a11y/anchor-is-valid": "off" // disable this rule
   }
 }
