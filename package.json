@@ -19,6 +19,7 @@
     "@types/nodemailer": "^6.4.5",
     "@types/react-modal": "^3.13.1",
     "@types/react-query": "^1.2.9",
+    "@types/react-router-dom": "^5.3.3",
     "@types/recoil": "^0.0.9",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
