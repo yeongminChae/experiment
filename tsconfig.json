@@ -20,6 +20,6 @@
   "override": {
     "http.proxySupport": "off"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".eslintrc.json"],
   "exclude": ["node_modules"]
 }

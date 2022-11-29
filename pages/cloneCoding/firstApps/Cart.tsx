@@ -41,7 +41,7 @@ export default function Cart({ title }: IModal) {
             <ContextPart className="fixed top-0 h-full w-[50rem] bg-[#F9F9F9] shadow-xl sm:ml-20 sm:w-[35rem] md:ml-40 md:w-[40rem] lg:ml-48 xl:ml-[23rem] ">
               <div className="mb-16 ml-3">
                 <button
-                  onClick={() => toggleLeaving}
+                  onClick={toggleLeaving}
                   className="absolute top-5 ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
                 >
                   <svg
@@ -61,7 +61,7 @@ export default function Cart({ title }: IModal) {
                   </svg>
                 </button>
                 <button
-                  onClick={() => toggleBefore}
+                  onClick={toggleBefore}
                   className="absolute top-5 ml-14 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
                 >
                   <svg
