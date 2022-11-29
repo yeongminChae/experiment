@@ -4,12 +4,20 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LocalStorage, { cls } from "../../../libs/client/utils";
 import ProfileBio from "./components/profileBio";
-import ProfileBioBar from "./components/profileBioBar";
 import ProfileBottom from "./components/profileBottom";
 import ProfileCircle from "./components/profileCircle";
-import ProfileMenuBar from "./components/profileMenuBar";
 import ProfileNavbar from "./components/profileNavbar";
 import ProfileTopPart from "./components/profileTopPart";
+import dynamic from "next/dynamic";
+// import ProfileMenuBar from "./components/profileMenuBar";
+// import ProfileBioBar from "./components/profileBioBar";
+
+const ProfileMenuBar = dynamic(() => import("./components/profileMenuBar"), {
+  ssr: false,
+});
+const ProfileBioBar = dynamic(() => import("./components/profileBioBar"), {
+  ssr: false,
+});
 
 const Profile: NextPage = () => {
   const { reset } = useForm();

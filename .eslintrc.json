@@ -28,7 +28,8 @@
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
     "eslint-plugin-prettier",
-    "eslint-plugin-react"
+    "eslint-plugin-react",
+    "react-hooks"
   ],
 
   // all configs (eslint-config-xxx) go here:
@@ -38,7 +39,6 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking", // contains rules that specifically require type information
     "plugin:@next/next/recommended",
-    "react-hooks",
     "next" // https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/package.json
     // "next/core-web-vitals"
   ],
