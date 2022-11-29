@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NextPage } from "next";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
 import AppModals from "./appModals";

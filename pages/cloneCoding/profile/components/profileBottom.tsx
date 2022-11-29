@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import Image from "next/image";
 import Me from "../../image/me.png";
-import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 const ProfileBottom = () => {

@@ -1,12 +1,9 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-interface IDark {
-  isDark: boolean;
-}
-
-const ProfileNavbar = ({ isDark }: IDark) => {
+const ProfileNavbar = () => {
   const router = useRouter();
   return (
     <>
@@ -18,7 +15,7 @@ const ProfileNavbar = ({ isDark }: IDark) => {
         onClick={() => router.push("/cloneCoding/profile/MyProfile")}
         className="flex h-8 w-[90vw] items-center justify-center rounded-md bg-slate-400/25 dark:text-white sm:ml-[0.4rem] sm:w-[63vw] lg:ml-10 lg:w-[59vw] xl:ml-1 xl:w-[37.3rem] "
       >
-        Look it's Glowing ✨
+        Look it&apos;s Glowing ✨
       </motion.div>
       <Link href="https://github.com/yeongminChae">
         <a target="_blank" rel="noopener noreferrer">

@@ -1,8 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useEffect, useLayoutEffect, useState } from "react";
-import { animate, AnimatePresence, motion, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useSpring } from "framer-motion";
 import { sleep } from "../pages";
 import { cls } from "../libs/client/utils";
-import { useRouter } from "next/router";
 import memoji1 from "../pages/cloneCoding/image/memoji/memoji1.png";
 import memoji2 from "../pages/cloneCoding/image/memoji/memoji2.png";
 import memoji3 from "../pages/cloneCoding/image/memoji/memoji3.png";
@@ -14,7 +17,6 @@ import memoji8 from "../pages/cloneCoding/image/memoji/memoji8.png";
 import Image from "next/image";
 
 const IndexBtn = () => {
-  const router = useRouter();
   const [clicked1, setClicked1] = useState<
     "initial" | "come" | "gone" | "reload"
   >("initial");

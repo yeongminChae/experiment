@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 export default function ModalDescriptionOne() {
   const router = useRouter();
@@ -66,9 +65,9 @@ export default function ModalDescriptionOne() {
         <br /> 이 application을 제작하면서 특히 재미있었던 점은 마지막 페이지에
         첨부한 동물 card animation 입니다. JavaScript에 기본적인 event listener
         효과인 mouseEnter mouseLeave 를 활용한 Hovering animation 구현이 기억에
-        남습니다." <br /> <br /> 구현하는데 힘들었던 부분은 랜덤으로
-        제공되어지는 카드를 구현하는 것이 힘들었습니다. 그러나 이 과정을 통하여
-        NextJs에서에 SSR 데이터 처리에 대하여 공부할 수 있는 기회가 되었습니다.
+        남습니다. <br /> <br /> 구현하는데 힘들었던 부분은 랜덤으로 제공되어지는
+        카드를 구현하는 것이 힘들었습니다. 그러나 이 과정을 통하여 NextJs에서에
+        SSR 데이터 처리에 대하여 공부할 수 있는 기회가 되었습니다.
       </p>
     );
   };
@@ -78,11 +77,11 @@ export default function ModalDescriptionOne() {
         모바일 혹은 웹 어디에서 든지 Cart App과 함께 수 많은 가구들과 홈
         데코레이션 제품들을 비교해 보시고 본인 또는 친구의 집에 가장 어울리는
         최적의 아이템을 찾아 보세요 !! <br />
-        <br /> 이 application은 TailwindCss를 공부하기 위해 TypeScript와
-        NextJs(React) 를 활용하여 만들어본 Front-End
-        application입니다. TailwindCss를 선택한 이유는 TailwindCss만에 직관적인
-        Css Tag에서 오는 장점때문도 있고, 무엇보다 반응형 앱 , 다양한 에니메이션
-        제작에 기존 CSS와 비교했을때 오는 용이성 때문입니다. <br />
+        <br /> 이 application은 TailwindCss를 공부하기 위해 TypeScript와
+        NextJs(React) 를 활용하여 만들어본 Front-End application입니다.
+        TailwindCss를 선택한 이유는 TailwindCss만에 직관적인 Css Tag에서 오는
+        장점때문도 있고, 무엇보다 반응형 앱 , 다양한 에니메이션 제작에 기존
+        CSS와 비교했을때 오는 용이성 때문입니다. <br />
         <br /> 이 application을 제작하면서 단순한 작업 외엔 할수없었던 CSS
         작업이 정말 혁신적으로 재미있게 다가왔고, 새로운 눈으로 Front-End에 임할
         수 있게 되었습니다.

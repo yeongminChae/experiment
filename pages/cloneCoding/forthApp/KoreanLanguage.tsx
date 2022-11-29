@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -135,7 +136,7 @@ export default function KoreanLanguage({ title }: IModal) {
                     마지막 페이지에 첨부한 동물 card animation 입니다.
                     JavaScript에 기본적인 event listener 효과인 mouseEnter
                     mouseLeave 를 활용한 Hovering animation 구현이 기억에
-                    남습니다." <br /> <br /> 구현하는데 힘들었던 부분은 랜덤으로
+                    남습니다. <br /> <br /> 구현하는데 힘들었던 부분은 랜덤으로
                     제공되어지는 카드를 구현하는 것이 힘들었습니다. 그러나 이
                     과정을 통하여 NextJs에서에 SSR 데이터 처리에 대하여 공부할
                     수 있는 기회가 되었습니다.

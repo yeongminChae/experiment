@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState, SetStateAction } from "react";

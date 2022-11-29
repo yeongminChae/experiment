@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useState, RefObject, useEffect } from "react";
-import { element } from "prop-types";
 
 export function useFollowPointer(ref: RefObject<HTMLElement>) {
   const [point, setPoint] = useState({ x: 0, y: 0 });

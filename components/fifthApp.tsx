@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cls } from "../libs/client/utils";
 import Animation1 from "./animation/animation1";
 import Animation2 from "./animation/animation2";
@@ -14,8 +14,6 @@ export default function FifthApp() {
   const router = useRouter();
   const [index, setIndex] = useState(1);
   const [back, setBack] = useState(false);
-  let ran1 = Math.floor(Math.random() * 5 + 5);
-  const bottomIndex = `${ran1}rem`;
   const onNextclick = () => {
     setBack(false);
     setIndex((prev) => (prev === 7 ? 7 : prev + 1));
