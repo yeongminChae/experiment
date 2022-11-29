@@ -30,9 +30,9 @@ import netflixAppImg2 from "../pages/cloneCoding/image/netflixApp/netflixAppImg2
 import netflixAppImg3 from "../pages/cloneCoding/image/netflixApp/netflixAppImg3.png";
 import netflixAppImg4 from "../pages/cloneCoding/image/netflixApp/netflixAppImg4.png";
 import netflixAppImg5 from "../pages/cloneCoding/image/netflixApp/netflixAppImg5.png";
-import jobsAppimg1 from "../pages/cloneCoding/image/jobsApp/jobsAppimg1.png";
-import jobsAppimg2 from "../pages/cloneCoding/image/jobsApp/jobsAppimg2.png";
-import jobsAppimg3 from "../pages/cloneCoding/image/jobsApp/jobsAppimg3.png";
+import jobsAppImg1 from "../pages/cloneCoding/image/jobsApp/jobsAppImg1.png";
+import jobsAppImg2 from "../pages/cloneCoding/image/jobsApp/jobsAppImg2.png";
+import jobsAppImg3 from "../pages/cloneCoding/image/jobsApp/jobsAppImg3.png";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -95,7 +95,7 @@ export default function AppModalTopFirstPart() {
       } else if (currentLoca[3] === "ToDo") {
         setImage(todoAppImg1);
       } else if (currentLoca[3] === "Jobs") {
-        setImage(jobsAppimg1);
+        setImage(jobsAppImg1);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg1);
       } else if (currentLoca[3] === "Netflix") {
@@ -112,7 +112,7 @@ export default function AppModalTopFirstPart() {
       } else if (currentLoca[3] === "ToDo") {
         setImage(todoAppImg2);
       } else if (currentLoca[3] === "Jobs") {
-        setImage(jobsAppimg2);
+        setImage(jobsAppImg2);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg2);
       } else if (currentLoca[3] === "Netflix") {
@@ -129,7 +129,7 @@ export default function AppModalTopFirstPart() {
       } else if (currentLoca[3] === "ToDo") {
         setImage(todoAppImg3);
       } else if (currentLoca[3] === "Jobs") {
-        setImage(jobsAppimg3);
+        setImage(jobsAppImg3);
       } else if (currentLoca[3] === "Cart") {
         setImage(cartAppImg3);
       } else if (currentLoca[3] === "Netflix") {
