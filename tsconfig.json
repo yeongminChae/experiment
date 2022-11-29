@@ -16,12 +16,9 @@
     "incremental": true,
     "strictNullChecks": false
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "components/dd"
-  ],
-  "exclude": ["node_modules", ".next", ".vercel", "out"]
+  "override": {
+    "http.proxySupport": "off"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
