@@ -1,4 +1,6 @@
-import { animate, motion, useAnimation } from "framer-motion";
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { motion } from "framer-motion";
 import IndexWrapper1 from "../components/indexWrapper1";
 import IndexWrapper2 from "../components/indexWrapper2";
 import { useEffect, useState } from "react";
