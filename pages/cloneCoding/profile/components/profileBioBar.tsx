@@ -21,6 +21,9 @@ const ProfileBioBar = () => {
     setNowWidth(window.innerWidth);
   }, 1000);
   useEffect(() => {
+    currentWidth();
+  }, [currentWidth, nowWidth, setNowWidth]);
+  useEffect(() => {
     window.addEventListener("resize", currentWidth);
     return () => {
       window.removeEventListener("resize", currentWidth);
