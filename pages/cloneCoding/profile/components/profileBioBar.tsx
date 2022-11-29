@@ -18,7 +18,9 @@ const ProfileBioBar = () => {
   const [onEnter, setOnEnter] = useState("");
   const [nowWidth, setNowWidth] = useState(window.innerWidth);
   const currentWidth = debounce(() => {
-    setNowWidth(window.innerWidth);
+    if (typeof window !== "undefined") {
+      setNowWidth(window.innerWidth);
+    }
   }, 1000);
   useEffect(() => {
     currentWidth();
