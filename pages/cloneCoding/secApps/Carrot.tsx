@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import AppModalNaming from "../../../components/appModalNaming";
 import { IModal } from "../../../components/appModals";
-import AppModalTopSecPart from "../../../components/appModalTopSecPart";
+import AppModalTopSec from "../../../components/appModalTopSec";
 
 export default function Carrot({ title }: IModal) {
   const router = useRouter();
@@ -81,7 +81,7 @@ export default function Carrot({ title }: IModal) {
               </div>
               <AppModalNaming title={title} />
               <div className="mt-5 ml-6 border-b-2 border-dotted sm:ml-1 " />
-              <AppModalTopSecPart />
+              <AppModalTopSec></AppModalTopSec>
               <div className="ml-6 mt-[27.8rem] border-b-2 border-dotted sm:ml-1" />
               {more === false ? (
                 <DescriotPart className="ml-5 mt-3 inline-block h-[10rem] w-[30rem] pr-3 sm:w-11/12 ">
