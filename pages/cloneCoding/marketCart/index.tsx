@@ -83,7 +83,7 @@ const MarketCart: NextPage = () => {
           >
             <span className="my-[0.5] mr-[0.5] flex items-center justify-center text-sm text-black/60"></span>
           </motion.div>
-          <FloatingBtn href={"marketCart/personalCart"}>
+          <FloatingBtn href="marketCart/personalCart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

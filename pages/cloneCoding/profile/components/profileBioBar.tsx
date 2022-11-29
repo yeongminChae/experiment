@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -9,7 +10,7 @@ import eu5 from "../../image/profile2/eu5.png";
 import eu6 from "../../image/profile2/eu6.png";
 import eu7 from "../../image/profile2/eu7.png";
 import eu8 from "../../image/profile2/eu8.png";
-import eu9 from "../../image/profile2/eu9.png";
+// import eu9 from "../../image/profile2/eu9.png";
 import eu10 from "../../image/profile2/eu10.png";
 import { debounce } from "lodash";
 

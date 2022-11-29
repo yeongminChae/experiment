@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { motion } from "framer-motion";
 import { debounce } from "lodash";
 import Image from "next/image";
@@ -18,6 +19,9 @@ const ProfileMenuBar = () => {
   const currentWidth = debounce(() => {
     setNowWidth(window.innerWidth);
   }, 1000);
+  useEffect(() => {
+    currentWidth();
+  }, [currentWidth, nowWidth, setNowWidth]);
   useEffect(() => {
     window.addEventListener("resize", currentWidth);
     return () => {
