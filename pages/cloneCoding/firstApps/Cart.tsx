@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -40,7 +41,7 @@ export default function Cart({ title }: IModal) {
             <ContextPart className="fixed top-0 h-full w-[50rem] bg-[#F9F9F9] shadow-xl sm:ml-20 sm:w-[35rem] md:ml-40 md:w-[40rem] lg:ml-48 xl:ml-[23rem] ">
               <div className="mb-16 ml-3">
                 <button
-                  onClick={toggleLeaving}
+                  onClick={() => toggleLeaving}
                   className="absolute top-5 ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
                 >
                   <svg
@@ -60,7 +61,7 @@ export default function Cart({ title }: IModal) {
                   </svg>
                 </button>
                 <button
-                  onClick={toggleBefore}
+                  onClick={() => toggleBefore}
                   className="absolute top-5 ml-14 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-md"
                 >
                   <svg
@@ -90,10 +91,10 @@ export default function Cart({ title }: IModal) {
                     <p className="line-clamp-3 ">
                       모바일 혹은 웹 어디에서 든지 Cart App과 함께 수 많은
                       가구들과 홈 데코레이션 제품들을 비교해 보시고 본인 또는
-                      친구의 집에 가장 어울리는 최적의 아이템을 찾아 보세요 !! !
-                      이 application은 TailwindCss를 공부하기 위해 TypeScript와
+                      친구의 집에 가장 어울리는 최적의 아이템을 찾아 보세요 !!!
+                      이 application은 TailwindCss를 공부하기 위해 TypeScript와
                       NextJs(React) 를 활용하여 만들어본 Front-End
-                      application입니다. TailwindCss를 선택한 이유는
+                      application입니다. TailwindCss를 선택한 이유는
                       TailwindCss만에 직관적인 Css Tag에서 오는 장점때문도 있고,
                       무엇보다 반응형 앱 , 다양한 에니메이션 제작에 기존 CSS와
                       비교했을때 오는 용이성 때문입니다. <br />
@@ -126,9 +127,9 @@ export default function Cart({ title }: IModal) {
                     가구들과 홈 데코레이션 제품들을 비교해 보시고 본인 또는
                     친구의 집에 가장 어울리는 최적의 아이템을 찾아 보세요 !!{" "}
                     <br />
-                    <br /> 이 application은 TailwindCss를 공부하기
-                    위해 TypeScript와 NextJs(React) 를 활용하여 만들어본
-                    Front-End application입니다. TailwindCss를 선택한 이유는
+                    <br /> 이 application은 TailwindCss를 공부하기 위해
+                    TypeScript와 NextJs(React) 를 활용하여 만들어본 Front-End
+                    application입니다. TailwindCss를 선택한 이유는
                     TailwindCss만에 직관적인 Css Tag에서 오는 장점때문도 있고,
                     무엇보다 반응형 앱 , 다양한 에니메이션 제작에 기존 CSS와
                     비교했을때 오는 용이성 때문입니다. <br />
