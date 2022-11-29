@@ -20,7 +20,7 @@ import carrotAppImg6 from "../pages/cloneCoding/image/carrotApp/carrotAppImg6.pn
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function AppModalTopSecPart() {
+export default function AppModalTopSec() {
   const router = useRouter();
   const [index, setIndex] = useState(1);
   const [back, setBack] = useState(false);

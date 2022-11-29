@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { cls } from "../libs/client/utils";
 import AppModalNaming from "./appModalNaming";
 import AppModalTopFirstPart from "./appModalTopFirstPart";
-import AppModalTopSecPart from "./appModalTopSecPart";
+import AppModalTopSec from "./appModalTopSec";
 
 import ModalDescriptionOne from "./modalDescriptionOne";
 
@@ -97,7 +97,7 @@ export default function AppModals({ appIndex, title }: IModal) {
                     {currentLoca[3] === "Twitter" ||
                     currentLoca[3] === "Carrot" ||
                     currentLoca[3] === "CoinsTracker" ? (
-                      <AppModalTopSecPart />
+                      <AppModalTopSec></AppModalTopSec>
                     ) : (
                       <AppModalTopFirstPart />
                     )}
