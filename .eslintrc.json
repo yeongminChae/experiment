@@ -1,7 +1,15 @@
 {
   "root": true,
   "extends": ["next/core-web-vitals", "eslint:recommended"],
-  "plugins": ["@typescript-eslint", "@next/eslint-plugin-next"],
+  "plugins": [
+    "@typescript-eslint",
+    "@next/eslint-plugin-next", // https://github.com/vercel/next.js/blob/canary/packages/eslint-plugin-next/lib/index.js
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-prettier",
+    "eslint-plugin-react"
+  ],
   // ...
   "rules": {
     "react-hooks/rules-of-hooks": "error",
