@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useRouter } from "next/router";
 import { cls } from "../libs/client/utils";
 import AppModals from "./appModals";

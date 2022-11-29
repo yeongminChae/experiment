@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
-
 export function cls(...classname: string[]) {
   return classname.join(" ");
 }
 
 class LocalStorage {
-  constructor() {}
-
   static setItem(key: string, item: string) {
     if (typeof window !== "undefined") {
       localStorage.setItem(key, item);
