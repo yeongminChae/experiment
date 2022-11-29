@@ -16,7 +16,7 @@ import { debounce } from "lodash";
 
 const ProfileBioBar = () => {
   const [onEnter, setOnEnter] = useState("");
-  const [nowWidth, setNowWidth] = useState(window.innerWidth);
+  const [nowWidth, setNowWidth] = useState(0);
   const currentWidth = debounce(() => {
     if (typeof window !== "undefined") {
       setNowWidth(window.innerWidth);

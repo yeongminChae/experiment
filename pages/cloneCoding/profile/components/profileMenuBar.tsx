@@ -15,7 +15,7 @@ import me9 from "../../image/profile1/me9.png";
 
 const ProfileMenuBar = () => {
   const [onEnter, setOnEnter] = useState("");
-  const [nowWidth, setNowWidth] = useState(window.innerWidth);
+  const [nowWidth, setNowWidth] = useState(0);
   const currentWidth = debounce(() => {
     if (typeof window !== "undefined") {
       setNowWidth(window.innerWidth);
