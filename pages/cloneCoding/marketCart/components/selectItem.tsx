@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import LocalStorage from "../../../../libs/client/utils";
-
 const SelectItem = () => {
   return (
     <div className="flex h-56 w-full flex-col justify-between rounded-2xl bg-white p-6 shadow-xl sm:h-64 md:w-[29rem] xl:w-[25rem]">

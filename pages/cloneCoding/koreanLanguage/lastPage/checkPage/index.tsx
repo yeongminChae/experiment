@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NextPage } from "next";
 import LocalStorage from "../../../../../libs/client/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const CheckPage: NextPage = () => {
@@ -13,10 +15,23 @@ const CheckPage: NextPage = () => {
   const resultCount = LocalStorage.getItem("Quiz_result");
   const ansOutput = LocalStorage.getItem("ansCount");
   const failOutput = LocalStorage.getItem("failCount");
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const ansResult = JSON.parse(ansOutput);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const failResult = JSON.parse(failOutput);
-  let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
-  let animalsName = [
+  const animalsImg = [
+    "🐅",
+    "🐳",
+    "🦒",
+    "🐑",
+    "🐕",
+    "🐉",
+    "🧸",
+    "🐈",
+    "🐇",
+    "🐎",
+  ];
+  const animalsName = [
     "호랑이",
     "고래",
     "기린",
@@ -30,22 +45,29 @@ const CheckPage: NextPage = () => {
   ];
   useEffect(() => {
     setResultOutput(resultCount);
-  }, []);
+  }, [resultCount]);
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setAnsUseResult(ansResult);
-  }, []);
+  }, [ansResult]);
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setFailUseResult(failResult);
-  }, []);
-  const ansNames: any = ansUseResult
+  }, [failResult]);
+  const ansNames: any = String(ansUseResult)
     .toString()
     .split(",")
     .map((i) => <span key={i}>{i} </span>);
-  const failNames: any = failUseResult
+  /* tslint:disable */
+  const failNames: any = String(failUseResult)
     .toString()
     .split(",")
     .filter((element, index) => {
-      return failUseResult.indexOf(element) === index;
+      if (failUseResult !== null) {
+        return failUseResult.indexOf(element) === index;
+      } else if (failUseResult === null) {
+        router.push("/cloneCoding/koreanLanguage");
+      }
     })
     .map((i) => <span key={i}>{i} </span>);
   const onGoBackClick = () => {

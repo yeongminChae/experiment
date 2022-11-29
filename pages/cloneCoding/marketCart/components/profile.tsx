@@ -1,9 +1,7 @@
 import Image from "next/image";
-import { useState } from "react";
 import Memoji from "../Images/profile.png";
 
 const Profile = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="group overflow-hidden rounded-2xl bg-white shadow-xl sm:h-64 md:w-[28.5rem] xl:w-[25rem] ">
       <div className="bg-blue-500 p-6 pb-14 portrait:bg-indigo-500 landscape:bg-teal-500 ">

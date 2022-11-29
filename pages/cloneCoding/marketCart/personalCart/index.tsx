@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import LoginForm from "../components/loginForm";
 import Profile from "../components/profile";

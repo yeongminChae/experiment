@@ -1,15 +1,18 @@
-import { ComponentProps, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { useState } from "react";
 
 const LoginForm = () => {
   const [userInput, setUserInput] = useState("");
   const [login, setLogin] = useState(false);
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    let userName = event.target.value;
+    const userName = event.target.value;
     if (typeof window !== "undefined") {
       localStorage.setItem("username", userName);
     }
     setUserInput(event.target.value);
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onClickSubmit = (event: any) => {
     event.preventDefault();
     if (userInput !== "") {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import type { NextPage } from "next";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -8,12 +10,13 @@ import { useRouter } from "next/router";
 
 export interface ITimer {
   seconds: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   completed: any;
 }
 
 const WordCorrect: NextPage = () => {
   const router = useRouter();
-  let animalsName = [
+  const animalsName = [
     "호랑이",
     "고래",
     "기린",
@@ -25,7 +28,18 @@ const WordCorrect: NextPage = () => {
     "토끼",
     "말",
   ];
-  let animalsImg = ["🐅", "🐳", "🦒", "🐑", "🐕", "🐉", "🧸", "🐈", "🐇", "🐎"];
+  const animalsImg = [
+    "🐅",
+    "🐳",
+    "🦒",
+    "🐑",
+    "🐕",
+    "🐉",
+    "🧸",
+    "🐈",
+    "🐇",
+    "🐎",
+  ];
   const [visible, setVisible] = useState(1);
   const [back, setBack] = useState(false);
   const [animalIndex, setAnimalIndex] = useState(0);
@@ -45,6 +59,7 @@ const WordCorrect: NextPage = () => {
     setCheckAns(false);
     if (visible >= 10) {
       router.push("/cloneCoding/koreanLanguage/lastPage");
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
       LocalStorage.setItem("Quiz_result", answerCount + "");
     }
   };
@@ -57,11 +72,12 @@ const WordCorrect: NextPage = () => {
     direction: back,
   };
   const chosenIndex = animalsImg.indexOf(animalsImg[animalIndex]);
-  let answerName: string[] = [];
+  const answerName: string[] = [];
   answerName.push(animalsName[chosenIndex]);
   const animalPickFunc = () => {
     for (let i = 1; i <= 3; i++) {
-      let number = animalsName[Math.floor(Math.random() * animalsName.length)];
+      const number =
+        animalsName[Math.floor(Math.random() * animalsName.length)];
       if (!sameNum(number)) {
         answerName.push(number);
       } else {
@@ -77,20 +93,26 @@ const WordCorrect: NextPage = () => {
     if (visible) {
       setForUseEffect(() => animalPickFunc());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
   const shuffleAns = arrayShuffle(forUseEffect);
   useEffect(() => {
     shuffleAns;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
+  // eslint-disable-next-line @typescript-eslint/require-await, @typescript-eslint/no-explicit-any
   const onAnsClick = async (event: any) => {
     const originAns = animalsName[chosenIndex];
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const chosenAns = event.target.innerText;
     if (originAns === chosenAns) {
       setMarkCorrectAns(true);
       setAnswerCount((prev) => prev + 1);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-assignment
       setAnsHistory((ansHistory) => [...ansHistory, originAns]);
     } else {
       setMarkWrongAns(true);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-assignment
       setFailHistory((failHistory) => [...failHistory, originAns]);
     }
   };
@@ -205,6 +227,7 @@ const WordCorrect: NextPage = () => {
                   boxShadow: "0px 0px 8px rgb(255,255,255) ",
                 }}
                 className="flex h-24 w-32 items-center justify-center rounded-lg bg-red-200 text-xl font-bold text-black/70 shadow-xl "
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 onClick={onAnsClick}
               >
                 {markCorrectAns ? (

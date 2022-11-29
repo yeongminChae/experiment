@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { cls } from "../../libs/client/utils";
 
 function Animation2() {
   const [id, setId] = useState<null | string>(null);
@@ -17,6 +16,7 @@ function Animation2() {
     } else if (clicked === false) {
       setColor("blue");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onBtnClick]);
   const toggleOn = () => {
     setToggleDirection(toggleDirection === 1 ? 1.25 : 1);

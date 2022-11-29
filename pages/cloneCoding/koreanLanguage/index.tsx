@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NextPage } from "next";
 import Link from "next/link";
-import { animate, AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import banana1 from "./image/banana1.png";
 import banana2 from "./image/banana2.png";
@@ -73,13 +74,13 @@ const KoreanLanguage: NextPage = () => {
                       {isHover === false ? (
                         <>
                           <text x="5" y="13" fontSize="3">
-                            Let's Go?
+                            Let&apos;s Go?
                           </text>
                         </>
                       ) : (
                         <>
                           <text x="5" y="13" fontSize="3">
-                            Let's Go!
+                            Let&apos;s Go!
                           </text>
                         </>
                       )}

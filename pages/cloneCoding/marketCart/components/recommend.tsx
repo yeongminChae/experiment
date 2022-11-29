@@ -1,5 +1,5 @@
 import { IProductProps } from "./product";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";

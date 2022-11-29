@@ -1,8 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import LocalStorage from "../../../../libs/client/utils";
 
 export interface IProductProps {
   page: string;
@@ -26,8 +25,6 @@ const ProductBase = ({
   const onAddBtnClick = () => {
     setIsClicked((prev) => !prev);
   };
-  const onDoubleClick = () => {};
-
   const onPluslick = () => {
     setBasicNum((prev) => prev + 1);
   };
@@ -116,7 +113,6 @@ const ProductBase = ({
                     animate={{ opacity: 1, y: [0, 0] }}
                     transition={{ delay: 1.6 }}
                     className="absolute"
-                    onClick={onDoubleClick}
                   >
                     Click Me !!
                   </motion.span>
