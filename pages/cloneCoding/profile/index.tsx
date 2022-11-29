@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LocalStorage, { cls } from "../../../libs/client/utils";
@@ -8,15 +9,15 @@ import ProfileBottom from "./components/profileBottom";
 import ProfileCircle from "./components/profileCircle";
 import ProfileNavbar from "./components/profileNavbar";
 import ProfileTopPart from "./components/profileTopPart";
-import ProfileMenuBar from "./components/profileMenuBar";
-import ProfileBioBar from "./components/profileBioBar";
+// import ProfileMenuBar from "./components/profileMenuBar";
+// import ProfileBioBar from "./components/profileBioBar";
 
-// const ProfileMenuBar = dynamic(() => import("./components/profileMenuBar"), {
-//   ssr: false,
-// });
-// const ProfileBioBar = dynamic(() => import("./components/profileBioBar"), {
-//   ssr: false,
-// });
+const ProfileMenuBar = dynamic(() => import("./components/profileMenuBar"), {
+  ssr: false,
+});
+const ProfileBioBar = dynamic(() => import("./components/profileBioBar"), {
+  ssr: false,
+});
 
 export interface IIsDark {
   isDark: boolean;
