@@ -27,7 +27,7 @@ const Profile: NextPage = () => {
   const { reset } = useForm();
   const currentTheme = LocalStorage.getItem("theme");
   const [tab, setTab] = useState<"menu" | "bio">("menu");
-  const [isDarkClicked, setIsDarkClicked] = useState(currentTheme);
+  const [isDarkClicked, setIsDarkClicked] = useState<"light" | "dark">("light");
   const [mounted, setMounted] = useState<boolean>(false);
   const toggleDarkAtom = () => {
     if (isDarkClicked === "light") {
@@ -38,6 +38,7 @@ const Profile: NextPage = () => {
       LocalStorage.setItem("theme", "light");
     }
   };
+  console.log(isDarkClicked);
   const onMenuClick = () => {
     reset();
     setTab("menu");
@@ -83,6 +84,7 @@ const Profile: NextPage = () => {
             </div>
             <div className="mr-2 flex items-center justify-between sm:mr-5 ">
               <div
+                key={isDarkClicked}
                 onClick={toggleDarkAtom}
                 className="flex h-7 w-7 cursor-pointer items-center justify-around"
               >
@@ -135,8 +137,12 @@ const Profile: NextPage = () => {
               <ProfileNavbar isDark={false} />
             </div>
             <ProfileCircle isDark={false} />
-            <div className="mt-2 grid h-10 w-[100vw] grid-cols-2 sm:ml-[6.8rem] sm:w-[68.8vw] md:ml-[8.8rem] md:w-[40.9rem] lg:ml-[11.8rem] xl:ml-[22.75rem] xl:w-[40rem] ">
+            <div
+              key="unique"
+              className="mt-2 grid h-10 w-[100vw] grid-cols-2 sm:ml-[6.8rem] sm:w-[68.8vw] md:ml-[8.8rem] md:w-[40.9rem] lg:ml-[11.8rem] xl:ml-[22.75rem] xl:w-[40rem] "
+            >
               <motion.div
+                key="menu"
                 className={cls(
                   "-ml-3 flex h-10 w-full justify-center border-b-2  ",
                   tab === "menu"
@@ -164,6 +170,7 @@ const Profile: NextPage = () => {
                 </svg>
               </motion.div>
               <motion.div
+                key="bio"
                 className={cls(
                   "-ml-3 flex h-10 w-full justify-center border-b-2 ",
                   tab === "bio"
