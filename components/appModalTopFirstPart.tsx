@@ -20,9 +20,6 @@ import todoAppImg1 from "../pages/cloneCoding/image/todoApp/todoAppImg1.png";
 import todoAppImg2 from "../pages/cloneCoding/image/todoApp/todoAppImg2.png";
 import todoAppImg3 from "../pages/cloneCoding/image/todoApp/todoAppImg3.png";
 import todoAppImg4 from "../pages/cloneCoding/image/todoApp/todoAppImg4.png";
-import jobsAppimg1 from "../pages/cloneCoding/image/jobsApp/jobsAppimg1.png";
-import jobsAppimg2 from "../pages/cloneCoding/image/jobsApp/jobsAppimg2.png";
-import jobsAppimg3 from "../pages/cloneCoding/image/jobsApp/jobsAppimg3.png";
 import cartAppImg1 from "../pages/cloneCoding/image/cartApp/cartAppImg1.png";
 import cartAppImg2 from "../pages/cloneCoding/image/cartApp/cartAppImg2.png";
 import cartAppImg3 from "../pages/cloneCoding/image/cartApp/cartAppImg3.png";
@@ -33,6 +30,9 @@ import netflixAppImg2 from "../pages/cloneCoding/image/netflixApp/netflixAppImg2
 import netflixAppImg3 from "../pages/cloneCoding/image/netflixApp/netflixAppImg3.png";
 import netflixAppImg4 from "../pages/cloneCoding/image/netflixApp/netflixAppImg4.png";
 import netflixAppImg5 from "../pages/cloneCoding/image/netflixApp/netflixAppImg5.png";
+import jobsAppimg1 from "../pages/cloneCoding/image/jobsApp/jobsAppimg1.png";
+import jobsAppimg2 from "../pages/cloneCoding/image/jobsApp/jobsAppimg2.png";
+import jobsAppimg3 from "../pages/cloneCoding/image/jobsApp/jobsAppimg3.png";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
