@@ -8,11 +8,11 @@ import tableImage2 from "./Images/table2.png";
 import sofaImage from "./Images/sofa1.png";
 import bedImage from "./Images/bed1.png";
 import bedSofaImage from "./Images/sofa-bed.png";
-import dynamic from "next/dynamic";
-// import FloatingBtn from "./components/floatingBtn";
-const FloatingBtn = dynamic(() => import("./components/floatingBtn"), {
-  ssr: false,
-});
+import FloatingBtn from "./components/floatingBtn";
+// import dynamic from "next/dynamic";
+// const FloatingBtn = dynamic(() => import("./components/floatingBtn"), {
+//   ssr: false,
+// });
 
 const MarketCart: NextPage = () => {
   return (
