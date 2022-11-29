@@ -2,7 +2,11 @@
   "root": true,
   "extends": [
     // "next/core-web-vitals",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking", // contains rules that specifically require type information
+    "plugin:@next/next/recommended"
   ],
   "plugins": [
     "@typescript-eslint",
