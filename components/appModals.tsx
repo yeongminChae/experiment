@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
